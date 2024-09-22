@@ -1,16 +1,119 @@
 PODS:
   - Masonry (1.1.0)
+  - MBProgressHUD (1.1.0)
+  - MJRefresh (3.1.17)
+  - TPFoundation (1.0.4):
+    - TPFoundation/Base (= 1.0.4)
+    - TPFoundation/Category (= 1.0.4)
+    - TPFoundation/Utils (= 1.0.4)
+  - TPFoundation/Base (1.0.4)
+  - TPFoundation/Category (1.0.4):
+    - TPFoundation/Base
+  - TPFoundation/Utils (1.0.4):
+    - TPFoundation/Base
+    - TPFoundation/Category
+  - TPJsonModel (1.0.0)
+  - TPUIKit (1.0.9):
+    - Masonry
+    - TPUIKit/Alert (= 1.0.9)
+    - TPUIKit/Banner (= 1.0.9)
+    - TPUIKit/Base (= 1.0.9)
+    - TPUIKit/Blank (= 1.0.9)
+    - TPUIKit/Category (= 1.0.9)
+    - TPUIKit/GradientView (= 1.0.9)
+    - TPUIKit/GraphicView (= 1.0.9)
+    - TPUIKit/MarginLabel (= 1.0.9)
+    - TPUIKit/Menu (= 1.0.9)
+    - TPUIKit/Navigator (= 1.0.9)
+    - TPUIKit/PageControl (= 1.0.9)
+    - TPUIKit/QRCode (= 1.0.9)
+    - TPUIKit/Refresh (= 1.0.9)
+    - TPUIKit/RichTextView (= 1.0.9)
+    - TPUIKit/ScreenShot (= 1.0.9)
+    - TPUIKit/ScrollTable (= 1.0.9)
+    - TPUIKit/ShadowCell (= 1.0.9)
+    - TPUIKit/SimButton (= 1.0.9)
+    - TPUIKit/Tabbar (= 1.0.9)
+    - TPUIKit/Toast (= 1.0.9)
+  - TPUIKit/Alert (1.0.9):
+    - Masonry
+  - TPUIKit/Banner (1.0.9):
+    - Masonry
+  - TPUIKit/Base (1.0.9):
+    - Masonry
+  - TPUIKit/Blank (1.0.9):
+    - Masonry
+    - TPUIKit/Base
+  - TPUIKit/Category (1.0.9):
+    - Masonry
+    - TPUIKit/Base
+  - TPUIKit/GradientView (1.0.9):
+    - Masonry
+  - TPUIKit/GraphicView (1.0.9):
+    - Masonry
+  - TPUIKit/MarginLabel (1.0.9):
+    - Masonry
+  - TPUIKit/Menu (1.0.9):
+    - Masonry
+    - TPUIKit/Base
+  - TPUIKit/Navigator (1.0.9):
+    - Masonry
+  - TPUIKit/PageControl (1.0.9):
+    - Masonry
+    - TPUIKit/Base
+  - TPUIKit/QRCode (1.0.9):
+    - Masonry
+  - TPUIKit/Refresh (1.0.9):
+    - Masonry
+    - MJRefresh (~> 3.1.14)
+    - TPUIKit/Base
+  - TPUIKit/RichTextView (1.0.9):
+    - Masonry
+    - TPUIKit/Base
+  - TPUIKit/ScreenShot (1.0.9):
+    - Masonry
+  - TPUIKit/ScrollTable (1.0.9):
+    - Masonry
+    - TPUIKit/Banner
+    - TPUIKit/Base
+    - TPUIKit/Tabbar
+  - TPUIKit/ShadowCell (1.0.9):
+    - Masonry
+    - TPUIKit/Base
+  - TPUIKit/SimButton (1.0.9):
+    - Masonry
+  - TPUIKit/Tabbar (1.0.9):
+    - Masonry
+    - TPUIKit/Base
+  - TPUIKit/Toast (1.0.9):
+    - Masonry
+    - MBProgressHUD (~> 1.1.0)
+    - TPUIKit/Base
 
 DEPENDENCIES:
   - Masonry
+  - TPFoundation
+  - TPJsonModel
+  - TPUIKit
 
 SPEC REPOS:
+  https://github.com/CocoaPods/Specs.git:
+    - MBProgressHUD
+    - MJRefresh
+    - TPFoundation
+    - TPJsonModel
+    - TPUIKit
   trunk:
     - Masonry
 
 SPEC CHECKSUMS:
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
+  MBProgressHUD: e7baa36a220447d8aeb12769bf0585582f3866d9
+  MJRefresh: ee5b68f639775462faba4db0fd243baf4d42c2cf
+  TPFoundation: d34fbaadcf101c3019461bd74eeab4473c1b05df
+  TPJsonModel: 08b25aa72d62e6991639e62280796336972352c6
+  TPUIKit: 5b276fd2159ac50f1d12c52722fd73579677bdaf
 
-PODFILE CHECKSUM: da4e813594e3eba4b6973b8c63e01b1d58b7ea7e
+PODFILE CHECKSUM: 046ef07c52ed9513f0592aecc34fc3fdf3b9d954
 
 COCOAPODS: 1.15.2

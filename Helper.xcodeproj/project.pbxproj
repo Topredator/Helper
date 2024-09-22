@@ -13,6 +13,15 @@
 		94DD998F2C9FCC0A00963330 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 94DD998E2C9FCC0A00963330 /* Assets.xcassets */; };
 		94DD99922C9FCC0A00963330 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 94DD99912C9FCC0A00963330 /* Base */; };
 		94DD99952C9FCC0A00963330 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 94DD99942C9FCC0A00963330 /* main.m */; };
+		94DD999E2C9FE52600963330 /* TPRootVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 94DD999D2C9FE52600963330 /* TPRootVC.m */; };
+		94DD99A42C9FE7E400963330 /* TPNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 94DD99A32C9FE7E400963330 /* TPNavigationController.m */; };
+		94DD99A72C9FE92200963330 /* TPBaseTableVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 94DD99A62C9FE92200963330 /* TPBaseTableVC.m */; };
+		94DD99B02C9FEC4400963330 /* TPBaseVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 94DD99AF2C9FEC4400963330 /* TPBaseVC.m */; };
+		94DD99B32C9FF01000963330 /* TPNotifyVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 94DD99B22C9FF01000963330 /* TPNotifyVC.m */; };
+		94DD99B62C9FF03700963330 /* TPMineVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 94DD99B52C9FF03700963330 /* TPMineVC.m */; };
+		94DD99B92C9FF04F00963330 /* TPDiscoverVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 94DD99B82C9FF04F00963330 /* TPDiscoverVC.m */; };
+		94DD99BC2C9FF06900963330 /* TPTopicVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 94DD99BB2C9FF06900963330 /* TPTopicVC.m */; };
+		94DD99C02C9FF22600963330 /* AppDelegate+TPWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 94DD99BF2C9FF22600963330 /* AppDelegate+TPWindow.m */; };
 		AA35E500398EBB06E2EA75BB /* Pods_Helper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7DD2FE6BC1B97D38F13F68F5 /* Pods_Helper.framework */; };
 /* End PBXBuildFile section */
 
@@ -29,6 +38,25 @@
 		94DD99912C9FCC0A00963330 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		94DD99932C9FCC0A00963330 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		94DD99942C9FCC0A00963330 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		94DD999C2C9FE52600963330 /* TPRootVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPRootVC.h; sourceTree = "<group>"; };
+		94DD999D2C9FE52600963330 /* TPRootVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPRootVC.m; sourceTree = "<group>"; };
+		94DD999F2C9FE5D800963330 /* Helper.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Helper.pch; sourceTree = "<group>"; };
+		94DD99A22C9FE7E400963330 /* TPNavigationController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPNavigationController.h; sourceTree = "<group>"; };
+		94DD99A32C9FE7E400963330 /* TPNavigationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPNavigationController.m; sourceTree = "<group>"; };
+		94DD99A52C9FE92200963330 /* TPBaseTableVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPBaseTableVC.h; sourceTree = "<group>"; };
+		94DD99A62C9FE92200963330 /* TPBaseTableVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPBaseTableVC.m; sourceTree = "<group>"; };
+		94DD99AE2C9FEC4400963330 /* TPBaseVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPBaseVC.h; sourceTree = "<group>"; };
+		94DD99AF2C9FEC4400963330 /* TPBaseVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPBaseVC.m; sourceTree = "<group>"; };
+		94DD99B12C9FF01000963330 /* TPNotifyVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPNotifyVC.h; sourceTree = "<group>"; };
+		94DD99B22C9FF01000963330 /* TPNotifyVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPNotifyVC.m; sourceTree = "<group>"; };
+		94DD99B42C9FF03700963330 /* TPMineVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPMineVC.h; sourceTree = "<group>"; };
+		94DD99B52C9FF03700963330 /* TPMineVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPMineVC.m; sourceTree = "<group>"; };
+		94DD99B72C9FF04F00963330 /* TPDiscoverVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPDiscoverVC.h; sourceTree = "<group>"; };
+		94DD99B82C9FF04F00963330 /* TPDiscoverVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPDiscoverVC.m; sourceTree = "<group>"; };
+		94DD99BA2C9FF06900963330 /* TPTopicVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPTopicVC.h; sourceTree = "<group>"; };
+		94DD99BB2C9FF06900963330 /* TPTopicVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPTopicVC.m; sourceTree = "<group>"; };
+		94DD99BE2C9FF22600963330 /* AppDelegate+TPWindow.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AppDelegate+TPWindow.h"; sourceTree = "<group>"; };
+		94DD99BF2C9FF22600963330 /* AppDelegate+TPWindow.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "AppDelegate+TPWindow.m"; sourceTree = "<group>"; };
 		A7EFE22C121DADF946C1CF9A /* Pods-Helper.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Helper.debug.xcconfig"; path = "Target Support Files/Pods-Helper/Pods-Helper.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -73,8 +101,10 @@
 		94DD99812C9FCC0A00963330 /* Helper */ = {
 			isa = PBXGroup;
 			children = (
-				94DD99822C9FCC0A00963330 /* AppDelegate.h */,
-				94DD99832C9FCC0A00963330 /* AppDelegate.m */,
+				94DD99BD2C9FF20900963330 /* Appdelegate */,
+				94DD99A92C9FEB9A00963330 /* Feature */,
+				94DD99A02C9FE7AD00963330 /* AppEnv */,
+				94DD999B2C9FE47500963330 /* Root */,
 				94DD99882C9FCC0A00963330 /* ViewController.h */,
 				94DD99892C9FCC0A00963330 /* ViewController.m */,
 				94DD998B2C9FCC0A00963330 /* Main.storyboard */,
@@ -82,8 +112,105 @@
 				94DD99902C9FCC0A00963330 /* LaunchScreen.storyboard */,
 				94DD99932C9FCC0A00963330 /* Info.plist */,
 				94DD99942C9FCC0A00963330 /* main.m */,
+				94DD999F2C9FE5D800963330 /* Helper.pch */,
 			);
 			path = Helper;
+			sourceTree = "<group>";
+		};
+		94DD999B2C9FE47500963330 /* Root */ = {
+			isa = PBXGroup;
+			children = (
+				94DD999C2C9FE52600963330 /* TPRootVC.h */,
+				94DD999D2C9FE52600963330 /* TPRootVC.m */,
+			);
+			path = Root;
+			sourceTree = "<group>";
+		};
+		94DD99A02C9FE7AD00963330 /* AppEnv */ = {
+			isa = PBXGroup;
+			children = (
+				94DD99A82C9FE9DC00963330 /* Common */,
+				94DD99A12C9FE7BA00963330 /* Base */,
+			);
+			path = AppEnv;
+			sourceTree = "<group>";
+		};
+		94DD99A12C9FE7BA00963330 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				94DD99A22C9FE7E400963330 /* TPNavigationController.h */,
+				94DD99A32C9FE7E400963330 /* TPNavigationController.m */,
+				94DD99A52C9FE92200963330 /* TPBaseTableVC.h */,
+				94DD99A62C9FE92200963330 /* TPBaseTableVC.m */,
+				94DD99AE2C9FEC4400963330 /* TPBaseVC.h */,
+				94DD99AF2C9FEC4400963330 /* TPBaseVC.m */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		94DD99A82C9FE9DC00963330 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		94DD99A92C9FEB9A00963330 /* Feature */ = {
+			isa = PBXGroup;
+			children = (
+				94DD99AC2C9FEBE700963330 /* Discover */,
+				94DD99AD2C9FEBFA00963330 /* Mine */,
+				94DD99AB2C9FEBCB00963330 /* Notify */,
+				94DD99AA2C9FEBB000963330 /* Topic */,
+			);
+			path = Feature;
+			sourceTree = "<group>";
+		};
+		94DD99AA2C9FEBB000963330 /* Topic */ = {
+			isa = PBXGroup;
+			children = (
+				94DD99BA2C9FF06900963330 /* TPTopicVC.h */,
+				94DD99BB2C9FF06900963330 /* TPTopicVC.m */,
+			);
+			path = Topic;
+			sourceTree = "<group>";
+		};
+		94DD99AB2C9FEBCB00963330 /* Notify */ = {
+			isa = PBXGroup;
+			children = (
+				94DD99B12C9FF01000963330 /* TPNotifyVC.h */,
+				94DD99B22C9FF01000963330 /* TPNotifyVC.m */,
+			);
+			path = Notify;
+			sourceTree = "<group>";
+		};
+		94DD99AC2C9FEBE700963330 /* Discover */ = {
+			isa = PBXGroup;
+			children = (
+				94DD99B72C9FF04F00963330 /* TPDiscoverVC.h */,
+				94DD99B82C9FF04F00963330 /* TPDiscoverVC.m */,
+			);
+			path = Discover;
+			sourceTree = "<group>";
+		};
+		94DD99AD2C9FEBFA00963330 /* Mine */ = {
+			isa = PBXGroup;
+			children = (
+				94DD99B42C9FF03700963330 /* TPMineVC.h */,
+				94DD99B52C9FF03700963330 /* TPMineVC.m */,
+			);
+			path = Mine;
+			sourceTree = "<group>";
+		};
+		94DD99BD2C9FF20900963330 /* Appdelegate */ = {
+			isa = PBXGroup;
+			children = (
+				94DD99822C9FCC0A00963330 /* AppDelegate.h */,
+				94DD99832C9FCC0A00963330 /* AppDelegate.m */,
+				94DD99BE2C9FF22600963330 /* AppDelegate+TPWindow.h */,
+				94DD99BF2C9FF22600963330 /* AppDelegate+TPWindow.m */,
+			);
+			path = Appdelegate;
 			sourceTree = "<group>";
 		};
 		B02D04F851956DC481462F00 /* Pods */ = {
@@ -92,7 +219,6 @@
 				A7EFE22C121DADF946C1CF9A /* Pods-Helper.debug.xcconfig */,
 				30C9D1D966542ADC90F5EC58 /* Pods-Helper.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -210,8 +336,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				94DD99C02C9FF22600963330 /* AppDelegate+TPWindow.m in Sources */,
 				94DD998A2C9FCC0A00963330 /* ViewController.m in Sources */,
+				94DD99B62C9FF03700963330 /* TPMineVC.m in Sources */,
+				94DD99BC2C9FF06900963330 /* TPTopicVC.m in Sources */,
+				94DD99B02C9FEC4400963330 /* TPBaseVC.m in Sources */,
 				94DD99842C9FCC0A00963330 /* AppDelegate.m in Sources */,
+				94DD99A42C9FE7E400963330 /* TPNavigationController.m in Sources */,
+				94DD99B92C9FF04F00963330 /* TPDiscoverVC.m in Sources */,
+				94DD999E2C9FE52600963330 /* TPRootVC.m in Sources */,
+				94DD99B32C9FF01000963330 /* TPNotifyVC.m in Sources */,
+				94DD99A72C9FE92200963330 /* TPBaseTableVC.m in Sources */,
 				94DD99952C9FCC0A00963330 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -363,6 +498,8 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = PX35JJV4WF;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/Helper/Helper.pch";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Helper/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -391,6 +528,8 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = PX35JJV4WF;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/Helper/Helper.pch";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Helper/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

@@ -1,4 +1,5 @@
 # Uncomment the next line to define a global platform for your project
+source 'https://github.com/CocoaPods/Specs.git'
 platform :ios, '11.0'
 
 target 'Helper' do
@@ -7,4 +8,7 @@ target 'Helper' do
 
   # Pods for Helper
   pod 'Masonry'
+  pod 'TPUIKit'
+  pod 'TPFoundation'
+  pod 'TPJsonModel'
 end

@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "tabbar_mine.svg",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}
