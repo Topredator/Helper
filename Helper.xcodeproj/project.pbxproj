@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		949CE65E2CF4635300FF8EE4 /* TPUserModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 949CE65D2CF4635300FF8EE4 /* TPUserModule.m */; };
+		949CE6612CF46D8C00FF8EE4 /* TPUserDao.m in Sources */ = {isa = PBXBuildFile; fileRef = 949CE6602CF46D8C00FF8EE4 /* TPUserDao.m */; };
+		949CE6652CF4800000FF8EE4 /* NSDictionary+TPMapExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 949CE6642CF4800000FF8EE4 /* NSDictionary+TPMapExtension.m */; };
+		949CE6682CF4ABDC00FF8EE4 /* TPForgotPwdVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 949CE6672CF4ABDC00FF8EE4 /* TPForgotPwdVC.m */; };
 		94DD99842C9FCC0A00963330 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 94DD99832C9FCC0A00963330 /* AppDelegate.m */; };
 		94DD998A2C9FCC0A00963330 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 94DD99892C9FCC0A00963330 /* ViewController.m */; };
 		94DD998D2C9FCC0A00963330 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 94DD998C2C9FCC0A00963330 /* Base */; };
@@ -22,12 +26,37 @@
 		94DD99B92C9FF04F00963330 /* TPDiscoverVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 94DD99B82C9FF04F00963330 /* TPDiscoverVC.m */; };
 		94DD99BC2C9FF06900963330 /* TPTopicVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 94DD99BB2C9FF06900963330 /* TPTopicVC.m */; };
 		94DD99C02C9FF22600963330 /* AppDelegate+TPWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 94DD99BF2C9FF22600963330 /* AppDelegate+TPWindow.m */; };
+		94E7ACCC2CBA1F0600D3BE10 /* TPLineView.m in Sources */ = {isa = PBXBuildFile; fileRef = 94E7ACCB2CBA1F0600D3BE10 /* TPLineView.m */; };
+		94E7ACD72CBCC50C00D3BE10 /* TPNavigationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 94E7ACD62CBCC50C00D3BE10 /* TPNavigationView.m */; };
+		94E7ACDA2CBCE8B300D3BE10 /* TPNavigationBaseVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 94E7ACD92CBCE8B300D3BE10 /* TPNavigationBaseVC.m */; };
+		94E7ACDE2CBD09E600D3BE10 /* TPLoginVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 94E7ACDD2CBD09E600D3BE10 /* TPLoginVC.m */; };
+		94E7ACE62CBD200700D3BE10 /* FBShimmeringLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 94E7ACE22CBD200700D3BE10 /* FBShimmeringLayer.m */; };
+		94E7ACE72CBD200700D3BE10 /* FBShimmeringView.m in Sources */ = {isa = PBXBuildFile; fileRef = 94E7ACE42CBD200700D3BE10 /* FBShimmeringView.m */; };
+		94E7ACED2CBD251100D3BE10 /* TPAuthLogoRow.m in Sources */ = {isa = PBXBuildFile; fileRef = 94E7ACEC2CBD251100D3BE10 /* TPAuthLogoRow.m */; };
+		94E7ACF02CBE009C00D3BE10 /* TPAuthTextFieldRow.m in Sources */ = {isa = PBXBuildFile; fileRef = 94E7ACEF2CBE009C00D3BE10 /* TPAuthTextFieldRow.m */; };
+		94E7ACFF2CBE0E0F00D3BE10 /* TPCommonSection.m in Sources */ = {isa = PBXBuildFile; fileRef = 94E7ACFE2CBE0E0F00D3BE10 /* TPCommonSection.m */; };
+		94E7AD022CBE15C500D3BE10 /* TPAuthButtonRow.m in Sources */ = {isa = PBXBuildFile; fileRef = 94E7AD012CBE15C500D3BE10 /* TPAuthButtonRow.m */; };
+		94E7AD072CBE3C1B00D3BE10 /* TPUserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 94E7AD062CBE3C1B00D3BE10 /* TPUserModel.m */; };
+		94E7AD0A2CBE40EC00D3BE10 /* TPAuthLoginActionRow.m in Sources */ = {isa = PBXBuildFile; fileRef = 94E7AD092CBE40EC00D3BE10 /* TPAuthLoginActionRow.m */; };
+		94E7AD0E2CBE44F100D3BE10 /* TPUserManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 94E7AD0D2CBE44F100D3BE10 /* TPUserManager.m */; };
+		94E7AD112CBE48CC00D3BE10 /* TPCommonNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = 94E7AD102CBE48CC00D3BE10 /* TPCommonNotification.m */; };
+		94E7AD142CBE711600D3BE10 /* AppDelegate+TPDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 94E7AD132CBE711600D3BE10 /* AppDelegate+TPDatabase.m */; };
+		94E7AD172CC0F73100D3BE10 /* TPRegisterVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 94E7AD162CC0F73100D3BE10 /* TPRegisterVC.m */; };
+		94E7AD1A2CC1065200D3BE10 /* UIView+TPUIToast.m in Sources */ = {isa = PBXBuildFile; fileRef = 94E7AD192CC1065200D3BE10 /* UIView+TPUIToast.m */; };
 		AA35E500398EBB06E2EA75BB /* Pods_Helper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7DD2FE6BC1B97D38F13F68F5 /* Pods_Helper.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		30C9D1D966542ADC90F5EC58 /* Pods-Helper.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Helper.release.xcconfig"; path = "Target Support Files/Pods-Helper/Pods-Helper.release.xcconfig"; sourceTree = "<group>"; };
 		7DD2FE6BC1B97D38F13F68F5 /* Pods_Helper.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Helper.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		949CE65C2CF4635300FF8EE4 /* TPUserModule.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPUserModule.h; sourceTree = "<group>"; };
+		949CE65D2CF4635300FF8EE4 /* TPUserModule.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPUserModule.m; sourceTree = "<group>"; };
+		949CE65F2CF46D8C00FF8EE4 /* TPUserDao.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPUserDao.h; sourceTree = "<group>"; };
+		949CE6602CF46D8C00FF8EE4 /* TPUserDao.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPUserDao.m; sourceTree = "<group>"; };
+		949CE6632CF4800000FF8EE4 /* NSDictionary+TPMapExtension.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+TPMapExtension.h"; sourceTree = "<group>"; };
+		949CE6642CF4800000FF8EE4 /* NSDictionary+TPMapExtension.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+TPMapExtension.m"; sourceTree = "<group>"; };
+		949CE6662CF4ABDC00FF8EE4 /* TPForgotPwdVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPForgotPwdVC.h; sourceTree = "<group>"; };
+		949CE6672CF4ABDC00FF8EE4 /* TPForgotPwdVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPForgotPwdVC.m; sourceTree = "<group>"; };
 		94DD997F2C9FCC0A00963330 /* Helper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Helper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		94DD99822C9FCC0A00963330 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		94DD99832C9FCC0A00963330 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -57,6 +86,42 @@
 		94DD99BB2C9FF06900963330 /* TPTopicVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPTopicVC.m; sourceTree = "<group>"; };
 		94DD99BE2C9FF22600963330 /* AppDelegate+TPWindow.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AppDelegate+TPWindow.h"; sourceTree = "<group>"; };
 		94DD99BF2C9FF22600963330 /* AppDelegate+TPWindow.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "AppDelegate+TPWindow.m"; sourceTree = "<group>"; };
+		94E7ACCA2CBA1F0600D3BE10 /* TPLineView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPLineView.h; sourceTree = "<group>"; };
+		94E7ACCB2CBA1F0600D3BE10 /* TPLineView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPLineView.m; sourceTree = "<group>"; };
+		94E7ACD52CBCC50C00D3BE10 /* TPNavigationView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPNavigationView.h; sourceTree = "<group>"; };
+		94E7ACD62CBCC50C00D3BE10 /* TPNavigationView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPNavigationView.m; sourceTree = "<group>"; };
+		94E7ACD82CBCE8B300D3BE10 /* TPNavigationBaseVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPNavigationBaseVC.h; sourceTree = "<group>"; };
+		94E7ACD92CBCE8B300D3BE10 /* TPNavigationBaseVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPNavigationBaseVC.m; sourceTree = "<group>"; };
+		94E7ACDC2CBD09E600D3BE10 /* TPLoginVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPLoginVC.h; sourceTree = "<group>"; };
+		94E7ACDD2CBD09E600D3BE10 /* TPLoginVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPLoginVC.m; sourceTree = "<group>"; };
+		94E7ACE02CBD200700D3BE10 /* FBShimmering.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FBShimmering.h; sourceTree = "<group>"; };
+		94E7ACE12CBD200700D3BE10 /* FBShimmeringLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FBShimmeringLayer.h; sourceTree = "<group>"; };
+		94E7ACE22CBD200700D3BE10 /* FBShimmeringLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FBShimmeringLayer.m; sourceTree = "<group>"; };
+		94E7ACE32CBD200700D3BE10 /* FBShimmeringView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FBShimmeringView.h; sourceTree = "<group>"; };
+		94E7ACE42CBD200700D3BE10 /* FBShimmeringView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FBShimmeringView.m; sourceTree = "<group>"; };
+		94E7ACEB2CBD251100D3BE10 /* TPAuthLogoRow.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPAuthLogoRow.h; sourceTree = "<group>"; };
+		94E7ACEC2CBD251100D3BE10 /* TPAuthLogoRow.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPAuthLogoRow.m; sourceTree = "<group>"; };
+		94E7ACEE2CBE009C00D3BE10 /* TPAuthTextFieldRow.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPAuthTextFieldRow.h; sourceTree = "<group>"; };
+		94E7ACEF2CBE009C00D3BE10 /* TPAuthTextFieldRow.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPAuthTextFieldRow.m; sourceTree = "<group>"; };
+		94E7ACFD2CBE0E0F00D3BE10 /* TPCommonSection.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPCommonSection.h; sourceTree = "<group>"; };
+		94E7ACFE2CBE0E0F00D3BE10 /* TPCommonSection.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPCommonSection.m; sourceTree = "<group>"; };
+		94E7AD002CBE15C500D3BE10 /* TPAuthButtonRow.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPAuthButtonRow.h; sourceTree = "<group>"; };
+		94E7AD012CBE15C500D3BE10 /* TPAuthButtonRow.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPAuthButtonRow.m; sourceTree = "<group>"; };
+		94E7AD042CBE1C8500D3BE10 /* TPGeneralMacro.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPGeneralMacro.h; sourceTree = "<group>"; };
+		94E7AD052CBE3C1B00D3BE10 /* TPUserModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPUserModel.h; sourceTree = "<group>"; };
+		94E7AD062CBE3C1B00D3BE10 /* TPUserModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPUserModel.m; sourceTree = "<group>"; };
+		94E7AD082CBE40EC00D3BE10 /* TPAuthLoginActionRow.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPAuthLoginActionRow.h; sourceTree = "<group>"; };
+		94E7AD092CBE40EC00D3BE10 /* TPAuthLoginActionRow.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPAuthLoginActionRow.m; sourceTree = "<group>"; };
+		94E7AD0C2CBE44F100D3BE10 /* TPUserManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPUserManager.h; sourceTree = "<group>"; };
+		94E7AD0D2CBE44F100D3BE10 /* TPUserManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPUserManager.m; sourceTree = "<group>"; };
+		94E7AD0F2CBE48CC00D3BE10 /* TPCommonNotification.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPCommonNotification.h; sourceTree = "<group>"; };
+		94E7AD102CBE48CC00D3BE10 /* TPCommonNotification.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPCommonNotification.m; sourceTree = "<group>"; };
+		94E7AD122CBE711600D3BE10 /* AppDelegate+TPDatabase.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AppDelegate+TPDatabase.h"; sourceTree = "<group>"; };
+		94E7AD132CBE711600D3BE10 /* AppDelegate+TPDatabase.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "AppDelegate+TPDatabase.m"; sourceTree = "<group>"; };
+		94E7AD152CC0F73100D3BE10 /* TPRegisterVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPRegisterVC.h; sourceTree = "<group>"; };
+		94E7AD162CC0F73100D3BE10 /* TPRegisterVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPRegisterVC.m; sourceTree = "<group>"; };
+		94E7AD182CC1065200D3BE10 /* UIView+TPUIToast.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+TPUIToast.h"; sourceTree = "<group>"; };
+		94E7AD192CC1065200D3BE10 /* UIView+TPUIToast.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+TPUIToast.m"; sourceTree = "<group>"; };
 		A7EFE22C121DADF946C1CF9A /* Pods-Helper.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Helper.debug.xcconfig"; path = "Target Support Files/Pods-Helper/Pods-Helper.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -80,6 +145,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		949CE6622CF47FCC00FF8EE4 /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				949CE6632CF4800000FF8EE4 /* NSDictionary+TPMapExtension.h */,
+				949CE6642CF4800000FF8EE4 /* NSDictionary+TPMapExtension.m */,
+			);
+			path = Category;
+			sourceTree = "<group>";
+		};
 		94DD99762C9FCC0A00963330 = {
 			isa = PBXGroup;
 			children = (
@@ -101,6 +175,7 @@
 		94DD99812C9FCC0A00963330 /* Helper */ = {
 			isa = PBXGroup;
 			children = (
+				94E7ACDF2CBD1FDE00D3BE10 /* UI-Component */,
 				94DD99BD2C9FF20900963330 /* Appdelegate */,
 				94DD99A92C9FEB9A00963330 /* Feature */,
 				94DD99A02C9FE7AD00963330 /* AppEnv */,
@@ -129,8 +204,13 @@
 		94DD99A02C9FE7AD00963330 /* AppEnv */ = {
 			isa = PBXGroup;
 			children = (
-				94DD99A82C9FE9DC00963330 /* Common */,
+				949CE6622CF47FCC00FF8EE4 /* Category */,
+				94E7AD0B2CBE44D100D3BE10 /* Singletons */,
+				94E7AD032CBE1C6500D3BE10 /* Macro */,
+				94DD99A82C9FE9DC00963330 /* CommonUI */,
 				94DD99A12C9FE7BA00963330 /* Base */,
+				94E7AD0F2CBE48CC00D3BE10 /* TPCommonNotification.h */,
+				94E7AD102CBE48CC00D3BE10 /* TPCommonNotification.m */,
 			);
 			path = AppEnv;
 			sourceTree = "<group>";
@@ -144,20 +224,31 @@
 				94DD99A62C9FE92200963330 /* TPBaseTableVC.m */,
 				94DD99AE2C9FEC4400963330 /* TPBaseVC.h */,
 				94DD99AF2C9FEC4400963330 /* TPBaseVC.m */,
+				94E7ACD82CBCE8B300D3BE10 /* TPNavigationBaseVC.h */,
+				94E7ACD92CBCE8B300D3BE10 /* TPNavigationBaseVC.m */,
 			);
 			path = Base;
 			sourceTree = "<group>";
 		};
-		94DD99A82C9FE9DC00963330 /* Common */ = {
+		94DD99A82C9FE9DC00963330 /* CommonUI */ = {
 			isa = PBXGroup;
 			children = (
+				94E7ACCA2CBA1F0600D3BE10 /* TPLineView.h */,
+				94E7ACCB2CBA1F0600D3BE10 /* TPLineView.m */,
+				94E7ACD52CBCC50C00D3BE10 /* TPNavigationView.h */,
+				94E7ACD62CBCC50C00D3BE10 /* TPNavigationView.m */,
+				94E7ACFD2CBE0E0F00D3BE10 /* TPCommonSection.h */,
+				94E7ACFE2CBE0E0F00D3BE10 /* TPCommonSection.m */,
+				94E7AD182CC1065200D3BE10 /* UIView+TPUIToast.h */,
+				94E7AD192CC1065200D3BE10 /* UIView+TPUIToast.m */,
 			);
-			path = Common;
+			path = CommonUI;
 			sourceTree = "<group>";
 		};
 		94DD99A92C9FEB9A00963330 /* Feature */ = {
 			isa = PBXGroup;
 			children = (
+				94E7ACDB2CBD09AA00D3BE10 /* Auth */,
 				94DD99AC2C9FEBE700963330 /* Discover */,
 				94DD99AD2C9FEBFA00963330 /* Mine */,
 				94DD99AB2C9FEBCB00963330 /* Notify */,
@@ -207,10 +298,100 @@
 			children = (
 				94DD99822C9FCC0A00963330 /* AppDelegate.h */,
 				94DD99832C9FCC0A00963330 /* AppDelegate.m */,
+				94E7AD122CBE711600D3BE10 /* AppDelegate+TPDatabase.h */,
+				94E7AD132CBE711600D3BE10 /* AppDelegate+TPDatabase.m */,
 				94DD99BE2C9FF22600963330 /* AppDelegate+TPWindow.h */,
 				94DD99BF2C9FF22600963330 /* AppDelegate+TPWindow.m */,
 			);
 			path = Appdelegate;
+			sourceTree = "<group>";
+		};
+		94E7ACDB2CBD09AA00D3BE10 /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				94E7ACEA2CBD24D000D3BE10 /* Model */,
+				94E7ACE92CBD24C800D3BE10 /* View */,
+				94E7ACE82CBD24BF00D3BE10 /* VC */,
+				949CE65C2CF4635300FF8EE4 /* TPUserModule.h */,
+				949CE65D2CF4635300FF8EE4 /* TPUserModule.m */,
+				949CE65F2CF46D8C00FF8EE4 /* TPUserDao.h */,
+				949CE6602CF46D8C00FF8EE4 /* TPUserDao.m */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		94E7ACDF2CBD1FDE00D3BE10 /* UI-Component */ = {
+			isa = PBXGroup;
+			children = (
+				94E7ACE52CBD200700D3BE10 /* FBShimmering */,
+			);
+			path = "UI-Component";
+			sourceTree = "<group>";
+		};
+		94E7ACE52CBD200700D3BE10 /* FBShimmering */ = {
+			isa = PBXGroup;
+			children = (
+				94E7ACE02CBD200700D3BE10 /* FBShimmering.h */,
+				94E7ACE12CBD200700D3BE10 /* FBShimmeringLayer.h */,
+				94E7ACE22CBD200700D3BE10 /* FBShimmeringLayer.m */,
+				94E7ACE32CBD200700D3BE10 /* FBShimmeringView.h */,
+				94E7ACE42CBD200700D3BE10 /* FBShimmeringView.m */,
+			);
+			path = FBShimmering;
+			sourceTree = "<group>";
+		};
+		94E7ACE82CBD24BF00D3BE10 /* VC */ = {
+			isa = PBXGroup;
+			children = (
+				94E7ACDC2CBD09E600D3BE10 /* TPLoginVC.h */,
+				94E7ACDD2CBD09E600D3BE10 /* TPLoginVC.m */,
+				94E7AD152CC0F73100D3BE10 /* TPRegisterVC.h */,
+				94E7AD162CC0F73100D3BE10 /* TPRegisterVC.m */,
+				949CE6662CF4ABDC00FF8EE4 /* TPForgotPwdVC.h */,
+				949CE6672CF4ABDC00FF8EE4 /* TPForgotPwdVC.m */,
+			);
+			path = VC;
+			sourceTree = "<group>";
+		};
+		94E7ACE92CBD24C800D3BE10 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				94E7ACEB2CBD251100D3BE10 /* TPAuthLogoRow.h */,
+				94E7ACEC2CBD251100D3BE10 /* TPAuthLogoRow.m */,
+				94E7ACEE2CBE009C00D3BE10 /* TPAuthTextFieldRow.h */,
+				94E7ACEF2CBE009C00D3BE10 /* TPAuthTextFieldRow.m */,
+				94E7AD002CBE15C500D3BE10 /* TPAuthButtonRow.h */,
+				94E7AD012CBE15C500D3BE10 /* TPAuthButtonRow.m */,
+				94E7AD082CBE40EC00D3BE10 /* TPAuthLoginActionRow.h */,
+				94E7AD092CBE40EC00D3BE10 /* TPAuthLoginActionRow.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		94E7ACEA2CBD24D000D3BE10 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				94E7AD052CBE3C1B00D3BE10 /* TPUserModel.h */,
+				94E7AD062CBE3C1B00D3BE10 /* TPUserModel.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		94E7AD032CBE1C6500D3BE10 /* Macro */ = {
+			isa = PBXGroup;
+			children = (
+				94E7AD042CBE1C8500D3BE10 /* TPGeneralMacro.h */,
+			);
+			path = Macro;
+			sourceTree = "<group>";
+		};
+		94E7AD0B2CBE44D100D3BE10 /* Singletons */ = {
+			isa = PBXGroup;
+			children = (
+				94E7AD0C2CBE44F100D3BE10 /* TPUserManager.h */,
+				94E7AD0D2CBE44F100D3BE10 /* TPUserManager.m */,
+			);
+			path = Singletons;
 			sourceTree = "<group>";
 		};
 		B02D04F851956DC481462F00 /* Pods */ = {
@@ -336,18 +517,39 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				94E7AD022CBE15C500D3BE10 /* TPAuthButtonRow.m in Sources */,
+				94E7AD112CBE48CC00D3BE10 /* TPCommonNotification.m in Sources */,
 				94DD99C02C9FF22600963330 /* AppDelegate+TPWindow.m in Sources */,
+				94E7ACCC2CBA1F0600D3BE10 /* TPLineView.m in Sources */,
+				94E7ACF02CBE009C00D3BE10 /* TPAuthTextFieldRow.m in Sources */,
 				94DD998A2C9FCC0A00963330 /* ViewController.m in Sources */,
 				94DD99B62C9FF03700963330 /* TPMineVC.m in Sources */,
 				94DD99BC2C9FF06900963330 /* TPTopicVC.m in Sources */,
 				94DD99B02C9FEC4400963330 /* TPBaseVC.m in Sources */,
 				94DD99842C9FCC0A00963330 /* AppDelegate.m in Sources */,
+				94E7ACED2CBD251100D3BE10 /* TPAuthLogoRow.m in Sources */,
+				94E7ACE72CBD200700D3BE10 /* FBShimmeringView.m in Sources */,
+				94E7ACE62CBD200700D3BE10 /* FBShimmeringLayer.m in Sources */,
 				94DD99A42C9FE7E400963330 /* TPNavigationController.m in Sources */,
+				949CE65E2CF4635300FF8EE4 /* TPUserModule.m in Sources */,
+				949CE6682CF4ABDC00FF8EE4 /* TPForgotPwdVC.m in Sources */,
 				94DD99B92C9FF04F00963330 /* TPDiscoverVC.m in Sources */,
 				94DD999E2C9FE52600963330 /* TPRootVC.m in Sources */,
+				94E7ACD72CBCC50C00D3BE10 /* TPNavigationView.m in Sources */,
 				94DD99B32C9FF01000963330 /* TPNotifyVC.m in Sources */,
+				94E7ACFF2CBE0E0F00D3BE10 /* TPCommonSection.m in Sources */,
+				94E7AD172CC0F73100D3BE10 /* TPRegisterVC.m in Sources */,
+				94E7ACDE2CBD09E600D3BE10 /* TPLoginVC.m in Sources */,
 				94DD99A72C9FE92200963330 /* TPBaseTableVC.m in Sources */,
+				949CE6612CF46D8C00FF8EE4 /* TPUserDao.m in Sources */,
+				94E7AD142CBE711600D3BE10 /* AppDelegate+TPDatabase.m in Sources */,
+				949CE6652CF4800000FF8EE4 /* NSDictionary+TPMapExtension.m in Sources */,
 				94DD99952C9FCC0A00963330 /* main.m in Sources */,
+				94E7AD072CBE3C1B00D3BE10 /* TPUserModel.m in Sources */,
+				94E7AD1A2CC1065200D3BE10 /* UIView+TPUIToast.m in Sources */,
+				94E7AD0A2CBE40EC00D3BE10 /* TPAuthLoginActionRow.m in Sources */,
+				94E7ACDA2CBCE8B300D3BE10 /* TPNavigationBaseVC.m in Sources */,
+				94E7AD0E2CBE44F100D3BE10 /* TPUserManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

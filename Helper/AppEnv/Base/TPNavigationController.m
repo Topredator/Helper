@@ -16,11 +16,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.navigationBar.barTintColor = UIColor.whiteColor;
+    self.navigationBar.barTintColor = [TPUI tp_t:21];
     self.navigationBar.barStyle = UIBarStyleDefault;
     self.navigationBar.titleTextAttributes = @{
         NSFontAttributeName: [TPUI tp_font:18 weight:FontMedium],
-        NSForegroundColorAttributeName : [TPUI tp_t:51]
+        NSForegroundColorAttributeName : [UIColor.blackColor colorWithAlphaComponent:0.5]
     };
     [[UINavigationBar appearance]  setBackgroundImage:[[UIImage alloc] init] forBarPosition:UIBarPositionAny barMetrics:UIBarMetricsDefault];
     [[UINavigationBar appearance] setShadowImage:[[UIImage alloc] init]];

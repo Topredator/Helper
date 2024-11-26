@@ -7,6 +7,7 @@
 
 #import "AppDelegate.h"
 #import "AppDelegate+TPWindow.h"
+#import "AppDelegate+TPDatabase.h"
 @interface AppDelegate ()
 
 @end
@@ -15,7 +16,8 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    // 初始化数据库
+    [self tp_setupDatabase];
     // 初始化窗口及根视图
     [self tp_initWindow];
     return YES;

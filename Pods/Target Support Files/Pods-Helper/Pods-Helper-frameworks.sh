@@ -176,17 +176,25 @@ code_sign_if_enabled() {
 }
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
+  install_framework "${BUILT_PRODUCTS_DIR}/Asterism/Asterism.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/FMDB/FMDB.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/MBProgressHUD/MBProgressHUD.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/MJRefresh/MJRefresh.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/Masonry/Masonry.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/ReactiveObjC/ReactiveObjC.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/TPDatabase/TPDatabase.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/TPFoundation/TPFoundation.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/TPJsonModel/TPJsonModel.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/TPUIKit/TPUIKit.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
+  install_framework "${BUILT_PRODUCTS_DIR}/Asterism/Asterism.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/FMDB/FMDB.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/MBProgressHUD/MBProgressHUD.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/MJRefresh/MJRefresh.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/Masonry/Masonry.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/ReactiveObjC/ReactiveObjC.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/TPDatabase/TPDatabase.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/TPFoundation/TPFoundation.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/TPJsonModel/TPJsonModel.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/TPUIKit/TPUIKit.framework"

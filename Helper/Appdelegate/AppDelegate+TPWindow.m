@@ -6,12 +6,23 @@
 //
 
 #import "AppDelegate+TPWindow.h"
+#import "TPNavigationController.h"
 #import "TPRootVC.h"
-
+#import "TPLoginVC.h"
 @implementation AppDelegate (TPWindow)
 - (void)tp_initWindow {
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
-    self.window.rootViewController = [TPRootVC new];
+    self.window.backgroundColor = UIColor.whiteColor;
+    [self tp_resetWindow];
+}
+
+- (void)tp_resetWindow {
+    if (!TPUserManager.manager.isLogin) {
+        self.window.rootViewController = [[TPNavigationController alloc] initWithRootViewController:TPLoginVC.new];
+    } else {
+        self.window.rootViewController = [TPRootVC new];
+    }
     [self.window makeKeyAndVisible];
 }
+
 @end

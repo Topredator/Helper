@@ -6,11 +6,11 @@
 //
 
 #import <TPUIKit/TPUIKit.h>
-
+#import <TPDatabase/TPDatabase.h>
 NS_ASSUME_NONNULL_BEGIN
 
 /// 基类 视图控制器
-@interface TPBaseVC : TPUIBaseViewController
+@interface TPBaseVC : TPUIBaseViewController <TPDatabaseMessageHandler>
 
 @end
 

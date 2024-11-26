@@ -16,17 +16,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.title = @"话题";
+    NSString *string = @"Topic";
+    NSMutableAttributedString *attString = [string tp_mutableAttributedStringWithAttributes:@[
+        [TPFontAttributeConfig tp_font:[TPUI tp_font:20 weight:FontMedium] range:NSMakeRange(0, string.length)],
+        [TPForegroundColorAttributeConfig tp_color:[UIColor.blackColor colorWithAlphaComponent:0.5] range:NSMakeRange(0, string.length)],
+        [TPForegroundColorAttributeConfig tp_color:[TPUI tp_r:52 g:152 b:219] range:NSMakeRange(0, 1)]
+    ]];
+    self.navigationView.attributeTitle = attString;
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

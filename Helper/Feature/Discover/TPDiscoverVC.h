@@ -5,11 +5,11 @@
 //  Created by Topredator on 2024/9/22.
 //
 
-#import "TPBaseVC.h"
+#import "TPNavigationBaseVC.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface TPDiscoverVC : TPBaseVC
+@interface TPDiscoverVC : TPNavigationBaseVC
 
 @end
 

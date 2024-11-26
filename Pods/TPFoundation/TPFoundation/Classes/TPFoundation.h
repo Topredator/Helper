@@ -52,5 +52,18 @@
 /// GCD
 #import "TPGCDQueue.h"
 #import "TPGCDSemaphore.h"
+/// Math
+#import "TPMath.h"
+/// LinkModel
+#import "TPLinkModel.h"
+/// AttributedString
+#import "TPAttributedStringConfig.h"
+#import "TPFontAttributeConfig.h"
+#import "TPForegroundColorAttributeConfig.h"
+#import "TPKernAttributeConfig.h"
+#import "TPParagraphAttributeConfig.h"
+#import "NSString+TPAttributedStringConfig.h"
+#import "NSAttributedString+TPAttributedStringConfig.h"
+#import "NSMutableAttributedString+TPAttributedStringConfig.h"
 
 #endif /* TPFoundation_h */

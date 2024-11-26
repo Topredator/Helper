@@ -11,7 +11,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 /// 窗口扩展
 @interface AppDelegate (TPWindow)
+/// 初始化窗口
 - (void)tp_initWindow;
+/// 重置窗口
+- (void)tp_resetWindow;
+
 @end
 
 NS_ASSUME_NONNULL_END

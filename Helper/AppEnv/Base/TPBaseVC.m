@@ -7,25 +7,30 @@
 
 #import "TPBaseVC.h"
 
+
 @interface TPBaseVC ()
 
 @end
 
 @implementation TPBaseVC
 
+- (instancetype)init {
+    self = [super init];
+    if (self) {
+        [TPDBRouter addRoute:self];
+    }
+    return self;
+}
+- (void)dealloc {
+    [TPDBRouter removeRoute:self];
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.tpUINavigationItem.navigationBarHidden = YES;
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (BOOL)handleMessage:(NSInteger)messageType result:(NSInteger)result argument:(id)argument {
+    return NO;
 }
-*/
-
 @end

@@ -8,7 +8,13 @@ target 'Helper' do
 
   # Pods for Helper
   pod 'Masonry'
-  pod 'TPUIKit'
+  pod 'TPUIKit' #, :path => '../../Githubs/TPUIKit/TPUIKit.podspec'
   pod 'TPFoundation'
   pod 'TPJsonModel'
+#  pod 'TPStorage', :path => '../../Githubs/TPStorage/TPStorage.podspec'
+  pod  'TPDatabase'
+  
+  
+  pod 'ReactiveObjC'
+  pod 'Asterism'
 end
