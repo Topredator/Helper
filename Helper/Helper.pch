@@ -25,4 +25,13 @@
 #import "TPUserModule.h"
 #import "NSDictionary+TPMapExtension.h"
 #import <Asterism/Asterism.h>
+
+#import "TPBaseView.h"
+#import "TPBaseTableVC.h"
+#import "TPNavigationBaseVC.h"
+#import "TPNavigationTableVC.h"
+#import "TPUIGradientLayer+TPExtension.h"
+#import "TPHelperEnum.h"
+#import "UIView+TPCommonEmpty.h"
+
 #endif /* Helper_pch */

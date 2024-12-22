@@ -15,10 +15,13 @@
 "("                                             \
 " User_userId"             " TEXT PRIMARY KEY,"        \
 " User_name"           " TEXT,"                     \
+" User_avatar"          " TEXT,"                    \
 " User_account"           " TEXT,"                     \
 " User_password"         " TEXT,"                     \
 " User_userType"      " INTEGER,"                     \
-" User_token"      " TEXT"                      \
+" User_idCard"          " TEXT,"           \
+" User_token"            " TEXT,"                      \
+" User_createTime"        " TEXT"            \
 ")"
 
 
@@ -45,7 +48,7 @@
             return YES;
         }
         case TPUserModuleRegister: { // 用户注册
-            [dao save:argument messageType:messageType waitUntilDone:NO];
+            [dao save:argument messageType:messageType waitUntilDone:NO igoner:YES];
             return YES;
         }
         case TPUserModuleChangePassword: { // 修改密码

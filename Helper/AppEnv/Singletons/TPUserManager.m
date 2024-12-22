@@ -50,15 +50,16 @@ static TPUserManager *manager = nil;
 - (void)setUser:(TPUserModel *)user {
     [self willChangeValueForKey:@"user"];
     _user = user;
-    NSData *data = [NSKeyedArchiver archivedDataWithRootObject:user requiringSecureCoding:NO error:nil];
+    NSError *error;
+    NSData *data = [NSKeyedArchiver archivedDataWithRootObject:user requiringSecureCoding:YES error:&error];
+    
     [data writeToFile:self.userArchiverPath atomically:YES];
     [self didChangeValueForKey:@"user"];
 }
 - (TPUserModel *)user {
     if (!_user && [self isLogin]) {
         if ([NSFileManager.defaultManager fileExistsAtPath:self.userArchiverPath]) {
-            NSData *readData = [NSData dataWithContentsOfFile:self.userArchiverPath];
-            _user = [NSKeyedUnarchiver unarchivedObjectOfClass:TPUserModel.class fromData:readData error:nil];
+            _user = [NSKeyedUnarchiver unarchiveObjectWithFile:self.userArchiverPath];
         }
     }
     return _user;

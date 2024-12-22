@@ -18,7 +18,7 @@ typedef NS_ENUM(NSUInteger, TPUserType) {
 };
 
 /// 用户模型
-@interface TPUserModel : NSObject <TPJsonModel>
+@interface TPUserModel : NSObject <TPJsonModel, NSCopying, NSSecureCoding>
 @property (nonatomic, copy) NSString *userId;
 /// 用户名
 @property (nonatomic, copy) NSString *name;
@@ -28,9 +28,15 @@ typedef NS_ENUM(NSUInteger, TPUserType) {
 @property (nonatomic, copy) NSString *password;
 /// 用户类型
 @property (nonatomic, assign) TPUserType userType;
+/// 用户令牌
 @property (nonatomic, copy) NSString *token;
-@property (nonatomic) CGRect rect;
-@property (nonatomic, assign) CGFloat height;
+/// 头像
+@property (nonatomic, copy) NSString *avatar;
+/// 身份证号码
+@property (nonatomic, copy) NSString *idCard;
+/// 创建时间
+@property (nonatomic, copy) NSString *createTime;
+
 + (instancetype)userAccount:(NSString *)account pwd:(NSString *)pwd type:(TPUserType)type;
 + (instancetype)userAccount:(NSString *)account pwd:(NSString *)pwd name:(NSString *)name type:(TPUserType)type;
 

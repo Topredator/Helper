@@ -28,8 +28,8 @@
     [self loadData];
     [self setupNotify];
 }
-- (void)setupTableView {
-    [super setupTableView];
+- (void)setupSubviews {
+    [super setupSubviews];
     self.tableview.hidden = NO;
     self.tableview.backgroundColor = UIColor.whiteColor;
     [self.tableview mas_makeConstraints:^(MASConstraintMaker *make) {

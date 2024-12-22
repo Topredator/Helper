@@ -6,8 +6,8 @@
 //
 
 #import "TPRootVC.h"
-#import "TPTopicVC.h"
-#import "TPDiscoverVC.h"
+#import "TPHomeVC.h"
+#import "TPAdoptVC.h"
 #import "TPNotifyVC.h"
 #import "TPMineVC.h"
 #import "TPNavigationController.h"
@@ -46,23 +46,23 @@
     [self setupNotify];
 }
 - (void)configViewControllers {
-    TPTopicVC *topicVC = [TPTopicVC new];
+    TPHomeVC *topicVC = [TPHomeVC new];
     TPNavigationController *topicNavigationVC = [[TPNavigationController alloc] initWithRootViewController:topicVC];
-    [topicNavigationVC configWithTitle:@"话题" imageName:@"tabbar_topic" selectedImageName:@"tabbar_topic_selected"];
+    [topicNavigationVC configWithTitle:@"首页" imageName:@"tabbar_topic" selectedImageName:@"tabbar_topic_selected"];
     
     TPNotifyVC *notifyVC = [TPNotifyVC new];
     TPNavigationController *notifyNavigationVC = [[TPNavigationController alloc] initWithRootViewController:notifyVC];
     [notifyNavigationVC configWithTitle:@"通知" imageName:@"tabbar_notify" selectedImageName:@"tabbar_notify_selected"];
     
-    TPDiscoverVC *discoverVC = [TPDiscoverVC new];
-    TPNavigationController *discoverNavigationVC = [[TPNavigationController alloc] initWithRootViewController:discoverVC];
-    [discoverNavigationVC configWithTitle:@"发现" imageName:@"tabbar_discovery" selectedImageName:@"tabbar_discovery_selected"];
+    TPAdoptVC *adoptVC = [TPAdoptVC new];
+    TPNavigationController *adoptNavigationVC = [[TPNavigationController alloc] initWithRootViewController:adoptVC];
+    [adoptNavigationVC configWithTitle:@"领养" imageName:@"tabbar_discovery" selectedImageName:@"tabbar_discovery_selected"];
     
     TPMineVC *mineVC = [TPMineVC new];
     TPNavigationController *mineNavigationVC = [[TPNavigationController alloc] initWithRootViewController:mineVC];
     [mineNavigationVC configWithTitle:@"我的" imageName:@"tabbar_mine" selectedImageName:@"tabbar_mine_selected"];
     
-    self.viewControllers = @[topicNavigationVC, notifyNavigationVC, discoverNavigationVC, mineNavigationVC];
+    self.viewControllers = @[topicNavigationVC, adoptNavigationVC, notifyNavigationVC, mineNavigationVC];
 }
 - (void)setupNotify {
     [self tp_observeNotificationByName:TPNotifyUserDidLogout withNotifyBlock:^(NSNotification * _Nonnull note) {

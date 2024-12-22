@@ -23,85 +23,88 @@ PODS:
     - TPFoundation/Base
     - TPFoundation/Category
   - TPJsonModel (1.0.0)
-  - TPUIKit (1.1.0):
+  - TPUIKit (1.1.1):
     - Masonry
-    - TPUIKit/Alert (= 1.1.0)
-    - TPUIKit/Banner (= 1.1.0)
-    - TPUIKit/Base (= 1.1.0)
-    - TPUIKit/Blank (= 1.1.0)
-    - TPUIKit/Category (= 1.1.0)
-    - TPUIKit/GradientView (= 1.1.0)
-    - TPUIKit/GraphicView (= 1.1.0)
-    - TPUIKit/LimitTextField (= 1.1.0)
-    - TPUIKit/Line (= 1.1.0)
-    - TPUIKit/MarginLabel (= 1.1.0)
-    - TPUIKit/Menu (= 1.1.0)
-    - TPUIKit/Navigator (= 1.1.0)
-    - TPUIKit/PageControl (= 1.1.0)
-    - TPUIKit/QRCode (= 1.1.0)
-    - TPUIKit/Refresh (= 1.1.0)
-    - TPUIKit/RichTextView (= 1.1.0)
-    - TPUIKit/ScreenShot (= 1.1.0)
-    - TPUIKit/ScrollTable (= 1.1.0)
-    - TPUIKit/ShadowCell (= 1.1.0)
-    - TPUIKit/SimButton (= 1.1.0)
-    - TPUIKit/Tabbar (= 1.1.0)
-    - TPUIKit/Toast (= 1.1.0)
-  - TPUIKit/Alert (1.1.0):
+    - TPUIKit/Alert (= 1.1.1)
+    - TPUIKit/Banner (= 1.1.1)
+    - TPUIKit/Base (= 1.1.1)
+    - TPUIKit/Blank (= 1.1.1)
+    - TPUIKit/Category (= 1.1.1)
+    - TPUIKit/CustomLayout (= 1.1.1)
+    - TPUIKit/GradientView (= 1.1.1)
+    - TPUIKit/GraphicView (= 1.1.1)
+    - TPUIKit/LimitTextField (= 1.1.1)
+    - TPUIKit/Line (= 1.1.1)
+    - TPUIKit/MarginLabel (= 1.1.1)
+    - TPUIKit/Menu (= 1.1.1)
+    - TPUIKit/Navigator (= 1.1.1)
+    - TPUIKit/PageControl (= 1.1.1)
+    - TPUIKit/QRCode (= 1.1.1)
+    - TPUIKit/Refresh (= 1.1.1)
+    - TPUIKit/RichTextView (= 1.1.1)
+    - TPUIKit/ScreenShot (= 1.1.1)
+    - TPUIKit/ScrollTable (= 1.1.1)
+    - TPUIKit/ShadowCell (= 1.1.1)
+    - TPUIKit/SimButton (= 1.1.1)
+    - TPUIKit/Tabbar (= 1.1.1)
+    - TPUIKit/Toast (= 1.1.1)
+  - TPUIKit/Alert (1.1.1):
     - Masonry
-  - TPUIKit/Banner (1.1.0):
+  - TPUIKit/Banner (1.1.1):
     - Masonry
-  - TPUIKit/Base (1.1.0):
+  - TPUIKit/Base (1.1.1):
     - Masonry
-  - TPUIKit/Blank (1.1.0):
-    - Masonry
-    - TPUIKit/Base
-  - TPUIKit/Category (1.1.0):
+  - TPUIKit/Blank (1.1.1):
     - Masonry
     - TPUIKit/Base
-  - TPUIKit/GradientView (1.1.0):
-    - Masonry
-  - TPUIKit/GraphicView (1.1.0):
-    - Masonry
-  - TPUIKit/LimitTextField (1.1.0):
-    - Masonry
-  - TPUIKit/Line (1.1.0):
-    - Masonry
-  - TPUIKit/MarginLabel (1.1.0):
-    - Masonry
-  - TPUIKit/Menu (1.1.0):
+  - TPUIKit/Category (1.1.1):
     - Masonry
     - TPUIKit/Base
-  - TPUIKit/Navigator (1.1.0):
+  - TPUIKit/CustomLayout (1.1.1):
     - Masonry
-  - TPUIKit/PageControl (1.1.0):
+  - TPUIKit/GradientView (1.1.1):
+    - Masonry
+  - TPUIKit/GraphicView (1.1.1):
+    - Masonry
+  - TPUIKit/LimitTextField (1.1.1):
+    - Masonry
+  - TPUIKit/Line (1.1.1):
+    - Masonry
+  - TPUIKit/MarginLabel (1.1.1):
+    - Masonry
+  - TPUIKit/Menu (1.1.1):
     - Masonry
     - TPUIKit/Base
-  - TPUIKit/QRCode (1.1.0):
+  - TPUIKit/Navigator (1.1.1):
     - Masonry
-  - TPUIKit/Refresh (1.1.0):
+  - TPUIKit/PageControl (1.1.1):
+    - Masonry
+    - TPUIKit/Base
+  - TPUIKit/QRCode (1.1.1):
+    - Masonry
+  - TPUIKit/Refresh (1.1.1):
     - Masonry
     - MJRefresh (~> 3.1.14)
     - TPUIKit/Base
-  - TPUIKit/RichTextView (1.1.0):
+  - TPUIKit/RichTextView (1.1.1):
     - Masonry
     - TPUIKit/Base
-  - TPUIKit/ScreenShot (1.1.0):
+  - TPUIKit/ScreenShot (1.1.1):
     - Masonry
-  - TPUIKit/ScrollTable (1.1.0):
+  - TPUIKit/ScrollTable (1.1.1):
     - Masonry
     - TPUIKit/Banner
     - TPUIKit/Base
     - TPUIKit/Tabbar
-  - TPUIKit/ShadowCell (1.1.0):
+  - TPUIKit/ShadowCell (1.1.1):
     - Masonry
     - TPUIKit/Base
-  - TPUIKit/SimButton (1.1.0):
+  - TPUIKit/SimButton (1.1.1):
     - Masonry
-  - TPUIKit/Tabbar (1.1.0):
+  - TPUIKit/Tabbar (1.1.1):
     - Masonry
     - TPUIKit/Base
-  - TPUIKit/Toast (1.1.0):
+  - TPUIKit/Toast (1.1.1):
     - Masonry
     - MBProgressHUD (~> 1.1.0)
     - TPUIKit/Base
@@ -139,8 +142,8 @@ SPEC CHECKSUMS:
   TPDatabase: 462d84788800b9852c025530d946df6b28f8ffa9
   TPFoundation: 48afacb359e2f12cb8fd0214aa88e8e8b5e04552
   TPJsonModel: 08b25aa72d62e6991639e62280796336972352c6
-  TPUIKit: aab675dd99cd82283458fff958663c6a64001648
+  TPUIKit: 66518b23f8197d27c3fb7d2ab84eb3f69907e81d
 
-PODFILE CHECKSUM: c5298ee109b0301eff9c16e4cc404874c8c9f40a
+PODFILE CHECKSUM: 2ee3ee3b5acd8291256402c10336edd15c89e708
 
 COCOAPODS: 1.15.2

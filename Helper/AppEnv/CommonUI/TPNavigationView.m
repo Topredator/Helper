@@ -40,6 +40,7 @@
     return self;
 }
 - (void)setupSubviews {
+    self.backgroundColor = UIColor.whiteColor;
     [self addSubview:self.lineView];
     [self addSubview:self.backBtn];
     [self addSubview:self.titleLabel];

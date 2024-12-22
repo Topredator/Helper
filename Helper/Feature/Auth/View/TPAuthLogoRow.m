@@ -38,7 +38,7 @@
     NSMutableAttributedString *logoAttributedString = [logoString tp_mutableAttributedStringWithAttributes:@[
         [TPFontAttributeConfig tp_font:[TPUI tp_font:35 weight:FontLight] range:NSMakeRange(0, logoString.length)],
         [TPForegroundColorAttributeConfig tp_color:[UIColor.blackColor colorWithAlphaComponent:0.8] range:NSMakeRange(0, logoString.length)],
-        [TPForegroundColorAttributeConfig tp_color:[TPUI tp_r:52 g:152 b:219] range:NSMakeRange(1, 1)]
+        [TPForegroundColorAttributeConfig tp_color:TPHelperThemeColor range:NSMakeRange(1, 1)]
     ]];
     self.logoLabel.attributedText = logoAttributedString;
     

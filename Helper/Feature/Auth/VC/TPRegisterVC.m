@@ -24,8 +24,8 @@
     // Do any additional setup after loading the view.
     [self loadData];
 }
-- (void)setupTableView {
-    [super setupTableView];
+- (void)setupSubviews {
+    [super setupSubviews];
     [self.view addSubview:self.navigationView];
     [self.navigationView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.top.right.mas_equalTo(0);
