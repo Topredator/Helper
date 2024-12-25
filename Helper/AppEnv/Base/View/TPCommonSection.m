@@ -9,9 +9,9 @@
 
 @implementation TPCommonSection
 - (CGFloat)tp_tableViewHeaderHeightWithPorxy:(TPTableViewProxy *)proxy section:(NSUInteger)section {
-    return 0.01;
+    return self.h_height ?: 0.01;
 }
 - (CGFloat)tp_tableViewFooterHeightWithPorxy:(TPTableViewProxy *)proxy section:(NSUInteger)section {
-    return 0.01;
+    return self.f_height ?: 0.01;
 }
 @end

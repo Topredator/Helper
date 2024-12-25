@@ -8,6 +8,8 @@
 #import "TPNotifyVC.h"
 #import "TPNotifyAnnouncementSection.h"
 #import "TPNotifyAnnouncementRow.h"
+#import "TPNotifyButtonRow.h"
+#import "TPCommonSection.h"
 
 @interface TPNotifyVC ()
 
@@ -42,7 +44,15 @@
 - (void)loadData {
     TPNotifyAnnouncementSection *section = [TPNotifyAnnouncementSection section];
     [section addObjectsFromArray:[self rows]];
-    [self reloadData:@[section]];
+    
+    TPCommonSection *operationSection = [TPCommonSection section];
+    operationSection.h_height = 10;
+    if (TPUserManager.manager.user.userType != TPUserTypeCustome) {
+        [operationSection addObject:[self applyRow]];
+    }
+    [operationSection addObject:[self examineRow]];
+    
+    [self reloadData:@[section, operationSection]];
 }
 - (NSArray <TPNotifyAnnouncementRow *>*)rows {
     NSMutableArray *tempArray = @[].mutableCopy;
@@ -54,7 +64,18 @@
     
     TPNotifyAnnouncementModel *thirdModel = [TPNotifyAnnouncementModel modelWithTheme:@"青山救助机构" details:@"尊敬的社会各界爱心人士：\n首先，衷心感谢大家一直以来对本流浪动物救助机构的关注、支持与信任。为了让大家更好地了解我们的工作理念、运营原则以及相关事项，特发布本声明。" type:TPAnnouncementTypeThirdParty];
     [tempArray addObject:[TPNotifyAnnouncementRow rowWithModel:thirdModel]];
-    
     return tempArray.copy;
+}
+- (void)applyAction {}
+- (void)examineAction {}
+- (TPNotifyButtonRow *)applyRow {
+    TPNotifyButtonRow *row = [TPNotifyButtonRow applyRow];
+    [row setTarget:self action:@selector(applyAction)];
+    return row;
+}
+- (TPNotifyButtonRow *)examineRow {
+    TPNotifyButtonRow *row = [TPNotifyButtonRow examineRow];
+    [row setTarget:self action:@selector(examineAction)];
+    return row;
 }
 @end

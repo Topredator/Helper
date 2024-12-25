@@ -7,10 +7,29 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		948A1F662D1AA9FA0032DFB9 /* TPNotifyButtonRow.m in Sources */ = {isa = PBXBuildFile; fileRef = 948A1F652D1AA9FA0032DFB9 /* TPNotifyButtonRow.m */; };
+		948A1F692D1AB8EE0032DFB9 /* TPSettingVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 948A1F682D1AB8EE0032DFB9 /* TPSettingVC.m */; };
+		948A1F6C2D1ABA620032DFB9 /* TPSettingRow.m in Sources */ = {isa = PBXBuildFile; fileRef = 948A1F6B2D1ABA620032DFB9 /* TPSettingRow.m */; };
+		948A1F6F2D1AD5D00032DFB9 /* TPSettingAccountAndSecurityVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 948A1F6E2D1AD5D00032DFB9 /* TPSettingAccountAndSecurityVC.m */; };
+		948A1F722D1AD9AA0032DFB9 /* TPSettingSwitchRow.m in Sources */ = {isa = PBXBuildFile; fileRef = 948A1F712D1AD9AA0032DFB9 /* TPSettingSwitchRow.m */; };
+		948A1F772D1BA33B0032DFB9 /* TPGlobalManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 948A1F762D1BA33B0032DFB9 /* TPGlobalManager.m */; };
+		948A1F7D2D1BA9000032DFB9 /* TPAnimalModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 948A1F7C2D1BA9000032DFB9 /* TPAnimalModule.m */; };
+		948A1F802D1BAD830032DFB9 /* TPAnimalModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 948A1F7F2D1BAD830032DFB9 /* TPAnimalModel.m */; };
+		948A1F842D1BC7270032DFB9 /* TPApplyModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 948A1F832D1BC7270032DFB9 /* TPApplyModule.m */; };
+		948A1F872D1BC7F00032DFB9 /* TPApplyModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 948A1F862D1BC7F00032DFB9 /* TPApplyModel.m */; };
+		948A1F8B2D1BD2F40032DFB9 /* TPDiaryModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 948A1F8A2D1BD2F40032DFB9 /* TPDiaryModule.m */; };
+		948A1F8E2D1BD3270032DFB9 /* TPDiaryModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 948A1F8D2D1BD3270032DFB9 /* TPDiaryModel.m */; };
 		949CE65E2CF4635300FF8EE4 /* TPUserModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 949CE65D2CF4635300FF8EE4 /* TPUserModule.m */; };
 		949CE6612CF46D8C00FF8EE4 /* TPUserDao.m in Sources */ = {isa = PBXBuildFile; fileRef = 949CE6602CF46D8C00FF8EE4 /* TPUserDao.m */; };
 		949CE6652CF4800000FF8EE4 /* NSDictionary+TPMapExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 949CE6642CF4800000FF8EE4 /* NSDictionary+TPMapExtension.m */; };
 		949CE6682CF4ABDC00FF8EE4 /* TPForgotPwdVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 949CE6672CF4ABDC00FF8EE4 /* TPForgotPwdVC.m */; };
+		94A2D1D82D1BFAAC00BCD461 /* TPPublicOperationVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 94A2D1D72D1BFAAC00BCD461 /* TPPublicOperationVC.m */; };
+		94A2D1DB2D1BFEAD00BCD461 /* TPReleaseDiaryVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 94A2D1DA2D1BFEAD00BCD461 /* TPReleaseDiaryVC.m */; };
+		94A2D1DF2D1C060800BCD461 /* UITextView+XHXPlaceholder.m in Sources */ = {isa = PBXBuildFile; fileRef = 94A2D1DE2D1C060800BCD461 /* UITextView+XHXPlaceholder.m */; };
+		94A2D1E22D1C0B1300BCD461 /* TPDiaryDao.m in Sources */ = {isa = PBXBuildFile; fileRef = 94A2D1E12D1C0B1300BCD461 /* TPDiaryDao.m */; };
+		94A2D1E52D1C341A00BCD461 /* TPAnimalDao.m in Sources */ = {isa = PBXBuildFile; fileRef = 94A2D1E42D1C341A00BCD461 /* TPAnimalDao.m */; };
+		94A2D1EB2D1C345A00BCD461 /* TPAdoptDao.m in Sources */ = {isa = PBXBuildFile; fileRef = 94A2D1EA2D1C345A00BCD461 /* TPAdoptDao.m */; };
+		94A2D1EE2D1C4CAF00BCD461 /* TPDiaryDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 94A2D1ED2D1C4CAF00BCD461 /* TPDiaryDetailVC.m */; };
 		94AE8A9D2D13FEA700312D45 /* TPBaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 94AE8A9C2D13FEA700312D45 /* TPBaseView.m */; };
 		94AE8AA32D14000400312D45 /* TPMineHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 94AE8AA22D14000400312D45 /* TPMineHeaderView.m */; };
 		94AE8AA62D14744D00312D45 /* TPMineFunctionRow.m in Sources */ = {isa = PBXBuildFile; fileRef = 94AE8AA52D14744D00312D45 /* TPMineFunctionRow.m */; };
@@ -73,6 +92,30 @@
 /* Begin PBXFileReference section */
 		30C9D1D966542ADC90F5EC58 /* Pods-Helper.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Helper.release.xcconfig"; path = "Target Support Files/Pods-Helper/Pods-Helper.release.xcconfig"; sourceTree = "<group>"; };
 		7DD2FE6BC1B97D38F13F68F5 /* Pods_Helper.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Helper.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		948A1F642D1AA9FA0032DFB9 /* TPNotifyButtonRow.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPNotifyButtonRow.h; sourceTree = "<group>"; };
+		948A1F652D1AA9FA0032DFB9 /* TPNotifyButtonRow.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPNotifyButtonRow.m; sourceTree = "<group>"; };
+		948A1F672D1AB8EE0032DFB9 /* TPSettingVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPSettingVC.h; sourceTree = "<group>"; };
+		948A1F682D1AB8EE0032DFB9 /* TPSettingVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPSettingVC.m; sourceTree = "<group>"; };
+		948A1F6A2D1ABA620032DFB9 /* TPSettingRow.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPSettingRow.h; sourceTree = "<group>"; };
+		948A1F6B2D1ABA620032DFB9 /* TPSettingRow.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPSettingRow.m; sourceTree = "<group>"; };
+		948A1F6D2D1AD5D00032DFB9 /* TPSettingAccountAndSecurityVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPSettingAccountAndSecurityVC.h; sourceTree = "<group>"; };
+		948A1F6E2D1AD5D00032DFB9 /* TPSettingAccountAndSecurityVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPSettingAccountAndSecurityVC.m; sourceTree = "<group>"; };
+		948A1F702D1AD9AA0032DFB9 /* TPSettingSwitchRow.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPSettingSwitchRow.h; sourceTree = "<group>"; };
+		948A1F712D1AD9AA0032DFB9 /* TPSettingSwitchRow.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPSettingSwitchRow.m; sourceTree = "<group>"; };
+		948A1F752D1BA33B0032DFB9 /* TPGlobalManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPGlobalManager.h; sourceTree = "<group>"; };
+		948A1F762D1BA33B0032DFB9 /* TPGlobalManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPGlobalManager.m; sourceTree = "<group>"; };
+		948A1F7B2D1BA9000032DFB9 /* TPAnimalModule.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPAnimalModule.h; sourceTree = "<group>"; };
+		948A1F7C2D1BA9000032DFB9 /* TPAnimalModule.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPAnimalModule.m; sourceTree = "<group>"; };
+		948A1F7E2D1BAD830032DFB9 /* TPAnimalModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPAnimalModel.h; sourceTree = "<group>"; };
+		948A1F7F2D1BAD830032DFB9 /* TPAnimalModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPAnimalModel.m; sourceTree = "<group>"; };
+		948A1F822D1BC7270032DFB9 /* TPApplyModule.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPApplyModule.h; sourceTree = "<group>"; };
+		948A1F832D1BC7270032DFB9 /* TPApplyModule.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPApplyModule.m; sourceTree = "<group>"; };
+		948A1F852D1BC7F00032DFB9 /* TPApplyModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPApplyModel.h; sourceTree = "<group>"; };
+		948A1F862D1BC7F00032DFB9 /* TPApplyModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPApplyModel.m; sourceTree = "<group>"; };
+		948A1F892D1BD2F40032DFB9 /* TPDiaryModule.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPDiaryModule.h; sourceTree = "<group>"; };
+		948A1F8A2D1BD2F40032DFB9 /* TPDiaryModule.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPDiaryModule.m; sourceTree = "<group>"; };
+		948A1F8C2D1BD3270032DFB9 /* TPDiaryModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPDiaryModel.h; sourceTree = "<group>"; };
+		948A1F8D2D1BD3270032DFB9 /* TPDiaryModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPDiaryModel.m; sourceTree = "<group>"; };
 		949CE65C2CF4635300FF8EE4 /* TPUserModule.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPUserModule.h; sourceTree = "<group>"; };
 		949CE65D2CF4635300FF8EE4 /* TPUserModule.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPUserModule.m; sourceTree = "<group>"; };
 		949CE65F2CF46D8C00FF8EE4 /* TPUserDao.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPUserDao.h; sourceTree = "<group>"; };
@@ -81,6 +124,20 @@
 		949CE6642CF4800000FF8EE4 /* NSDictionary+TPMapExtension.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+TPMapExtension.m"; sourceTree = "<group>"; };
 		949CE6662CF4ABDC00FF8EE4 /* TPForgotPwdVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPForgotPwdVC.h; sourceTree = "<group>"; };
 		949CE6672CF4ABDC00FF8EE4 /* TPForgotPwdVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPForgotPwdVC.m; sourceTree = "<group>"; };
+		94A2D1D62D1BFAAC00BCD461 /* TPPublicOperationVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPPublicOperationVC.h; sourceTree = "<group>"; };
+		94A2D1D72D1BFAAC00BCD461 /* TPPublicOperationVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPPublicOperationVC.m; sourceTree = "<group>"; };
+		94A2D1D92D1BFEAD00BCD461 /* TPReleaseDiaryVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPReleaseDiaryVC.h; sourceTree = "<group>"; };
+		94A2D1DA2D1BFEAD00BCD461 /* TPReleaseDiaryVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPReleaseDiaryVC.m; sourceTree = "<group>"; };
+		94A2D1DD2D1C060800BCD461 /* UITextView+XHXPlaceholder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UITextView+XHXPlaceholder.h"; sourceTree = "<group>"; };
+		94A2D1DE2D1C060800BCD461 /* UITextView+XHXPlaceholder.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UITextView+XHXPlaceholder.m"; sourceTree = "<group>"; };
+		94A2D1E02D1C0B1300BCD461 /* TPDiaryDao.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPDiaryDao.h; sourceTree = "<group>"; };
+		94A2D1E12D1C0B1300BCD461 /* TPDiaryDao.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPDiaryDao.m; sourceTree = "<group>"; };
+		94A2D1E32D1C341A00BCD461 /* TPAnimalDao.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPAnimalDao.h; sourceTree = "<group>"; };
+		94A2D1E42D1C341A00BCD461 /* TPAnimalDao.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPAnimalDao.m; sourceTree = "<group>"; };
+		94A2D1E92D1C345A00BCD461 /* TPAdoptDao.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPAdoptDao.h; sourceTree = "<group>"; };
+		94A2D1EA2D1C345A00BCD461 /* TPAdoptDao.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPAdoptDao.m; sourceTree = "<group>"; };
+		94A2D1EC2D1C4CAF00BCD461 /* TPDiaryDetailVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPDiaryDetailVC.h; sourceTree = "<group>"; };
+		94A2D1ED2D1C4CAF00BCD461 /* TPDiaryDetailVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPDiaryDetailVC.m; sourceTree = "<group>"; };
 		94AE8A9B2D13FEA700312D45 /* TPBaseView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPBaseView.h; sourceTree = "<group>"; };
 		94AE8A9C2D13FEA700312D45 /* TPBaseView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPBaseView.m; sourceTree = "<group>"; };
 		94AE8AA12D14000400312D45 /* TPMineHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPMineHeaderView.h; sourceTree = "<group>"; };
@@ -218,14 +275,85 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		948A1F782D1BA8BD0032DFB9 /* Module */ = {
+			isa = PBXGroup;
+			children = (
+				948A1F882D1BD2E20032DFB9 /* DailyModule */,
+				948A1F812D1BC6920032DFB9 /* ApplyModule */,
+				948A1F7A2D1BA8D10032DFB9 /* AnimalModule */,
+				948A1F792D1BA8C60032DFB9 /* UserModule */,
+			);
+			path = Module;
+			sourceTree = "<group>";
+		};
+		948A1F792D1BA8C60032DFB9 /* UserModule */ = {
+			isa = PBXGroup;
+			children = (
+				949CE65C2CF4635300FF8EE4 /* TPUserModule.h */,
+				949CE65D2CF4635300FF8EE4 /* TPUserModule.m */,
+				949CE65F2CF46D8C00FF8EE4 /* TPUserDao.h */,
+				949CE6602CF46D8C00FF8EE4 /* TPUserDao.m */,
+			);
+			path = UserModule;
+			sourceTree = "<group>";
+		};
+		948A1F7A2D1BA8D10032DFB9 /* AnimalModule */ = {
+			isa = PBXGroup;
+			children = (
+				948A1F7B2D1BA9000032DFB9 /* TPAnimalModule.h */,
+				948A1F7C2D1BA9000032DFB9 /* TPAnimalModule.m */,
+				948A1F7E2D1BAD830032DFB9 /* TPAnimalModel.h */,
+				948A1F7F2D1BAD830032DFB9 /* TPAnimalModel.m */,
+				94A2D1E32D1C341A00BCD461 /* TPAnimalDao.h */,
+				94A2D1E42D1C341A00BCD461 /* TPAnimalDao.m */,
+				94A2D1E92D1C345A00BCD461 /* TPAdoptDao.h */,
+				94A2D1EA2D1C345A00BCD461 /* TPAdoptDao.m */,
+			);
+			path = AnimalModule;
+			sourceTree = "<group>";
+		};
+		948A1F812D1BC6920032DFB9 /* ApplyModule */ = {
+			isa = PBXGroup;
+			children = (
+				948A1F822D1BC7270032DFB9 /* TPApplyModule.h */,
+				948A1F832D1BC7270032DFB9 /* TPApplyModule.m */,
+				948A1F852D1BC7F00032DFB9 /* TPApplyModel.h */,
+				948A1F862D1BC7F00032DFB9 /* TPApplyModel.m */,
+			);
+			path = ApplyModule;
+			sourceTree = "<group>";
+		};
+		948A1F882D1BD2E20032DFB9 /* DailyModule */ = {
+			isa = PBXGroup;
+			children = (
+				948A1F892D1BD2F40032DFB9 /* TPDiaryModule.h */,
+				948A1F8A2D1BD2F40032DFB9 /* TPDiaryModule.m */,
+				948A1F8C2D1BD3270032DFB9 /* TPDiaryModel.h */,
+				948A1F8D2D1BD3270032DFB9 /* TPDiaryModel.m */,
+				94A2D1E02D1C0B1300BCD461 /* TPDiaryDao.h */,
+				94A2D1E12D1C0B1300BCD461 /* TPDiaryDao.m */,
+			);
+			path = DailyModule;
+			sourceTree = "<group>";
+		};
 		949CE6622CF47FCC00FF8EE4 /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				94A2D1DC2D1C05E500BCD461 /* TextView */,
 				94AE8B112D1835E200312D45 /* View */,
 				94AE8AD62D17CAAA00312D45 /* GradientLayer */,
 				94AE8AD52D17CA9D00312D45 /* Dictionary */,
 			);
 			path = Category;
+			sourceTree = "<group>";
+		};
+		94A2D1DC2D1C05E500BCD461 /* TextView */ = {
+			isa = PBXGroup;
+			children = (
+				94A2D1DD2D1C060800BCD461 /* UITextView+XHXPlaceholder.h */,
+				94A2D1DE2D1C060800BCD461 /* UITextView+XHXPlaceholder.m */,
+			);
+			path = TextView;
 			sourceTree = "<group>";
 		};
 		94AE8A962D13FE0B00312D45 /* View */ = {
@@ -239,6 +367,10 @@
 				94AE8AA82D147BC200312D45 /* TPMineToolSection.m */,
 				94AE8AAD2D147EEA00312D45 /* TPMineToolRow.h */,
 				94AE8AAE2D147EEA00312D45 /* TPMineToolRow.m */,
+				948A1F6A2D1ABA620032DFB9 /* TPSettingRow.h */,
+				948A1F6B2D1ABA620032DFB9 /* TPSettingRow.m */,
+				948A1F702D1AD9AA0032DFB9 /* TPSettingSwitchRow.h */,
+				948A1F712D1AD9AA0032DFB9 /* TPSettingSwitchRow.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -255,6 +387,14 @@
 			children = (
 				94DD99B42C9FF03700963330 /* TPMineVC.h */,
 				94DD99B52C9FF03700963330 /* TPMineVC.m */,
+				948A1F672D1AB8EE0032DFB9 /* TPSettingVC.h */,
+				948A1F682D1AB8EE0032DFB9 /* TPSettingVC.m */,
+				948A1F6D2D1AD5D00032DFB9 /* TPSettingAccountAndSecurityVC.h */,
+				948A1F6E2D1AD5D00032DFB9 /* TPSettingAccountAndSecurityVC.m */,
+				94A2D1D62D1BFAAC00BCD461 /* TPPublicOperationVC.h */,
+				94A2D1D72D1BFAAC00BCD461 /* TPPublicOperationVC.m */,
+				94A2D1D92D1BFEAD00BCD461 /* TPReleaseDiaryVC.h */,
+				94A2D1DA2D1BFEAD00BCD461 /* TPReleaseDiaryVC.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -314,6 +454,8 @@
 			children = (
 				94DD99BA2C9FF06900963330 /* TPHomeVC.h */,
 				94DD99BB2C9FF06900963330 /* TPHomeVC.m */,
+				94A2D1EC2D1C4CAF00BCD461 /* TPDiaryDetailVC.h */,
+				94A2D1ED2D1C4CAF00BCD461 /* TPDiaryDetailVC.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -405,6 +547,8 @@
 				94AE8B0F2D18346400312D45 /* TPNotifyAnnouncementRow.m */,
 				94AE8B152D1836C400312D45 /* TPNotifyAnnouncementSection.h */,
 				94AE8B162D1836C400312D45 /* TPNotifyAnnouncementSection.m */,
+				948A1F642D1AA9FA0032DFB9 /* TPNotifyButtonRow.h */,
+				948A1F652D1AA9FA0032DFB9 /* TPNotifyButtonRow.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -512,6 +656,7 @@
 		94DD99A92C9FEB9A00963330 /* Feature */ = {
 			isa = PBXGroup;
 			children = (
+				948A1F782D1BA8BD0032DFB9 /* Module */,
 				94AE8AB92D16733900312D45 /* Adopt */,
 				94E7ACDB2CBD09AA00D3BE10 /* Auth */,
 				94DD99AD2C9FEBFA00963330 /* Mine */,
@@ -570,10 +715,6 @@
 				94E7ACEA2CBD24D000D3BE10 /* Model */,
 				94E7ACE92CBD24C800D3BE10 /* View */,
 				94E7ACE82CBD24BF00D3BE10 /* VC */,
-				949CE65C2CF4635300FF8EE4 /* TPUserModule.h */,
-				949CE65D2CF4635300FF8EE4 /* TPUserModule.m */,
-				949CE65F2CF46D8C00FF8EE4 /* TPUserDao.h */,
-				949CE6602CF46D8C00FF8EE4 /* TPUserDao.m */,
 			);
 			path = Auth;
 			sourceTree = "<group>";
@@ -648,6 +789,8 @@
 			children = (
 				94E7AD0C2CBE44F100D3BE10 /* TPUserManager.h */,
 				94E7AD0D2CBE44F100D3BE10 /* TPUserManager.m */,
+				948A1F752D1BA33B0032DFB9 /* TPGlobalManager.h */,
+				948A1F762D1BA33B0032DFB9 /* TPGlobalManager.m */,
 			);
 			path = Singletons;
 			sourceTree = "<group>";
@@ -779,34 +922,48 @@
 				94AE8AA62D14744D00312D45 /* TPMineFunctionRow.m in Sources */,
 				94E7AD112CBE48CC00D3BE10 /* TPCommonNotification.m in Sources */,
 				94AE8AD12D16BDE900312D45 /* TPHomeLifeDiaryRow.m in Sources */,
+				948A1F872D1BC7F00032DFB9 /* TPApplyModel.m in Sources */,
+				948A1F6F2D1AD5D00032DFB9 /* TPSettingAccountAndSecurityVC.m in Sources */,
 				94AE8AA32D14000400312D45 /* TPMineHeaderView.m in Sources */,
+				94A2D1DB2D1BFEAD00BCD461 /* TPReleaseDiaryVC.m in Sources */,
 				94DD99C02C9FF22600963330 /* AppDelegate+TPWindow.m in Sources */,
+				948A1F7D2D1BA9000032DFB9 /* TPAnimalModule.m in Sources */,
 				94E7ACCC2CBA1F0600D3BE10 /* TPLineView.m in Sources */,
+				948A1F802D1BAD830032DFB9 /* TPAnimalModel.m in Sources */,
 				94AE8AAC2D147C2700312D45 /* TPBaseTableSectionView.m in Sources */,
 				94AE8B102D18346400312D45 /* TPNotifyAnnouncementRow.m in Sources */,
 				94E7ACF02CBE009C00D3BE10 /* TPAuthTextFieldRow.m in Sources */,
 				94DD998A2C9FCC0A00963330 /* ViewController.m in Sources */,
 				94DD99B62C9FF03700963330 /* TPMineVC.m in Sources */,
 				94AE8ACB2D16B71B00312D45 /* TPHomeBannerModel.m in Sources */,
+				94A2D1EB2D1C345A00BCD461 /* TPAdoptDao.m in Sources */,
 				94DD99BC2C9FF06900963330 /* TPHomeVC.m in Sources */,
 				94DD99B02C9FEC4400963330 /* TPBaseVC.m in Sources */,
 				94DD99842C9FCC0A00963330 /* AppDelegate.m in Sources */,
 				94AE8AA92D147BC200312D45 /* TPMineToolSection.m in Sources */,
 				94E7ACED2CBD251100D3BE10 /* TPAuthLogoRow.m in Sources */,
+				94A2D1E22D1C0B1300BCD461 /* TPDiaryDao.m in Sources */,
 				94E7ACE72CBD200700D3BE10 /* FBShimmeringView.m in Sources */,
+				948A1F8B2D1BD2F40032DFB9 /* TPDiaryModule.m in Sources */,
 				94AE8ACE2D16BCB300312D45 /* TPHomeLifeDiarySection.m in Sources */,
 				94E7ACE62CBD200700D3BE10 /* FBShimmeringLayer.m in Sources */,
+				948A1F662D1AA9FA0032DFB9 /* TPNotifyButtonRow.m in Sources */,
 				94AE8B0C2D18330A00312D45 /* TPNavigationTableVC.m in Sources */,
 				94AE8AD42D17B3A700312D45 /* TPCommonCollectionCell.m in Sources */,
+				948A1F722D1AD9AA0032DFB9 /* TPSettingSwitchRow.m in Sources */,
 				94AE8ABC2D16734E00312D45 /* TPAdoptVC.m in Sources */,
+				948A1F692D1AB8EE0032DFB9 /* TPSettingVC.m in Sources */,
 				94AE8AB22D14833400312D45 /* TPBackgroundCell.m in Sources */,
+				94A2D1D82D1BFAAC00BCD461 /* TPPublicOperationVC.m in Sources */,
 				94AE8AC42D16B46100312D45 /* TPBaseCollectionSectionView.m in Sources */,
 				94AE8B012D17EE5000312D45 /* TPAdoptModel.m in Sources */,
 				94DD99A42C9FE7E400963330 /* TPNavigationController.m in Sources */,
 				949CE65E2CF4635300FF8EE4 /* TPUserModule.m in Sources */,
+				94A2D1EE2D1C4CAF00BCD461 /* TPDiaryDetailVC.m in Sources */,
 				94AE8AFB2D17E51A00312D45 /* TPAdoptItemVC.m in Sources */,
 				94AE8B142D18360200312D45 /* UIView+TPCommonEmpty.m in Sources */,
 				94AE8AC72D16B65B00312D45 /* TPHomeBannerPage.m in Sources */,
+				948A1F842D1BC7270032DFB9 /* TPApplyModule.m in Sources */,
 				94AE8B1B2D183B3A00312D45 /* TPNotifyAnnouncementModel.m in Sources */,
 				94AE8AC12D16B3F400312D45 /* TPHomeBannerSection.m in Sources */,
 				949CE6682CF4ABDC00FF8EE4 /* TPForgotPwdVC.m in Sources */,
@@ -815,18 +972,23 @@
 				94E7ACD72CBCC50C00D3BE10 /* TPNavigationView.m in Sources */,
 				94AE8B172D1836C400312D45 /* TPNotifyAnnouncementSection.m in Sources */,
 				94AE8AFE2D17E6A300312D45 /* TPAdoptItemRow.m in Sources */,
+				948A1F772D1BA33B0032DFB9 /* TPGlobalManager.m in Sources */,
 				94DD99B32C9FF01000963330 /* TPNotifyVC.m in Sources */,
 				94E7ACFF2CBE0E0F00D3BE10 /* TPCommonSection.m in Sources */,
 				94E7AD172CC0F73100D3BE10 /* TPRegisterVC.m in Sources */,
+				94A2D1E52D1C341A00BCD461 /* TPAnimalDao.m in Sources */,
 				94E7ACDE2CBD09E600D3BE10 /* TPLoginVC.m in Sources */,
 				94AE8AD92D17CAC300312D45 /* TPUIGradientLayer+TPExtension.m in Sources */,
+				948A1F6C2D1ABA620032DFB9 /* TPSettingRow.m in Sources */,
 				94DD99A72C9FE92200963330 /* TPBaseTableVC.m in Sources */,
 				949CE6612CF46D8C00FF8EE4 /* TPUserDao.m in Sources */,
 				94AE8A9D2D13FEA700312D45 /* TPBaseView.m in Sources */,
 				94E7AD142CBE711600D3BE10 /* AppDelegate+TPDatabase.m in Sources */,
 				949CE6652CF4800000FF8EE4 /* NSDictionary+TPMapExtension.m in Sources */,
 				94DD99952C9FCC0A00963330 /* main.m in Sources */,
+				948A1F8E2D1BD3270032DFB9 /* TPDiaryModel.m in Sources */,
 				94E7AD072CBE3C1B00D3BE10 /* TPUserModel.m in Sources */,
+				94A2D1DF2D1C060800BCD461 /* UITextView+XHXPlaceholder.m in Sources */,
 				94E7AD1A2CC1065200D3BE10 /* UIView+TPUIToast.m in Sources */,
 				94E7AD0A2CBE40EC00D3BE10 /* TPAuthLoginActionRow.m in Sources */,
 				94E7ACDA2CBCE8B300D3BE10 /* TPNavigationBaseVC.m in Sources */,

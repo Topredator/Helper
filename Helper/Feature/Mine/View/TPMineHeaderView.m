@@ -7,6 +7,7 @@
 
 #import "TPMineHeaderView.h"
 #import "TPUserManager.h"
+#import "TPSettingVC.h"
 
 @interface TPMineHeaderView ()
 @property (nonatomic, strong) UIImageView *bgImageView;
@@ -26,6 +27,7 @@
     [self addSubview:self.phoneLabel];
     [self addSubview:self.settingBtn];
     self.levelImage.image = [self roleIcon];
+    self.avatarImage.image = [UIImage imageNamed:TPUserManager.manager.user.avatar];
     self.nameLabel.text = TPUserManager.manager.user.name;
     self.phoneLabel.text = TPUserManager.manager.user.account;
 }
@@ -71,7 +73,8 @@
     return [UIImage imageNamed:imageName];
 }
 - (void)settingBtnAction {
-    
+    TPSettingVC *settingVC = [TPSettingVC new];
+    [[TPUINavigator currentNavigationController] pushViewController:settingVC animated:YES];
 }
 #pragma mark----------------- Getter -----------------
 - (UIImageView *)bgImageView {

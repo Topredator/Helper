@@ -8,17 +8,25 @@
 #import "TPUserModel.h"
 @implementation TPUserModel
 + (instancetype)userAccount:(NSString *)account pwd:(NSString *)pwd type:(TPUserType)type {
-    return [self userAccount:account pwd:pwd name:nil type:type];
+    return [self userAccount:account pwd:pwd name:nil idCard:nil type:type];
 }
-+ (instancetype)userAccount:(NSString *)account pwd:(NSString *)pwd name:(NSString *)name type:(TPUserType)type {
++ (instancetype)userAccount:(NSString *)account
+                        pwd:(NSString *)pwd
+                       name:(NSString *)name
+                     idCard:(NSString *)idCard
+                       type:(TPUserType)type {
     TPUserModel *model = [self new];
     model.account = account;
     model.password = pwd;
     model.userType = type;
     model.name = name;
-    model.userId = [NSString stringWithFormat:@"%ld-%@-%d", type, [[NSDate now] tp_stringWithFormat:@"yyyyMMddHHmmss"], arc4random_uniform(10000)];
+    if (idCard) {
+        model.idCard = idCard;
+    }
+    model.avatar = [NSString stringWithFormat:@"user_avatar_%u", arc4random() % 35 + 1];
+    model.userId = [account tp_MD5];
     model.token = [[NSString stringWithFormat:@"%ld-%@-%d", type, [[NSDate now] tp_stringWithFormat:@"yyyyMMddHHmmss"], arc4random_uniform(10000)] tp_MD5];
-    model.createTime = [[NSDate now] tp_stringWithFormat:@"yyyy.MM.dd HH:mm:ss"];
+    model.createTime = [NSString stringWithFormat:@"%ld", (NSInteger)[[NSDate now] timeIntervalSince1970] * 1000];
     return model;
 }
 

@@ -11,6 +11,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface TPHomeBannerSection : TPCollectionSection
+@property (nonatomic, copy) NSArray <TPHomeBannerModel *>*banners;
 + (instancetype)sectionWithBanners:(NSArray <TPHomeBannerModel *>*)banners;
 @end
 

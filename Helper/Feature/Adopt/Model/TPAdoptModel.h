@@ -24,22 +24,23 @@
 /// 封面图 (5:2)
 @property (nonatomic, copy) NSString *coverImage;
 /// 是否绝育
-@property (nonatomic, assign) BOOL isSterilization;
+@property (nonatomic, assign, getter=isSterilization) BOOL sterilization;
 /// 是否驱虫
-@property (nonatomic, assign) BOOL isDeworming;
+@property (nonatomic, assign, getter=isDeworming) BOOL deworming;
 /// 是否打过疫苗
-@property (nonatomic, assign) BOOL isVaccine;
+@property (nonatomic, assign, getter=isVaccine) BOOL vaccine;
 /// 是否被领养
 @property (nonatomic, assign) BOOL beAdopted;
-
+/// 领养申请状态
+@property (nonatomic, assign) TPApplyStatus applyStatus;
 /// 领养人id
-@property (nonatomic, copy) NSString *adoptedId;
+@property (nonatomic, copy) NSString *adopterId;
 /// 领养人姓名
-@property (nonatomic, copy) NSString *adoptedName;
+@property (nonatomic, copy) NSString *adopterName;
 /// 领养人头像
-@property (nonatomic, copy) NSString *adoptedAvatar;
+@property (nonatomic, copy) NSString *adopterAvatar;
 /// 领养人联系方式
-@property (nonatomic, copy) NSString *adoptedPhone;
+@property (nonatomic, copy) NSString *adopterPhone;
 
 /// 发布者id
 @property (nonatomic, copy) NSString *publisherId;

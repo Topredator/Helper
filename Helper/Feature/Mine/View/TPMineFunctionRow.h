@@ -7,11 +7,15 @@
 
 #import <TPFoundation/TPFoundation.h>
 
-NS_ASSUME_NONNULL_BEGIN
 
+@interface TPMineFunctionCell : TPUIBaseTableViewCell
+@end
 /// 我的功能单元格
 @interface TPMineFunctionRow : TPTableRow
-
+@property (nonatomic, weak) TPMineFunctionCell *cell;
+- (void)setPublicTarget:(id)target action:(SEL)action;
+- (void)setCollectTarget:(id)target action:(SEL)action;
+- (void)setDonateTarget:(id)target action:(SEL)action;
 @end
 
-NS_ASSUME_NONNULL_END
+

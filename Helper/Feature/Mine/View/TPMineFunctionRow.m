@@ -7,7 +7,7 @@
 
 #import "TPMineFunctionRow.h"
 
-@interface TPMineFunctionCell : TPUIBaseTableViewCell
+@interface TPMineFunctionCell ()
 /// 发布
 @property (nonatomic, strong) TPUISimButton *publicBtn;
 /// 收藏
@@ -93,13 +93,59 @@
 }
 @end
 
+@interface TPMineFunctionRow ()
+@property (nonatomic, weak) id publicTarget;
+@property (nonatomic, weak) id collectTarget;
+@property (nonatomic, weak) id donateTarget;
+@property (nonatomic) SEL publicAction;
+@property (nonatomic) SEL collectAction;
+@property (nonatomic) SEL donateAction;
+@end
+
 @implementation TPMineFunctionRow
+@dynamic cell;
 - (instancetype)init {
     self = [super init];
     if (self) {
         [self setCellClass:TPMineFunctionCell.class];
     }
     return self;
+}
+- (void)setPublicTarget:(id)target action:(SEL)action {
+    _publicTarget = target;
+    _publicAction = action;
+    if (self.cell) {
+        [self.cell.publicBtn removeTarget:nil action:nil forControlEvents:UIControlEventTouchUpInside];
+        if (target && action) {
+            [self.cell.publicBtn addTarget:target action:action forControlEvents:UIControlEventTouchUpInside];
+        }
+    }
+}
+
+- (void)setCollectTarget:(id)target action:(SEL)action {
+    _collectTarget = target;
+    _collectAction = action;
+    if (self.cell) {
+        [self.cell.collectBtn removeTarget:nil action:nil forControlEvents:UIControlEventTouchUpInside];
+        if (target && action) {
+            [self.cell.collectBtn addTarget:target action:action forControlEvents:UIControlEventTouchUpInside];
+        }
+    }
+}
+- (void)setDonateTarget:(id)target action:(SEL)action {
+    _donateTarget = target;
+    _donateAction = action;
+    if (self.cell) {
+        [self.cell.donateBtn removeTarget:nil action:nil forControlEvents:UIControlEventTouchUpInside];
+        if (target && action) {
+            [self.cell.donateBtn addTarget:target action:action forControlEvents:UIControlEventTouchUpInside];
+        }
+    }
+}
+- (void)tp_tableViewPreparedCell:(TPMineFunctionCell *)cell proxy:(TPTableViewProxy *)proxy indexPath:(NSIndexPath *)indexPath {
+    [self setPublicTarget:self.publicTarget action:self.publicAction];
+    [self setCollectTarget:self.collectTarget action:self.collectAction];
+    [self setDonateTarget:self.donateTarget action:self.donateAction];
 }
 - (CGFloat)tp_tableViewCellHeightWithProxy:(TPTableViewProxy *)proxy indexPath:(NSIndexPath *)indexPath {
     return 80;

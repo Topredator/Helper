@@ -56,6 +56,12 @@
         make.bottom.mas_equalTo(-5);
     }];
 }
+- (void)configWithModel:(TPDiaryModel *)model {
+    self.imageView.image = [UIImage imageNamed:model.image];
+    self.avatarImage.image = [UIImage imageNamed:model.user.avatar];
+    self.nameLabel.text = model.user.name ?: model.user.account;
+    self.titleLabel.text = model.content;
+}
 #pragma mark----------------- Getter -----------------
 - (UIView *)container {
     if (!_container) {
@@ -100,6 +106,10 @@
 }
 @end
 
+@interface TPHomeLifeDiaryRow ()
+@property (nonatomic, strong) TPDiaryModel *model;
+@end
+
 @implementation TPHomeLifeDiaryRow
 - (instancetype)init {
     self = [super init];
@@ -108,12 +118,14 @@
     }
     return self;
 }
++ (instancetype)rowWithModel:(TPDiaryModel *)model {
+    TPHomeLifeDiaryRow *row = [TPHomeLifeDiaryRow row];
+    row.model = model;
+    return row;
+}
 - (void)tp_collectionViewPreparedCell:(TPHomeLifeDiaryCell *)cell proxy:(TPCollectionViewProxy *)proxy indexPath:(NSIndexPath *)indexPath {
-    NSInteger index = indexPath.row + 1;
-    cell.imageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"home_diary_%ld", (long)(index % 25)]];
-    cell.avatarImage.image = [UIImage imageNamed:[NSString stringWithFormat:@"user_avatar_%ld", index % 35]];
-    cell.nameLabel.text = [NSString stringWithFormat:@"用户%ld", indexPath.row + 1];
-    cell.titleLabel.text = @"今天天气真好啊";
+    [cell configWithModel:self.model];
+    
 }
 - (CGSize)tp_collectionViewItemSizeWithProxy:(__kindof TPCollectionViewProxy *)proxy indexPath:(NSIndexPath *)indexPath {
     CGFloat width = (TPUI.tp_screenWidth - 45) / 2;

@@ -19,6 +19,7 @@
 " User_account"           " TEXT,"                     \
 " User_password"         " TEXT,"                     \
 " User_userType"      " INTEGER,"                     \
+" User_gender"         " INTEGER default 0,"                    \
 " User_idCard"          " TEXT,"           \
 " User_token"            " TEXT,"                      \
 " User_createTime"        " TEXT"            \
@@ -30,7 +31,7 @@
     [db executeUpdate:CREATE_TABLE_USER];
     
     /// 注册超级管理员
-    TPUserModel *model = [TPUserModel userAccount:@"00000000000" pwd:@"111111" name:@"Dexterly" type:TPUserTypeSuperManager];
+    TPUserModel *model = [TPUserModel userAccount:@"00000000000" pwd:@"123456" name:@"Dexterly" idCard:@"410422199501061174" type:TPUserTypeSuperManager];
     [TPDBRouter sendTaskMessage:TPUserModuleRegister argument:[model tp_modelToJSONObject]];
 }
 + (BOOL)handleTaskMessage:(TPDBTaskMessage *)msg {

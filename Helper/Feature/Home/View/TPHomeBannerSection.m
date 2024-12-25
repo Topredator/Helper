@@ -38,6 +38,9 @@
 - (BOOL)bannerView:(TPUIBannerView *)bannerView canPageViewSelectedAtPageIndex:(NSInteger)pageIndex {
     return YES;
 }
+- (void)bannerView:(TPUIBannerView *)bannerView didSelectedAtPageIndex:(NSInteger)pageIndex {
+    
+}
 - (void)configWithBanners:(NSArray <TPHomeBannerModel *>*)banners {
     self.datas = banners;
     [self.bannerView reloadData];
@@ -57,7 +60,6 @@
 @end
 
 @interface TPHomeBannerSection ()
-@property (nonatomic, copy) NSArray <TPHomeBannerModel *>*banners;
 @end
 
 @implementation TPHomeBannerSection

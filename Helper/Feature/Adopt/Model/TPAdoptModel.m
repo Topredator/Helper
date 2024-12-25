@@ -15,9 +15,9 @@
     model.category = category;
     model.sexType = sex;
     model.breed = @"英短";
-    model.isSterilization = (arc4random() % 2);
-    model.isDeworming = (arc4random() % 2);
-    model.isVaccine = (arc4random() % 2);
+    model.sterilization = (arc4random() % 2);
+    model.deworming = (arc4random() % 2);
+    model.vaccine = (arc4random() % 2);
     model.thumbImage = [NSString stringWithFormat:@"%@%u", category == TPAnimalCategoryCat ? @"cat_avatar_" : @"dog_avatar_", arc4random() % 30 + 1];
     model.beAdopted = (arc4random() % 2);
     model.coverImage = [NSString stringWithFormat:@""];

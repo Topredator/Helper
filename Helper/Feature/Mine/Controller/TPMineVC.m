@@ -11,6 +11,7 @@
 #import "TPCommonSection.h"
 #import "TPMineToolSection.h"
 #import "TPMineToolRow.h"
+#import "TPPublicOperationVC.h"
 
 @interface TPMineVC ()
 @property (nonatomic, strong) TPMineHeaderView *headerView;
@@ -33,7 +34,7 @@
 
 - (void)loadData {
     TPCommonSection *section = [TPCommonSection section];
-    [section addObject:[TPMineFunctionRow row]];
+    [section addObject:[self functionRow]];
     
     TPMineToolSection *toolSection = [TPMineToolSection section];
     [toolSection addObject:[self feedbackRow]];
@@ -42,7 +43,13 @@
     [toolSection addObject:[self customerServiceRow]];
     [self reloadData:@[section, toolSection]];
 }
-
+- (TPMineFunctionRow *)functionRow {
+    TPMineFunctionRow *row = [TPMineFunctionRow row];
+    [row setPublicTarget:self action:@selector(publicAction)];
+    [row setCollectTarget:self action:@selector(collectAction)];
+    [row setDonateTarget:self action:@selector(donateAction)];
+    return row;
+}
 - (TPMineToolRow *)feedbackRow {
     TPMineToolRow *row = [TPMineToolRow rowWithIcon:@"mine_feedback" name:@"帮助与反馈"];
     row.cellDidSelected = ^(__kindof TPTableRow * _Nonnull rowData, TPTableViewProxy * _Nonnull proxy, NSIndexPath * _Nonnull indexPath) {
@@ -66,10 +73,32 @@
 }
 - (TPMineToolRow *)customerServiceRow {
     TPMineToolRow *row = [TPMineToolRow rowWithIcon:@"mine_customer_service" name:@"客服电话"];
+    @weakify(self);
     row.cellDidSelected = ^(__kindof TPTableRow * _Nonnull rowData, TPTableViewProxy * _Nonnull proxy, NSIndexPath * _Nonnull indexPath) {
-        
+        [TPUIAlert alertSheetShow:^(TPUIAlertMaker *make) {
+            make.title(@"客服电话");
+            make.addOption(TPUIAlertBlockOption(@"10086", ^{
+                NSString *telURL = [NSString stringWithFormat:@"tel:10086"];
+                    NSURL *url = [NSURL URLWithString:telURL];
+                    if ([[UIApplication sharedApplication] canOpenURL:url]) {
+                        [[UIApplication sharedApplication] openURL:url options:@{} completionHandler:nil];
+                    }
+            }));
+            make.cancleOption(@"取消");
+        }];
     };
     return row;
+}
+
+- (void)publicAction {
+    TPPublicOperationVC *vc = [TPPublicOperationVC new];
+    [self.navigationController pushViewController:vc animated:YES];
+}
+- (void)collectAction {
+    
+}
+- (void)donateAction {
+    
 }
 #pragma mark----------------- Getter -----------------
 - (TPMineHeaderView *)headerView {

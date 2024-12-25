@@ -37,4 +37,24 @@ typedef NS_ENUM(NSUInteger, TPAnnouncementType) {
     TPAnnouncementTypeThirdParty,
 };
 
+/// 动物领养申请状态
+typedef NS_ENUM(NSUInteger, TPApplyStatus) {
+    /// 未申请
+    TPApplyStatusNone,
+    /// 申请中
+    TPApplyStatusApplying,
+    /// 被拒绝
+    TPApplyStatusBeRejected,
+    /// 申请成功
+    TPApplyStatusSuccess
+};
+
+/// 申请类型
+typedef NS_ENUM(NSUInteger, TPApplyType) {
+    /// 申请成为管理员
+    TPApplyTypeAdmin,
+    /// 申请领养动物
+    TPApplyTypeAdopt,
+};
+
 #endif /* TPHelperEnum_h */
