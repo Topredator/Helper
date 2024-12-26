@@ -8,7 +8,7 @@
 #import "TPUserModel.h"
 @implementation TPUserModel
 + (instancetype)userAccount:(NSString *)account pwd:(NSString *)pwd type:(TPUserType)type {
-    return [self userAccount:account pwd:pwd name:nil idCard:nil type:type];
+    return [self userAccount:account pwd:pwd name:@"匿名" idCard:nil type:type];
 }
 + (instancetype)userAccount:(NSString *)account
                         pwd:(NSString *)pwd

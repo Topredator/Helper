@@ -34,4 +34,8 @@
 #import "TPHelperEnum.h"
 #import "UIView+TPCommonEmpty.h"
 
+#import "TPDiaryModule.h"
+#import "TPAnimalModule.h"
+#import "TPApplyModule.h"
+#import "TPUserModule.h"
 #endif /* Helper_pch */

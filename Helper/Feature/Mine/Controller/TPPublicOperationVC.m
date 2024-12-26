@@ -7,6 +7,7 @@
 
 #import "TPPublicOperationVC.h"
 #import "TPReleaseDiaryVC.h"
+#import "TPReleaseAdoptVC.h"
 
 @interface TPPublicOperationVC ()
 /// 日记
@@ -55,7 +56,10 @@
     TPReleaseDiaryVC *dailyVC = [TPReleaseDiaryVC new];
     [self.navigationController pushViewController:dailyVC animated:YES];
 }
-- (void)adoptBtnAction {}
+- (void)adoptBtnAction {
+    TPReleaseAdoptVC *adoptVC = [TPReleaseAdoptVC new];
+    [self.navigationController pushViewController:adoptVC animated:YES];
+}
 - (void)platformBtnAction {}
 #pragma mark----------------- Getter -----------------
 - (UIButton *)dailyBtn {

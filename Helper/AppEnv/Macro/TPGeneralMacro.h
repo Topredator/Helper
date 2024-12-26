@@ -34,3 +34,5 @@ static NSString *const kTPUserToken = @"com.helper.user.default.token";
 #define TPHelperLightDarkTextColor [TPUI tp_r:153 g:153 b:153]
 #import "AppDelegate+TPWindow.h"
 NS_INLINE AppDelegate *TPAppDelegate(void) { return (AppDelegate *)[UIApplication sharedApplication].delegate; }
+
+

@@ -50,13 +50,55 @@
 + (BOOL)handleTaskMessage:(TPDBTaskMessage *)msg {
     NSInteger messageType = msg.taskMsgType;
     id argument = msg.argument;
+    TPAdoptDao *adoptDao = [TPAdoptDao daoWithTableName:TABLE_NAME_ADOPT];
     if (messageType == TPAnimalModuleRegist) { // 注册
         TPAnimalDao *animalDao = [TPAnimalDao daoWithTableName:TABLE_NAME_ANIMAL];
         [animalDao save:argument messageType:messageType waitUntilDone:NO igoner:YES];
         return YES;
     } else if (messageType == TPAnimalModulePublicAdopt) { // 发布领养
-        TPAdoptDao *adoptDao = [TPAdoptDao daoWithTableName:TABLE_NAME_ADOPT];
         [adoptDao save:argument messageType:messageType waitUntilDone:NO igoner:YES];
+        return YES;
+    } else if (messageType == TPFetchAdoptDatas ||
+               messageType == TPFetchAdoptMoreDatas) { // 获取领养数据
+        NSDictionary *dic = argument;
+        NSInteger type = [dic tp_IntegerObjectForKey:@"type"];
+        NSInteger pageNo = [dic tp_IntegerObjectForKey:@"pageNo"];
+        NSInteger pageSize = [dic tp_IntegerObjectForKey:@"pageSize"];
+        
+        NSString *condition = @"";
+        if (type == 0) { // 全部
+            condition = @"0, 1, 2";
+        } else if (type == 1) { // 猫
+            condition = @"0";
+        } else if (type == 2) { // 狗
+            condition = @"1";
+        }
+        
+        NSString *sql = [NSString stringWithFormat:@"SELECT a.*, an.*, u.* FROM %@ a INNER JOIN %@ an ON a.Adopt_animalId = an.Animal_animalId INNER JOIN %@ u ON a.Adopt_publisherId = u.User_userId WHERE an.Animal_category IN (%@) ORDER BY a.Adopt_createTime DESC LIMIT %ld OFFSET (%ld - 1) * %ld", TABLE_NAME_ADOPT, TABLE_NAME_ANIMAL, TABLE_NAME_USER, condition, pageSize, pageNo, pageSize];
+        
+        NSInteger msgType = TPFetchAllAdoptDatas;
+        if (messageType == TPFetchAdoptDatas) {
+            if (type == 0) {
+                msgType = TPFetchAllAdoptDatas;
+            } else if (type == 1) {
+                msgType = TPFetchCatAdoptDatas;
+            } else {
+                msgType = TPFetchDogAdoptDatas;
+            }
+        } else {
+            if (type == 0) {
+                msgType = TPFetchAllAdoptMoreDatas;
+            } else if (type == 1) {
+                msgType = TPFetchCatAdoptMoreDatas;
+            } else {
+                msgType = TPFetchDogAdoptMoreDatas;
+            }
+        }
+        [adoptDao searchWithSQL:sql messageType:msgType waitUntilDone:NO];
+        return YES;
+    } else if (messageType == TPHomeBannerDatas) { // 首页banner
+        NSString *sql = [NSString stringWithFormat:@"SELECT a.*, an.*, u.* FROM %@ a INNER JOIN %@ an ON a.Adopt_animalId = an.Animal_animalId INNER JOIN %@ u ON a.Adopt_publisherId = u.User_userId WHERE a.Adopt_beAdopted = 0 ORDER BY a.Adopt_createTime DESC LIMIT 5", TABLE_NAME_ADOPT, TABLE_NAME_ANIMAL, TABLE_NAME_USER];
+        [adoptDao searchWithSQL:sql messageType:messageType waitUntilDone:NO];
         return YES;
     }
     return NO;

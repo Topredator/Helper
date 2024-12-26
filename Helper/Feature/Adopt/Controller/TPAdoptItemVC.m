@@ -8,9 +8,12 @@
 #import "TPAdoptItemVC.h"
 #import "TPCommonSection.h"
 #import "TPAdoptItemRow.h"
+#import "TPAdoptDetailVC.h"
 
 @interface TPAdoptItemVC ()
 @property (nonatomic, strong) TPCommonSection *section;
+@property (nonatomic, assign) NSInteger pageNo;
+@property (nonatomic, assign) NSInteger pageSize;
 @end
 
 @implementation TPAdoptItemVC
@@ -30,6 +33,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.pageSize = 20;
     [self loadData];
 }
 - (void)setupSubviews {
@@ -41,56 +45,95 @@
     self.tableview.mj_header = [TPUIRefreshHeader headerWithRefreshingBlock:^{
         [TPGCDQueue executeInMainQueue:^{
             @strongify(self);
-            [self.tableview.mj_header endRefreshing];
+            [self loadData];
         } afterDelaySecs:3];
     }];
     self.tableview.mj_footer = [TPUIRefreshFooter footerWithRefreshingBlock:^{
         [TPGCDQueue executeInMainQueue:^{
             @strongify(self);
-            [self.tableview.mj_footer endRefreshing];
+            [self moreData];
         } afterDelaySecs:3];
     }];
 }
 - (void)loadData {
-    switch (self.itemType) {
-        case TPAdoptItemTypeCat:
-            [self.section addObjectsFromArray:[self catItemRows]];
-            break;
-        case TPAdoptItemTypeDog:
-            [self.section addObjectsFromArray:[self dogItemRows]];
-            break;
-        default: {
-            [self.section addObjectsFromArray:[self catItemRows]];
-            [self.section addObjectsFromArray:[self dogItemRows]];
-        }
-            break;
-    }
-    [self reloadData:@[self.section]];
-}
-- (NSArray <TPAdoptItemRow *>*)catItemRows {
-    NSInteger count = 15;
-    NSMutableArray *array = @[].mutableCopy;
-    NSString *name = @"猫猫";
-    TPAnimalCategory category = TPAnimalCategoryCat;
-    
-    for (NSInteger i = 0 ; i < count; i++) {
-        TPAdoptModel *model = [TPAdoptModel adoptName:[NSString stringWithFormat:@"%@_%ld", name, i + 1] category:category sex:(TPAnimalSexType)(arc4random() % 2)];
-        [array addObject:[TPAdoptItemRow rowWithModel:model]];
-    }
-    return array.copy;
-}
-- (NSArray <TPAdoptItemRow *>*)dogItemRows {
-    NSInteger count = 15;
-    NSMutableArray *array = @[].mutableCopy;
-    NSString *name = @"狗狗";
-    TPAnimalCategory category = TPAnimalCategoryDog;
-    for (NSInteger i = 0 ; i < count; i++) {
-        TPAdoptModel *model = [TPAdoptModel adoptName:[NSString stringWithFormat:@"%@_%ld", name, i + 1] category:category sex:(TPAnimalSexType)(arc4random() % 2)];
-        [array addObject:[TPAdoptItemRow rowWithModel:model]];
-    }
-    return array.copy;
+
+    [TPDBRouter sendTaskMessage:TPFetchAdoptDatas argument:@{
+        @"pageNo": @(1),
+        @"pageSize": @(self.pageSize),
+        @"type": @(self.itemType)
+    }];
 }
 
+- (void)moreData {
+    [TPDBRouter sendTaskMessage:TPFetchAdoptMoreDatas argument:@{
+        @"pageNo": @(self.pageNo + 1),
+        @"pageSize": @(self.pageSize),
+        @"type": @(self.itemType)
+    }];
+}
+
+- (TPAdoptItemRow *)rowWithModel:(TPAdoptModel *)model {
+    TPAdoptItemRow *row = [TPAdoptItemRow rowWithModel:model];
+    row.cellDidSelected = ^(__kindof TPTableRow * _Nonnull rowData, TPTableViewProxy * _Nonnull proxy, NSIndexPath * _Nonnull indexPath) {
+        TPAdoptDetailVC *detailVC = [TPAdoptDetailVC new];
+        [[TPUINavigator currentNavigationController] pushViewController:detailVC animated:YES];
+    };
+    return row;
+}
+- (BOOL)handleMessage:(NSInteger)messageType result:(NSInteger)result argument:(id)argument {
+    if ((messageType == TPFetchAllAdoptDatas ||
+         messageType == TPFetchAllAdoptMoreDatas) && self.itemType == TPAdoptItemTypeAll) {
+        NSArray *tempArray = (NSArray *)argument;
+        [self handleWithArray:tempArray append:messageType == TPFetchAllAdoptMoreDatas];
+        
+        return YES;
+    } else if ((messageType == TPFetchCatAdoptDatas ||
+                messageType == TPFetchCatAdoptMoreDatas) && self.itemType == TPAdoptItemTypeCat) {
+        [self handleWithArray:(NSArray *)argument append:messageType == TPFetchCatAdoptMoreDatas];
+        return YES;
+    } else if ((messageType == TPFetchDogAdoptDatas ||
+                messageType == TPFetchDogAdoptMoreDatas) && self.itemType == TPAdoptItemTypeDog) {
+        [self handleWithArray:(NSArray *)argument append:messageType == TPFetchDogAdoptMoreDatas];
+        return YES;
+    }
+    return NO;
+}
+- (void)handleWithArray:(NSArray *)tempArray append:(BOOL)append {
+    [self.tableview tp_hideBlankView];
+    
+    if (!append) {
+        self.pageNo = 1;
+        if (!tempArray.count) {
+            [self.tableview tp_commonEmptyData];
+        }
+        [self.section removeAllObjects];
+    } else {
+        self.pageNo += 1;
+        if (self.section.count <= 0) {
+            [self.tableview tp_commonEmptyData];
+        }
+    }
+    
+    if (tempArray.count > 0) {
+        for (NSDictionary *dic in tempArray) {
+            TPAdoptModel *adoptModel = [TPAdoptModel tp_modelWithDictionary:[dic keyRemovePrefix:TABLE_NAME_ADOPT]];
+            TPUserModel *userModel = [TPUserModel tp_modelWithDictionary:[dic keyRemovePrefix:TABLE_NAME_USER]];
+            TPAnimalModel *animalModel = [TPAnimalModel tp_modelWithDictionary:[dic keyRemovePrefix:TABLE_NAME_ANIMAL]];
+            adoptModel.publisher = userModel;
+            adoptModel.animal = animalModel;
+            [self.section addObject:[self rowWithModel:adoptModel]];
+        }
+    }
+    
+    if (tempArray.count < 20) {
+        [self.tableview.mj_footer endRefreshingWithNoMoreData];
+    } else {
+        [self.tableview.mj_footer endRefreshing];
+    }
+    [self.tableview.mj_header endRefreshing];
+    
+    [self reloadData:@[self.section]];
+}
 #pragma mark----------------- Getter -----------------
 - (TPCommonSection *)section {
     if (!_section) {

@@ -73,19 +73,19 @@
 }
 - (void)configWithModel:(TPAdoptModel *)model {
     self.beAdoptedImage.hidden = !model.beAdopted;
-    self.avatarImage.image = [UIImage imageNamed:model.thumbImage];
-    self.nameLabel.text = model.name;
-    self.sexImage.image = [UIImage imageNamed:model.sexType == TPAnimalSexTypeFemale ? @"sex_female" : @"sex_male"];
-    self.breedLabel.text = model.breed;
+    self.avatarImage.image = [UIImage imageNamed:model.animal.thumbImage];
+    self.nameLabel.text = model.animal.name;
+    self.sexImage.image = [UIImage imageNamed:model.animal.sexType == TPAnimalSexTypeFemale ? @"sex_female" : @"sex_male"];
+    self.breedLabel.text = [NSString stringWithFormat:@"品种: %@", model.animal.breed];
     [self.itemContainer tp_removeAllSubviews];
     
-    UILabel *sterilizationLabel = [self createLabel:model.isSterilization ? @"已绝育" : @"未绝育" flag:model.isSterilization];
+    UILabel *sterilizationLabel = [self createLabel:model.animal.isSterilization ? @"已绝育" : @"未绝育" flag:model.animal.isSterilization];
     [self.itemContainer addSubview:sterilizationLabel];
     
-    UILabel *dewormingLabel = [self createLabel:model.isDeworming ? @"已驱虫" : @"未驱虫" flag:model.isDeworming];
+    UILabel *dewormingLabel = [self createLabel:model.animal.isDeworming ? @"已驱虫" : @"未驱虫" flag:model.animal.isDeworming];
     [self.itemContainer addSubview:dewormingLabel];
     
-    UILabel *vaccineLabel = [self createLabel:model.isVaccine ? @"已接种疫苗" : @"未接种疫苗" flag:model.isVaccine];
+    UILabel *vaccineLabel = [self createLabel:model.animal.isVaccine ? @"已接种疫苗" : @"未接种疫苗" flag:model.animal.isVaccine];
     [self.itemContainer addSubview:vaccineLabel];
     
     [sterilizationLabel mas_makeConstraints:^(MASConstraintMaker *make) {

@@ -55,15 +55,16 @@
     }];
 }
 - (void)loadData {
-    self.bannerSection = [TPHomeBannerSection sectionWithBanners:@[
-        [TPHomeBannerModel bannerWithName:@"banner_1"],
-        [TPHomeBannerModel bannerWithName:@"banner_2"],
-        [TPHomeBannerModel bannerWithName:@"banner_3"],
-        [TPHomeBannerModel bannerWithName:@"banner_4"],
-        [TPHomeBannerModel bannerWithName:@"banner_5"]
-    ]];
-    [self.collectionView.TPProxy reloadData:@[self.bannerSection]];
-    
+//    self.bannerSection = [TPHomeBannerSection sectionWithBanners:@[
+//        [TPHomeBannerModel bannerWithName:@"banner_1"],
+//        [TPHomeBannerModel bannerWithName:@"banner_2"],
+//        [TPHomeBannerModel bannerWithName:@"banner_3"],
+//        [TPHomeBannerModel bannerWithName:@"banner_4"],
+//        [TPHomeBannerModel bannerWithName:@"banner_5"]
+//    ]];
+//    [self.collectionView.TPProxy reloadData:@[self.bannerSection]];
+    [self.collectionView.TPProxy reloadData:@[self.bannerSection, self.diarySection]];
+    [TPDBRouter sendTaskMessage:TPHomeBannerDatas];
     // 获取日记
     [TPDBRouter sendTaskMessage:TPDiaryFetchDatas argument:@{
         @"pageNo": @(1),
@@ -114,11 +115,32 @@
             [self.collectionView.mj_footer endRefreshing];
         }
         [self.collectionView.mj_header endRefreshing];
-        if (!self.bannerSection) {
-            [self.collectionView.TPProxy reloadData:@[self.diarySection]];
+        [self.collectionView.TPProxy reloadData:@[self.bannerSection, self.diarySection]];
+//        if (!self.bannerSection) {
+//            [self.collectionView.TPProxy reloadData:@[self.diarySection]];
+//        } else {
+//            [self.collectionView.TPProxy reloadData:@[self.bannerSection, self.diarySection]];
+//        }
+        return YES;
+    } else if (messageType == TPHomeBannerDatas) {
+        NSArray *datas = (NSArray *)argument;
+        if (datas.count) {
+            NSMutableArray *tempArr = @[].mutableCopy;
+            for (NSDictionary *dic in datas) {
+                TPAdoptModel *adoptModel = [TPAdoptModel tp_modelWithDictionary:[dic keyRemovePrefix:TABLE_NAME_ADOPT]];
+                TPUserModel *userModel = [TPUserModel tp_modelWithDictionary:[dic keyRemovePrefix:TABLE_NAME_USER]];
+                TPAnimalModel *animalModel = [TPAnimalModel tp_modelWithDictionary:[dic keyRemovePrefix:TABLE_NAME_ANIMAL]];
+                adoptModel.publisher = userModel;
+                adoptModel.animal = animalModel;
+                TPHomeBannerModel *bannerModel = [TPHomeBannerModel new];
+                bannerModel.adoptModel = adoptModel;
+                [tempArr addObject:bannerModel];
+            }
+            self.bannerSection.banners = tempArr.copy;
         } else {
-            [self.collectionView.TPProxy reloadData:@[self.bannerSection, self.diarySection]];
+            self.bannerSection.banners = @[];
         }
+        [self.collectionView.TPProxy reloadData:@[self.bannerSection, self.diarySection]];
         return YES;
     }
     return NO;

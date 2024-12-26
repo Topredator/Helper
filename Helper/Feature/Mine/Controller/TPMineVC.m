@@ -12,6 +12,7 @@
 #import "TPMineToolSection.h"
 #import "TPMineToolRow.h"
 #import "TPPublicOperationVC.h"
+#import "TPReleaseDiaryVC.h"
 
 @interface TPMineVC ()
 @property (nonatomic, strong) TPMineHeaderView *headerView;
@@ -73,7 +74,6 @@
 }
 - (TPMineToolRow *)customerServiceRow {
     TPMineToolRow *row = [TPMineToolRow rowWithIcon:@"mine_customer_service" name:@"客服电话"];
-    @weakify(self);
     row.cellDidSelected = ^(__kindof TPTableRow * _Nonnull rowData, TPTableViewProxy * _Nonnull proxy, NSIndexPath * _Nonnull indexPath) {
         [TPUIAlert alertSheetShow:^(TPUIAlertMaker *make) {
             make.title(@"客服电话");
@@ -91,8 +91,13 @@
 }
 
 - (void)publicAction {
-    TPPublicOperationVC *vc = [TPPublicOperationVC new];
-    [self.navigationController pushViewController:vc animated:YES];
+    if (TPUserManager.manager.user.userType != TPUserTypeCustome) {
+        TPPublicOperationVC *vc = [TPPublicOperationVC new];
+        [self.navigationController pushViewController:vc animated:YES];
+    } else {
+        TPReleaseDiaryVC *dailyVC = [TPReleaseDiaryVC new];
+        [self.navigationController pushViewController:dailyVC animated:YES];
+    }
 }
 - (void)collectAction {
     

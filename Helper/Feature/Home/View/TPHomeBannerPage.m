@@ -28,13 +28,14 @@
     }];
 }
 - (void)configWithModel:(TPHomeBannerModel *)model {
-    self.bannerImage.image = [UIImage imageNamed:model.imageName];
+    self.bannerImage.image = [UIImage imageNamed:model.adoptModel.animal.coverImage];
 }
 #pragma mark---------- Getter -------------
 - (UIImageView *)bannerImage {
     if (!_bannerImage) {
         _bannerImage                        = [[UIImageView alloc] initWithFrame:CGRectZero];
         _bannerImage.userInteractionEnabled = YES;
+        _bannerImage.contentMode = UIViewContentModeScaleAspectFill;
     }
     return _bannerImage;
 }

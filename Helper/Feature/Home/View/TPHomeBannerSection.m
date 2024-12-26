@@ -8,16 +8,24 @@
 #import "TPHomeBannerSection.h"
 #import "TPBaseCollectionSectionView.h"
 #import "TPHomeBannerPage.h"
+#import "TPAdoptDetailVC.h"
 
 @interface TPHomeBannerSectionHeaderView : TPBaseCollectionSectionView <TPUIBannerViewDelegate>
+@property (nonatomic, strong) UIImageView *bgImage;
 @property (nonatomic, strong) TPUIBannerView *bannerView;
 @property (nonatomic, copy) NSArray *datas;
+@property (nonatomic, strong) TPAdoptModel *adoptModel;
 @end
 @implementation TPHomeBannerSectionHeaderView
 - (void)setupSubviews {
+    self.layer.masksToBounds = YES;
+    [self addSubview:self.bgImage];
     [self addSubview:self.bannerView];
 }
 - (void)makeConstraints {
+    [self.bgImage mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.mas_equalTo(UIEdgeInsetsZero);
+    }];
     [self.bannerView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.mas_equalTo(UIEdgeInsetsZero);
     }];
@@ -39,14 +47,31 @@
     return YES;
 }
 - (void)bannerView:(TPUIBannerView *)bannerView didSelectedAtPageIndex:(NSInteger)pageIndex {
-    
+    TPHomeBannerModel *model = [self.datas tp_ObjectAtIndex:pageIndex];
+    TPAdoptDetailVC *detailVC = [TPAdoptDetailVC new];
+    detailVC.adoptModel = model.adoptModel;
+    [[TPUINavigator currentNavigationController] pushViewController:detailVC animated:YES];
 }
 - (void)configWithBanners:(NSArray <TPHomeBannerModel *>*)banners {
+    if (!banners.count) {
+        self.datas = @[];
+        [self.bannerView stopTimer];
+        self.bannerView.hidden = YES;
+        return;
+    }
+    self.bannerView.hidden = NO;
     self.datas = banners;
     [self.bannerView reloadData];
     [self.bannerView startTimerWithTimeInterval:3];
 }
 #pragma mark----------------- Getter -----------------
+- (UIImageView *)bgImage {
+    if (!_bgImage) {
+        _bgImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"mine_bg_image"]];
+        _bgImage.contentMode = UIViewContentModeScaleAspectFill;
+    }
+    return _bgImage;
+}
 - (TPUIBannerView *)bannerView {
     if (!_bannerView) {
         _bannerView = [[TPUIBannerView alloc] initWithFrame:CGRectZero];
@@ -60,6 +85,7 @@
 @end
 
 @interface TPHomeBannerSection ()
+@property (nonatomic, weak) TPHomeBannerSectionHeaderView *headerView;
 @end
 
 @implementation TPHomeBannerSection
@@ -75,10 +101,17 @@
     section.banners = banners;
     return section;
 }
+- (void)setBanners:(NSArray<TPHomeBannerModel *> *)banners {
+    _banners = banners;
+    if (self.headerView) {
+        [self.headerView configWithBanners:banners];
+    }
+}
 - (CGSize)tp_collectionSectionHeaderSizeWithProxy:(__kindof TPCollectionViewProxy *)proxy section:(NSInteger)section {
     return CGSizeMake(TPUI.tp_screenWidth, 200);
 }
 - (void)tp_collectionViewHeader:(TPHomeBannerSectionHeaderView *)header preparedWithProxy:(TPCollectionViewProxy *)proxy section:(NSUInteger)section {
+    self.headerView = header;
     [header configWithBanners:self.banners];
 }
 @end

@@ -10,7 +10,7 @@
 /// 创建 申请表
 #define CREATE_TABLE_APPLY   @"CREATE TABLE IF NOT EXISTS "  TABLE_NAME_APPLY                \
 "("                                             \
-" ApplyapplyId"             " TEXT PRIMARY KEY,"        \
+" Apply_applyId"             " TEXT PRIMARY KEY,"        \
 " Apply_userId"         " TEXT,"                     \
 " Apply_adminId"         " TEXT,"                     \
 " Apply_adoptId"         " TEXT,"                    \

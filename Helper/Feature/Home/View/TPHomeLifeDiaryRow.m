@@ -125,7 +125,6 @@
 }
 - (void)tp_collectionViewPreparedCell:(TPHomeLifeDiaryCell *)cell proxy:(TPCollectionViewProxy *)proxy indexPath:(NSIndexPath *)indexPath {
     [cell configWithModel:self.model];
-    
 }
 - (CGSize)tp_collectionViewItemSizeWithProxy:(__kindof TPCollectionViewProxy *)proxy indexPath:(NSIndexPath *)indexPath {
     CGFloat width = (TPUI.tp_screenWidth - 45) / 2;
