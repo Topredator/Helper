@@ -13,7 +13,7 @@
 #import "TPMineToolRow.h"
 #import "TPPublicOperationVC.h"
 #import "TPReleaseDiaryVC.h"
-
+#import "TPCollectListVC.h"
 @interface TPMineVC ()
 @property (nonatomic, strong) TPMineHeaderView *headerView;
 @end
@@ -38,6 +38,9 @@
     [section addObject:[self functionRow]];
     
     TPMineToolSection *toolSection = [TPMineToolSection section];
+    if (TPUserManager.manager.user.userType == TPUserTypeCustome) {
+        [toolSection addObject:[self applyRow]];
+    }
     [toolSection addObject:[self feedbackRow]];
     [toolSection addObject:[self ruleRow]];
     [toolSection addObject:[self agreementRow]];
@@ -49,6 +52,13 @@
     [row setPublicTarget:self action:@selector(publicAction)];
     [row setCollectTarget:self action:@selector(collectAction)];
     [row setDonateTarget:self action:@selector(donateAction)];
+    return row;
+}
+- (TPMineToolRow *)applyRow {
+    TPMineToolRow *row = [TPMineToolRow rowWithIcon:@"mine_apply_admin" name:@"申请成为管理员"];
+    row.cellDidSelected = ^(__kindof TPTableRow * _Nonnull rowData, TPTableViewProxy * _Nonnull proxy, NSIndexPath * _Nonnull indexPath) {
+        [TPDBRouter sendTaskMessage:TPApplyToAdmin];
+    };
     return row;
 }
 - (TPMineToolRow *)feedbackRow {
@@ -77,8 +87,8 @@
     row.cellDidSelected = ^(__kindof TPTableRow * _Nonnull rowData, TPTableViewProxy * _Nonnull proxy, NSIndexPath * _Nonnull indexPath) {
         [TPUIAlert alertSheetShow:^(TPUIAlertMaker *make) {
             make.title(@"客服电话");
-            make.addOption(TPUIAlertBlockOption(@"10086", ^{
-                NSString *telURL = [NSString stringWithFormat:@"tel:10086"];
+            make.addOption(TPUIAlertBlockOption(@"15238272309", ^{
+                NSString *telURL = [NSString stringWithFormat:@"tel:15238272309"];
                     NSURL *url = [NSURL URLWithString:telURL];
                     if ([[UIApplication sharedApplication] canOpenURL:url]) {
                         [[UIApplication sharedApplication] openURL:url options:@{} completionHandler:nil];
@@ -100,10 +110,21 @@
     }
 }
 - (void)collectAction {
-    
+    TPCollectListVC *listVC = [TPCollectListVC new];
+    [TPUINavigator pushViewController:listVC animated:YES];
 }
 - (void)donateAction {
     
+}
+- (BOOL)handleMessage:(NSInteger)messageType result:(NSInteger)result argument:(id)argument {
+    if (messageType == TPApplyToAdminWaiting) {
+        [self.view tp_toast:@"已申请，请等待审批"];
+        return YES;
+    } else if (messageType == TPApplyToAdmin) {
+        [self.view tp_toast:@"申请成功，请等待审批"];
+        return YES;
+    }
+    return NO;
 }
 #pragma mark----------------- Getter -----------------
 - (TPMineHeaderView *)headerView {

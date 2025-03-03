@@ -10,7 +10,7 @@
 #import "TPUserModel.h"
 
 
-
+/// 用户表
 #define CREATE_TABLE_USER   @"CREATE TABLE IF NOT EXISTS "  TABLE_NAME_USER                \
 "("                                             \
 " User_userId"             " TEXT PRIMARY KEY,"        \
@@ -33,6 +33,10 @@
     /// 注册超级管理员
     TPUserModel *model = [TPUserModel userAccount:@"00000000000" pwd:@"123456" name:@"Dexterly" idCard:@"410422199501061174" type:TPUserTypeSuperManager];
     [TPDBRouter sendTaskMessage:TPUserModuleRegister argument:[model tp_modelToJSONObject]];
+    
+    /// 注册普通管理员
+    TPUserModel *managerModel = [TPUserModel userAccount:@"11111111111" pwd:@"123456" name:@"Topredator" idCard:@"410422199501060038" type:TPUserTypeManager];
+    [TPDBRouter sendTaskMessage:TPUserModuleRegister argument:[managerModel tp_modelToJSONObject]];
 }
 + (BOOL)handleTaskMessage:(TPDBTaskMessage *)msg {
     NSInteger messageType = msg.taskMsgType;

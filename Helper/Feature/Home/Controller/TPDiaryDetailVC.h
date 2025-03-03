@@ -6,12 +6,11 @@
 //
 
 #import "TPNavigationBaseVC.h"
-#import "TPDiaryModel.h"
-
+#import "TPPublishModel.h"
 NS_ASSUME_NONNULL_BEGIN
 
 @interface TPDiaryDetailVC : TPNavigationBaseVC
-@property (nonatomic, strong) TPDiaryModel *diaryModel;
+@property (nonatomic, strong) TPPublishModel *publishModel;
 @end
 
 NS_ASSUME_NONNULL_END

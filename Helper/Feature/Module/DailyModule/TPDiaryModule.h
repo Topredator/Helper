@@ -14,9 +14,9 @@
 typedef NS_ENUM(NSUInteger, TPDiaryModuleMessageType) {
     /// 用户发布
     TPDiaryModulePublic = 200000,
-    /// 获取 日志列表
+    /// 获取 日常列表
     TPDiaryFetchDatas,
-    /// 更多日志
+    /// 更多日常
     TPDiaryFetchMoreDatas,
 };
 

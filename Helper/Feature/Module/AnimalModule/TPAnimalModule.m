@@ -25,7 +25,9 @@
 " Animal_sexType"         " INTEGER default 0,"                    \
 " Animal_sterilization"         " INTEGER default 0,"                    \
 " Animal_deworming"         " INTEGER default 0,"                    \
-" Animal_vaccine"         " INTEGER default 0"                    \
+" Animal_vaccine"         " INTEGER default 0,"                    \
+" Animal_status"         " INTEGER default 0,"                    \
+" Animal_userId"         " TEXT"                    \ 
 ")"
 
 /// 创建 领养表
@@ -96,11 +98,21 @@
         }
         [adoptDao searchWithSQL:sql messageType:msgType waitUntilDone:NO];
         return YES;
-    } else if (messageType == TPHomeBannerDatas) { // 首页banner
-        NSString *sql = [NSString stringWithFormat:@"SELECT a.*, an.*, u.* FROM %@ a INNER JOIN %@ an ON a.Adopt_animalId = an.Animal_animalId INNER JOIN %@ u ON a.Adopt_publisherId = u.User_userId WHERE a.Adopt_beAdopted = 0 ORDER BY a.Adopt_createTime DESC LIMIT 5", TABLE_NAME_ADOPT, TABLE_NAME_ANIMAL, TABLE_NAME_USER];
-        [adoptDao searchWithSQL:sql messageType:messageType waitUntilDone:NO];
-        return YES;
+    } else if (messageType == TPAnimalModuleFetchUserAnimal ||
+               messageType == TPAnimalModuleFetchUserAnimalDatas) {
+        NSDictionary *dic = argument;
+        NSString *userId = [dic tp_StringObjectForKey:@"userId"];
+        NSInteger pageNo = [dic tp_IntegerObjectForKey:@"pageNo"];
+        NSInteger pageSize = [dic tp_IntegerObjectForKey:@"pageSize"];
+        NSString *sql = [NSString stringWithFormat:@"SELECT * FROM %@ WHERE Animal_userId='%@' ORDER BY Animal_createTime DESC LIMIT %ld OFFSET (%ld - 1) * %ld",  TABLE_NAME_ANIMAL, userId, pageSize, pageNo, pageSize];
+        TPBaseDao *dao = [TPBaseDao daoWithTableName:TABLE_NAME_ANIMAL];
+        [dao searchWithSQL:sql messageType:messageType waitUntilDone:NO];
     }
+//    else if (messageType == TPHomeBannerDatas) { // 首页banner
+//        NSString *sql = [NSString stringWithFormat:@"SELECT a.*, an.*, u.* FROM %@ a INNER JOIN %@ an ON a.Adopt_animalId = an.Animal_animalId INNER JOIN %@ u ON a.Adopt_publisherId = u.User_userId WHERE a.Adopt_beAdopted = 0 ORDER BY a.Adopt_createTime DESC LIMIT 5", TABLE_NAME_ADOPT, TABLE_NAME_ANIMAL, TABLE_NAME_USER];
+//        [adoptDao searchWithSQL:sql messageType:messageType waitUntilDone:NO];
+//        return YES;
+//    }
     return NO;
 }
 @end

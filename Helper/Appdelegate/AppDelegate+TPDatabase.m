@@ -10,6 +10,8 @@
 #import "TPApplyModule.h"
 #import "TPAnimalModule.h"
 #import "TPDiaryModule.h"
+#import "TPPublishModule.h"
+#import "TPCollectModule.h"
 
 @implementation AppDelegate (TPDatabase)
 - (void)tp_setupDatabase {
@@ -19,7 +21,9 @@
         TPUserModule.class,
         TPAnimalModule.class,
         TPApplyModule.class,
-        TPDiaryModule.class
+        TPDiaryModule.class,
+        TPPublishModule.class,
+        TPCollectModule.class
     ];
     [TPDBManager setConfiguration:config];
 }

@@ -27,6 +27,14 @@ typedef NS_ENUM(NSUInteger, TPAnimalCategory) {
     TPAnimalCategoryOther,
 };
 
+/// 宠物状态
+typedef NS_ENUM(NSInteger, TPAnimalStatus) {
+    /// 无主状态
+    TPAnimalStatusUnowned,
+    /// 有主状态
+    TPAnimalStatusActive
+};
+
 /// 公告类型
 typedef NS_ENUM(NSUInteger, TPAnnouncementType) {
     /// 新闻类型
@@ -56,5 +64,25 @@ typedef NS_ENUM(NSUInteger, TPApplyType) {
     /// 申请领养动物
     TPApplyTypeAdopt,
 };
+
+
+/// 发布类型
+typedef NS_ENUM(NSInteger, TPPublishType) {
+    /// 链接公告
+    TPPublishTypeLinkNotice,
+    /// 图文公告
+    TPPublishTypeGraphicNotice,
+    /// 日常
+    TPPublishTypeDaily,
+    /// 待救助
+    TPPublishTypeToBeRescued,
+    /// 康复中
+    TPPublishTypeInRecovery,
+    /// 领养
+    TPPublishTypeAdopt,
+    /// 宠物相关
+    TPPublishTypeAboutAnimal
+};
+
 
 #endif /* TPHelperEnum_h */

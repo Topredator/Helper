@@ -517,7 +517,6 @@ CGFloat TPDelegateGetTagImgWidthCallback(void *config) {
                 forIndex += subString.length - 1;
             }
                 break;
-            
             default:
                 break;
         }

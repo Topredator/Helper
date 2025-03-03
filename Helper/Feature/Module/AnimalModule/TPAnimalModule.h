@@ -15,6 +15,13 @@
 typedef NS_ENUM(NSUInteger, TPAnimalModuleMessageType) {
     /// 动物注册
     TPAnimalModuleRegist = 300000,
+    /// 动物信息编辑
+    TPAnimalModuleAnimalEdit,
+    /// 获取用户名下动物
+    TPAnimalModuleFetchUserAnimal,
+    /// 获取用户名下更多动物
+    TPAnimalModuleFetchUserAnimalDatas,
+    
     /// 管理员发布领养
     TPAnimalModulePublicAdopt,
     /// 获取 所有类型 领养数据(刷新)
@@ -29,8 +36,7 @@ typedef NS_ENUM(NSUInteger, TPAnimalModuleMessageType) {
     TPFetchDogAdoptDatas,
     TPFetchDogAdoptMoreDatas,
     
-    /// 获取首页banner
-    TPHomeBannerDatas,
+    
     
 };
 

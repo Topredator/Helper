@@ -16,7 +16,7 @@ typedef NS_ENUM(NSUInteger, TPUserModuleMessageType) {
     /// 用户单个查询
     TPUserModuleSingleQuery,
     /// 修改密码
-    TPUserModuleChangePassword,
+    TPUserModuleChangePassword
 };
 
 

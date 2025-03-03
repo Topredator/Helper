@@ -56,8 +56,8 @@
         make.bottom.mas_equalTo(-5);
     }];
 }
-- (void)configWithModel:(TPDiaryModel *)model {
-    self.imageView.image = [UIImage imageNamed:model.image];
+- (void)configWithModel:(TPPublishModel *)model {
+    self.imageView.image = [UIImage imageNamed:[[NSArray tp_modelWithJSON:model.detailImages] firstObject]];
     self.avatarImage.image = [UIImage imageNamed:model.user.avatar];
     self.nameLabel.text = model.user.name ?: model.user.account;
     self.titleLabel.text = model.content;
@@ -107,7 +107,7 @@
 @end
 
 @interface TPHomeLifeDiaryRow ()
-@property (nonatomic, strong) TPDiaryModel *model;
+@property (nonatomic, strong) TPPublishModel *model;
 @end
 
 @implementation TPHomeLifeDiaryRow
@@ -118,7 +118,7 @@
     }
     return self;
 }
-+ (instancetype)rowWithModel:(TPDiaryModel *)model {
++ (instancetype)rowWithModel:(TPPublishModel *)model {
     TPHomeLifeDiaryRow *row = [TPHomeLifeDiaryRow row];
     row.model = model;
     return row;

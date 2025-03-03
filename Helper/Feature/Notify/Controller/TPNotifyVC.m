@@ -10,6 +10,7 @@
 #import "TPNotifyAnnouncementRow.h"
 #import "TPNotifyButtonRow.h"
 #import "TPCommonSection.h"
+#import "TPApplyListVC.h"
 
 @interface TPNotifyVC ()
 
@@ -66,8 +67,13 @@
     [tempArray addObject:[TPNotifyAnnouncementRow rowWithModel:thirdModel]];
     return tempArray.copy;
 }
-- (void)applyAction {}
-- (void)examineAction {}
+- (void)applyAction {
+    
+}
+- (void)examineAction {
+    TPApplyListVC *listVC = [TPApplyListVC new];
+    [self.navigationController pushViewController:listVC animated:YES];
+}
 - (TPNotifyButtonRow *)applyRow {
     TPNotifyButtonRow *row = [TPNotifyButtonRow applyRow];
     [row setTarget:self action:@selector(applyAction)];

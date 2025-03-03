@@ -12,7 +12,9 @@
 @end
 
 @implementation TPNavigationTableVC
-
+- (void)dealloc {
+    
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
@@ -22,13 +24,14 @@
     [self.view addSubview:self.tableview];
 }
 - (void)makeConstraints {
+    __weak typeof(self) weakSelf = self;
     [self.navigationView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.top.right.mas_equalTo(0);
         make.height.mas_equalTo(TPUI.tp_topBarHeight);
     }];
     [self.tableview mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.bottom.mas_equalTo(0);
-        make.top.equalTo(self.navigationView.mas_bottom);
+        make.top.equalTo(weakSelf.navigationView.mas_bottom);
     }];
 }
 

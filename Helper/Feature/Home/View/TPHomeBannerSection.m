@@ -8,13 +8,12 @@
 #import "TPHomeBannerSection.h"
 #import "TPBaseCollectionSectionView.h"
 #import "TPHomeBannerPage.h"
-#import "TPAdoptDetailVC.h"
+#import "TPHelpDetailVC.h"
 
 @interface TPHomeBannerSectionHeaderView : TPBaseCollectionSectionView <TPUIBannerViewDelegate>
 @property (nonatomic, strong) UIImageView *bgImage;
 @property (nonatomic, strong) TPUIBannerView *bannerView;
 @property (nonatomic, copy) NSArray *datas;
-@property (nonatomic, strong) TPAdoptModel *adoptModel;
 @end
 @implementation TPHomeBannerSectionHeaderView
 - (void)setupSubviews {
@@ -48,9 +47,13 @@
 }
 - (void)bannerView:(TPUIBannerView *)bannerView didSelectedAtPageIndex:(NSInteger)pageIndex {
     TPHomeBannerModel *model = [self.datas tp_ObjectAtIndex:pageIndex];
-    TPAdoptDetailVC *detailVC = [TPAdoptDetailVC new];
-    detailVC.adoptModel = model.adoptModel;
-    [[TPUINavigator currentNavigationController] pushViewController:detailVC animated:YES];
+    if (model.publishModel.type == 0) { // 链接
+        TPBaseWebVC *webVC = [TPBaseWebVC new];
+        webVC.url = model.publishModel.content;
+        [TPUINavigator pushViewController:webVC animated:YES];
+    } else { // 图文
+        
+    }
 }
 - (void)configWithBanners:(NSArray <TPHomeBannerModel *>*)banners {
     if (!banners.count) {

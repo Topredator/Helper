@@ -12,6 +12,7 @@
 #import "TPHomeLifeDiaryRow.h"
 #import "TPDiaryModule.h"
 #import "TPDiaryDetailVC.h"
+#import "TPPublishModule.h"
 
 @interface TPHomeVC ()
 @property (nonatomic, strong) UICollectionView *collectionView;
@@ -55,37 +56,29 @@
     }];
 }
 - (void)loadData {
-//    self.bannerSection = [TPHomeBannerSection sectionWithBanners:@[
-//        [TPHomeBannerModel bannerWithName:@"banner_1"],
-//        [TPHomeBannerModel bannerWithName:@"banner_2"],
-//        [TPHomeBannerModel bannerWithName:@"banner_3"],
-//        [TPHomeBannerModel bannerWithName:@"banner_4"],
-//        [TPHomeBannerModel bannerWithName:@"banner_5"]
-//    ]];
-//    [self.collectionView.TPProxy reloadData:@[self.bannerSection]];
     [self.collectionView.TPProxy reloadData:@[self.bannerSection, self.diarySection]];
     [TPDBRouter sendTaskMessage:TPHomeBannerDatas];
     // 获取日记
-    [TPDBRouter sendTaskMessage:TPDiaryFetchDatas argument:@{
+    [TPDBRouter sendTaskMessage:TPPublishDiaryDatas argument:@{
         @"pageNo": @(1),
         @"pageSize": @(self.pageSize)
     }];
 }
 - (void)moreData {
     // 获取日记
-    [TPDBRouter sendTaskMessage:TPDiaryFetchDatas argument:@{
+    [TPDBRouter sendTaskMessage:TPPublishDiaryMoreDatas argument:@{
         @"pageNo": @(self.pageNo + 1),
         @"pageSize": @(self.pageSize)
     }];
 }
 - (BOOL)handleMessage:(NSInteger)messageType result:(NSInteger)result argument:(id)argument {
-    if (messageType == TPDiaryFetchDatas ||
-        messageType == TPDiaryFetchMoreDatas) {
+    if (messageType == TPPublishDiaryDatas ||
+        messageType == TPPublishDiaryMoreDatas) {
         NSArray *tempArray = (NSArray *)argument;
         
         [self.collectionView tp_hideBlankView];
         
-        if (messageType == TPDiaryFetchDatas) {
+        if (messageType == TPPublishDiaryDatas) {
             self.pageNo = 1;
             if (!tempArray.count) {
                 TPUIImageBlankView *blankView = [self.collectionView tp_commonEmptyData];
@@ -103,9 +96,9 @@
         if (tempArray.count > 0) {
             for (NSDictionary *dic in tempArray) {
                 TPUserModel *userModel = [TPUserModel tp_modelWithDictionary:[dic keyRemovePrefix:TABLE_NAME_USER]];
-                TPDiaryModel *dailyModel = [TPDiaryModel tp_modelWithDictionary:[dic keyRemovePrefix:TABLE_NAME_DIARY]];
-                dailyModel.user = userModel;
-                [self.diarySection addObject:[self rowWithModel:dailyModel]];
+                TPPublishModel *model = [TPPublishModel tp_modelWithJSON:[dic keyRemovePrefix:TABLE_NAME_PUBLISH]];
+                model.user = userModel;
+                [self.diarySection addObject:[self rowWithModel:model]];
             }
         }
         
@@ -116,25 +109,19 @@
         }
         [self.collectionView.mj_header endRefreshing];
         [self.collectionView.TPProxy reloadData:@[self.bannerSection, self.diarySection]];
-//        if (!self.bannerSection) {
-//            [self.collectionView.TPProxy reloadData:@[self.diarySection]];
-//        } else {
-//            [self.collectionView.TPProxy reloadData:@[self.bannerSection, self.diarySection]];
-//        }
         return YES;
     } else if (messageType == TPHomeBannerDatas) {
         NSArray *datas = (NSArray *)argument;
         if (datas.count) {
             NSMutableArray *tempArr = @[].mutableCopy;
             for (NSDictionary *dic in datas) {
-                TPAdoptModel *adoptModel = [TPAdoptModel tp_modelWithDictionary:[dic keyRemovePrefix:TABLE_NAME_ADOPT]];
-                TPUserModel *userModel = [TPUserModel tp_modelWithDictionary:[dic keyRemovePrefix:TABLE_NAME_USER]];
-                TPAnimalModel *animalModel = [TPAnimalModel tp_modelWithDictionary:[dic keyRemovePrefix:TABLE_NAME_ANIMAL]];
-                adoptModel.publisher = userModel;
-                adoptModel.animal = animalModel;
-                TPHomeBannerModel *bannerModel = [TPHomeBannerModel new];
-                bannerModel.adoptModel = adoptModel;
+                TPPublishModel *model = [TPPublishModel tp_modelWithDictionary:[dic keyRemovePrefix:TABLE_NAME_PUBLISH]];
+                TPHomeBannerModel *bannerModel = [TPHomeBannerModel bannerWithName:model.image];
+                bannerModel.publishModel = model;
                 [tempArr addObject:bannerModel];
+            }
+            if (tempArr.count > 5) {
+                [tempArr removeObjectsInRange:NSMakeRange(5, tempArr.count - 5)];
             }
             self.bannerSection.banners = tempArr.copy;
         } else {
@@ -145,11 +132,11 @@
     }
     return NO;
 }
-- (TPHomeLifeDiaryRow *)rowWithModel:(TPDiaryModel *)model {
+- (TPHomeLifeDiaryRow *)rowWithModel:(TPPublishModel *)model {
     TPHomeLifeDiaryRow *row = [TPHomeLifeDiaryRow rowWithModel:model];
     row.didSelectedBlock = ^(__kindof TPCollectionRow * _Nonnull rowData, TPCollectionViewProxy * _Nonnull proxy, NSIndexPath * _Nonnull indexPath) {
         TPDiaryDetailVC *detailVC = [TPDiaryDetailVC new];
-        detailVC.diaryModel = model;
+        detailVC.publishModel = model;
         [[TPUINavigator currentNavigationController] pushViewController:detailVC animated:YES];
     };
     return row;

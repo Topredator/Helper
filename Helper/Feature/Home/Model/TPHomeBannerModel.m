@@ -10,7 +10,7 @@
 @implementation TPHomeBannerModel
 + (instancetype)bannerWithName:(NSString *)name {
     TPHomeBannerModel *model = [TPHomeBannerModel new];
-    model.imageName = name;
+    model.image = name;
     return model;
 }
 @end

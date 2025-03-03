@@ -10,7 +10,7 @@
 @interface TPDiaryDetailVC ()
 @property (nonatomic, strong) UIScrollView *bgScroll;
 @property (nonatomic, strong) UIView *contentView;
-@property (nonatomic, strong) UIImageView *logoImage;
+@property (nonatomic, strong) UIView *imageContainer;
 @property (nonatomic, strong) UIImageView *avatarImage;
 @property (nonatomic, strong) UILabel *nameLabel;
 @property (nonatomic, strong) UILabel *titleLabel;
@@ -23,19 +23,18 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.navigationView.title = @"日记详情";
-    
-    self.logoImage.image = [UIImage imageNamed:self.diaryModel.image];
-    self.avatarImage.image = [UIImage imageNamed:self.diaryModel.user.avatar];
-    self.nameLabel.text = self.diaryModel.user.name;
-    self.titleLabel.text = self.diaryModel.title;
-    self.contentLabel.text = self.diaryModel.content;
+    [self refreshUI];
+    self.avatarImage.image = [UIImage imageNamed:self.publishModel.user.avatar];
+    self.nameLabel.text = self.publishModel.user.name;
+    self.titleLabel.text = self.publishModel.title;
+    self.contentLabel.text = self.publishModel.content;
     
 }
 - (void)setupSubviews {
     [super setupSubviews];
     [self.view addSubview:self.bgScroll];
     [self.bgScroll addSubview:self.contentView];
-    [self.contentView addSubview:self.logoImage];
+    [self.contentView addSubview:self.imageContainer];
     [self.contentView addSubview:self.avatarImage];
     [self.contentView addSubview:self.nameLabel];
     [self.contentView addSubview:self.titleLabel];
@@ -50,14 +49,15 @@
         make.edges.mas_equalTo(UIEdgeInsetsZero);
         make.width.equalTo(self.bgScroll.mas_width);
     }];
-    [self.logoImage mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.top.right.mas_equalTo(0);
-        make.height.mas_equalTo(TPUI.tp_screenWidth);
+    [self.imageContainer mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.mas_equalTo(0);
+        make.left.mas_equalTo(10);
+        make.right.mas_equalTo(-10);
     }];
     [self.avatarImage mas_makeConstraints:^(MASConstraintMaker *make) {
         make.size.mas_equalTo(80);
         make.left.mas_equalTo(20);
-        make.top.equalTo(self.logoImage.mas_bottom).offset(20);
+        make.top.equalTo(self.imageContainer.mas_bottom).offset(20);
     }];
     [self.nameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.avatarImage.mas_right).offset(15);
@@ -78,6 +78,37 @@
         make.bottom.equalTo(self.contentView.mas_bottom).offset(-20);
     }];
 }
+- (void)refreshUI {
+    [self.imageContainer tp_removeAllSubviews];
+    NSArray *images = [NSArray tp_modelWithJSON:self.publishModel.detailImages];
+    if (images.count > 1) {
+        NSInteger left = 0, top = 0;
+        CGFloat width = (TPUI.tp_screenWidth - 40) / 3;
+        UIImageView *lastView = nil;
+        for (NSInteger i = 0; i < images.count; i++) {
+            UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:images[i]]];
+            [self.imageContainer addSubview:imageView];
+            left = (i % 3) * (width + 10);
+            top = (i / 3) * (width + 10);
+            [imageView mas_makeConstraints:^(MASConstraintMaker *make) {
+                make.left.mas_equalTo(left);
+                make.top.mas_equalTo(top);
+                make.size.mas_equalTo(CGSizeMake(width, width));
+            }];
+            lastView = imageView;
+        }
+        [self.imageContainer mas_updateConstraints:^(MASConstraintMaker *make) {
+            make.bottom.equalTo(lastView.mas_bottom);
+        }];
+    } else {
+        UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:images.firstObject]];
+        [self.imageContainer addSubview:imageView];
+        [imageView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.edges.mas_equalTo(UIEdgeInsetsZero);
+            make.height.mas_equalTo(TPUI.tp_screenWidth);
+        }];
+    }
+}
 #pragma mark----------------- Getter -----------------
 - (UIScrollView *)bgScroll {
     if (!_bgScroll) {
@@ -93,11 +124,12 @@
     }
     return _contentView;
 }
-- (UIImageView *)logoImage {
-    if (!_logoImage) {
-        _logoImage = [[UIImageView alloc] initWithFrame:CGRectZero];
+- (UIView *)imageContainer {
+    if (!_imageContainer) {
+        _imageContainer = [[UIView alloc] initWithFrame:CGRectZero];
+        _imageContainer.backgroundColor = TPHelperDefaultBgColor;
     }
-    return _logoImage;
+    return _imageContainer;
 }
 - (UIImageView *)avatarImage {
     if (!_avatarImage) {

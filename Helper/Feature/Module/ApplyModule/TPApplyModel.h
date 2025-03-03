@@ -28,8 +28,10 @@ NS_ASSUME_NONNULL_BEGIN
 /// 申请类型
 @property (nonatomic, assign) TPApplyType type;
 
-+ (instancetype)modelWithUserId:(NSString *)userId type:(TPApplyType)type adoptId:(NSString *)adoptId;
-
+// 申请成为管理员
++ (instancetype)modelWithUserId:(NSString *)userId;
+// 申请领养动物
++ (instancetype)modelWithUserId:(NSString *)userId adoptId:(NSString *)adoptId adminId:(NSString *)adminId;
 @end
 
 NS_ASSUME_NONNULL_END

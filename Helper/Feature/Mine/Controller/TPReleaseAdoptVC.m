@@ -7,10 +7,10 @@
 
 #import "TPReleaseAdoptVC.h"
 #import "TPAnimalModel.h"
-#import "TPReleaseAdoptInputRow.h"
+#import "TPAnimalInputRow.h"
 #import "TPCommonTitleSection.h"
-#import "TPReleaseAdoptSwitchRow.h"
-#import "TPReleaseAdoptAlertRow.h"
+#import "TPAnimalSwitchRow.h"
+#import "TPAnimalAlertRow.h"
 #import "TPAdoptModel.h"
 
 static NSString *kReleaseAdoptName = @"releaseAdoptName";
@@ -72,43 +72,43 @@ static NSString *kReleaseAdoptGender = @"releaseAdoptGender";
     [section addObject:[self vaccineRow]];
     [self reloadData:@[section]];
 }
-- (TPReleaseAdoptInputRow *)nameRow {
-    TPReleaseAdoptInputRow *row = [TPReleaseAdoptInputRow nameRowWithId:kReleaseAdoptName];
+- (TPAnimalInputRow *)nameRow {
+    TPAnimalInputRow *row = [TPAnimalInputRow nameRowWithId:kReleaseAdoptName];
     row.text = self.animalModel.name;
     return row;
 }
-- (TPReleaseAdoptInputRow *)ageRow {
-    TPReleaseAdoptInputRow *row = [TPReleaseAdoptInputRow ageRowWithId:kReleaseAdoptAge];
+- (TPAnimalInputRow *)ageRow {
+    TPAnimalInputRow *row = [TPAnimalInputRow ageRowWithId:kReleaseAdoptAge];
     row.text = [NSString stringWithFormat:@"%ld", self.animalModel.age];
     return row;
 }
-- (TPReleaseAdoptInputRow *)breedRow {
-    TPReleaseAdoptInputRow *row = [TPReleaseAdoptInputRow breedRowWithId:kReleaseAdoptBreed];
+- (TPAnimalInputRow *)breedRow {
+    TPAnimalInputRow *row = [TPAnimalInputRow breedRowWithId:kReleaseAdoptBreed];
     row.text = self.animalModel.breed;
     return row;
 }
-- (TPReleaseAdoptInputRow *)numberRow {
-    TPReleaseAdoptInputRow *row = [TPReleaseAdoptInputRow numberRowWithId:kReleaseAdoptNumber];
+- (TPAnimalInputRow *)numberRow {
+    TPAnimalInputRow *row = [TPAnimalInputRow numberRowWithId:kReleaseAdoptNumber];
     row.text = self.animalModel.number;
     return row;
 }
-- (TPReleaseAdoptSwitchRow *)sterilizationRow {
-    TPReleaseAdoptSwitchRow *row = [TPReleaseAdoptSwitchRow sterilizationRowWithId:kReleaseAdoptSterilization];
+- (TPAnimalSwitchRow *)sterilizationRow {
+    TPAnimalSwitchRow *row = [TPAnimalSwitchRow sterilizationRowWithId:kReleaseAdoptSterilization];
     row.on = self.animalModel.isSterilization;
     return row;
 }
-- (TPReleaseAdoptSwitchRow *)dewormingRow {
-    TPReleaseAdoptSwitchRow *row = [TPReleaseAdoptSwitchRow dewormingRowWithId:kReleaseAdoptDeworming];
+- (TPAnimalSwitchRow *)dewormingRow {
+    TPAnimalSwitchRow *row = [TPAnimalSwitchRow dewormingRowWithId:kReleaseAdoptDeworming];
     row.on = self.animalModel.isDeworming;
     return row;
 }
-- (TPReleaseAdoptSwitchRow *)vaccineRow {
-    TPReleaseAdoptSwitchRow *row = [TPReleaseAdoptSwitchRow vaccineRowWithId:kReleaseAdoptVaccine];
+- (TPAnimalSwitchRow *)vaccineRow {
+    TPAnimalSwitchRow *row = [TPAnimalSwitchRow vaccineRowWithId:kReleaseAdoptVaccine];
     row.on = self.animalModel.isVaccine;
     return row;
 }
-- (TPReleaseAdoptAlertRow *)categoryRow {
-    TPReleaseAdoptAlertRow *row = [TPReleaseAdoptAlertRow categoryRowWithId:kReleaseAdoptCategory];
+- (TPAnimalAlertRow *)categoryRow {
+    TPAnimalAlertRow *row = [TPAnimalAlertRow categoryRowWithId:kReleaseAdoptCategory];
     row.text = [self categoryText];
     @weakify(self);
     row.cellDidSelected = ^(__kindof TPTableRow * _Nonnull rowData, TPTableViewProxy * _Nonnull proxy, NSIndexPath * _Nonnull indexPath) {
@@ -141,8 +141,8 @@ static NSString *kReleaseAdoptGender = @"releaseAdoptGender";
     };
     return row;
 }
-- (TPReleaseAdoptAlertRow *)genderRow {
-    TPReleaseAdoptAlertRow *row = [TPReleaseAdoptAlertRow genderRowWithId:kReleaseAdoptGender];
+- (TPAnimalAlertRow *)genderRow {
+    TPAnimalAlertRow *row = [TPAnimalAlertRow genderRowWithId:kReleaseAdoptGender];
     row.text = [self genderText];
     @weakify(self);
     row.cellDidSelected = ^(__kindof TPTableRow * _Nonnull rowData, TPTableViewProxy * _Nonnull proxy, NSIndexPath * _Nonnull indexPath) {
@@ -170,12 +170,12 @@ static NSString *kReleaseAdoptGender = @"releaseAdoptGender";
 
 - (void)changedCategoryRow {
     TPTableSection *section = self.tableview.TPProxy.data[0];
-    TPReleaseAdoptAlertRow *row = section[kReleaseAdoptCategory];
+    TPAnimalAlertRow *row = section[kReleaseAdoptCategory];
     row.text = [self categoryText];
 }
 - (void)changedGenderRow {
     TPTableSection *section = self.tableview.TPProxy.data[0];
-    TPReleaseAdoptAlertRow *row = section[kReleaseAdoptGender];
+    TPAnimalAlertRow *row = section[kReleaseAdoptGender];
     row.text = [self genderText];
 }
 - (NSString *)categoryText {
@@ -193,34 +193,36 @@ static NSString *kReleaseAdoptGender = @"releaseAdoptGender";
 }
 - (void)publicBtnAction {
     // 姓名
-    TPReleaseAdoptInputRow *nameRow = [self fetchRow:kReleaseAdoptName];
+    TPAnimalInputRow *nameRow = [self fetchRow:kReleaseAdoptName];
     if (!nameRow.text) {
         [self.view tp_toast:@"请填写名称"];
         return;
     }
     self.animalModel.name = nameRow.text;
     
-    TPReleaseAdoptInputRow *ageRow = [self fetchRow:kReleaseAdoptAge];
+    // 年龄
+    TPAnimalInputRow *ageRow = [self fetchRow:kReleaseAdoptAge];
     if (ageRow.text.integerValue == 0) {
         [self.view tp_toast:@"请填写年龄"];
         return;
     }
     self.animalModel.age = ageRow.text.integerValue;
     
-    TPReleaseAdoptInputRow *breedRow = [self fetchRow:kReleaseAdoptBreed];
+    /// 品种
+    TPAnimalInputRow *breedRow = [self fetchRow:kReleaseAdoptBreed];
     if (!breedRow.text) {
         [self.view tp_toast:@"请填写品种"];
         return;
     }
     self.animalModel.breed = breedRow.text;
     
-    TPReleaseAdoptSwitchRow *sterilizationRow = [self fetchRow:kReleaseAdoptSterilization];
+    TPAnimalSwitchRow *sterilizationRow = [self fetchRow:kReleaseAdoptSterilization];
     self.animalModel.sterilization = sterilizationRow.isOn;
     
-    TPReleaseAdoptSwitchRow *dewormingRow = [self fetchRow:kReleaseAdoptDeworming];
+    TPAnimalSwitchRow *dewormingRow = [self fetchRow:kReleaseAdoptDeworming];
     self.animalModel.deworming = dewormingRow.isOn;
     
-    TPReleaseAdoptSwitchRow *vaccineRow = [self fetchRow:kReleaseAdoptVaccine];
+    TPAnimalSwitchRow *vaccineRow = [self fetchRow:kReleaseAdoptVaccine];
     self.animalModel.vaccine = vaccineRow.isOn;
     
     self.animalModel.coverImage = self.animalModel.category == TPAnimalCategoryDog ? [NSString stringWithFormat:@"banner_dog_%u", arc4random() % 15 + 1] : [NSString stringWithFormat:@"banner_cat_%u", arc4random() % 15 + 1];
@@ -235,12 +237,7 @@ static NSString *kReleaseAdoptGender = @"releaseAdoptGender";
 }
 
 - (BOOL)handleMessage:(NSInteger)messageType result:(NSInteger)result argument:(id)argument {
-    if (messageType == TPAnimalModuleRegist) { // 注册动物信息
-        TPAdoptModel *adoptModel = [TPAdoptModel adopetWithAnimalId:self.animalModel.animalId];
-        // 发布领养
-        [TPDBRouter sendTaskMessage:TPAnimalModulePublicAdopt argument:[adoptModel tp_modelToJSONObject]];
-        return YES;
-    } else if (messageType == TPAnimalModulePublicAdopt) { // 发布领养
+    if (messageType == TPAnimalModulePublicAdopt) { // 发布领养
         [TPAppDelegate().window tp_toast:@"发布成功"];
         [self.navigationController popViewControllerAnimated:YES];
         return YES;

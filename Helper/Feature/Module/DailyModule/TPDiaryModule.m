@@ -21,13 +21,10 @@
 ")"
 
 @implementation TPDiaryModule
-+ (void)updateDBOnLaunching:(FMDatabase *)db {
-    [db executeUpdate:CREATE_TABLE_DIARY];
-}
 + (BOOL)handleTaskMessage:(TPDBTaskMessage *)msg {
     NSInteger messageType = msg.taskMsgType;
     id argument = msg.argument;
-    TPDiaryDao *dao = [TPDiaryDao daoWithTableName:TABLE_NAME_DIARY];
+    TPBaseDao *dao = [TPDiaryDao daoWithTableName:TABLE_NAME_DIARY];
     if (messageType == TPDiaryModulePublic) {
         [dao save:argument messageType:messageType waitUntilDone:NO igoner:YES];
         return YES;

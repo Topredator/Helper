@@ -37,6 +37,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign, getter=isVaccine) BOOL vaccine;
 /// 创建时间
 @property (nonatomic, copy) NSString *createTime;
+/// 主人
+@property (nonatomic, copy, nullable) NSString *userId;
+@property (nonatomic, assign) NSInteger status;
 + (instancetype)generateModel;
 @end
 

@@ -6,16 +6,14 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "TPAdoptModel.h"
-
+#import "TPPublishModel.h"
 NS_ASSUME_NONNULL_BEGIN
 /// 首页banner 模型
 @interface TPHomeBannerModel : NSObject
 
-@property (nonatomic, strong) TPAdoptModel *adoptModel;
-
+@property (nonatomic, strong) TPPublishModel *publishModel;
 /// 图片名称
-@property (nonatomic, copy) NSString *imageName;
+@property (nonatomic, copy) NSString *image;
 + (instancetype)bannerWithName:(NSString *)name;
 @end
 

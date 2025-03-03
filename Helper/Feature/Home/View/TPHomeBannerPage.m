@@ -28,7 +28,7 @@
     }];
 }
 - (void)configWithModel:(TPHomeBannerModel *)model {
-    self.bannerImage.image = [UIImage imageNamed:model.adoptModel.animal.coverImage];
+    self.bannerImage.image = [UIImage imageNamed:model.publishModel.image];
 }
 #pragma mark---------- Getter -------------
 - (UIImageView *)bannerImage {

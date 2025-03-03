@@ -16,6 +16,18 @@ static NSString *kTPAuthButtonKey = @"com.helper.auth.button.row";
 static NSString *kTPAuthLoginRowKey = @"com.helper.auth.login.row";
 static NSString *kTPAuthRegisterRowKey = @"com.helper.auth.register.row";
 
+
+/// 通用宠物row 的key值
+static NSString *kTPAnimalCommonRowKey = @"com.helper.animal.common.row";
+
+/// 发布页 identifier
+static NSString *kTPPublishTitleRowKey = @"com.helper.publish.row.title";
+static NSString *kTPPublishContentRowKey = @"com.helper.publish.row.content";
+static NSString *kTPPublishSendRowKey = @"com.helper.publish.row.Send";
+static NSString *kTPPublishAnimalRowKey = @"com.helper.publish.row.Animal";
+static NSString *kTPPublishSingleImageRowKey = @"com.helper.publish.row.singleImage";
+static NSString *kTPPublishSingleDetailImageRowKey = @"com.helper.publish.row.single.detailImage";
+static NSString *kTPPublishMultipleImagesRowKey = @"com.helper.publish.row.multipleImage";
 #pragma mark----------------- 用户模块 -----------------
 /// 最近登录的账号
 static NSString *const kTPUserLatestAccount = @"com.helper.user.default.latestaccount";

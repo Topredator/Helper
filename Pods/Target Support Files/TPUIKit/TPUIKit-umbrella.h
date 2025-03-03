@@ -27,6 +27,7 @@
 #import "UIView+TPBlankView.h"
 #import "UIImage+TPUIExtension.h"
 #import "UIScrollView+TPUIExtension.h"
+#import "UITextView+TPPlaceholder.h"
 #import "UIView+TPTapExtension.h"
 #import "UIView+TPUIExtension.h"
 #import "UIView+TPUILayout.h"

@@ -21,6 +21,8 @@
 #import "UIView+TPUIExtension.h"
 #import "UIView+TPUILayout.h"
 #import "UIViewController+TPUIPresentStyle.h"
+#import "UITextView+TPPlaceholder.h"
+
 // GradientView
 #import "TPUIGradientLayer.h"
 #import "TPUIGradientView.h"
@@ -80,3 +82,8 @@
 /// CustomLayout
 #import "TPFitWidthLayout.h"
 #import "TPWaterfallLayout.h"
+
+/// Menu
+#import "TPUIPopupMenuVC.h"
+#import "TPUIPopupMenuConfig.h"
+#import "TPUIPopupMenuCell.h"

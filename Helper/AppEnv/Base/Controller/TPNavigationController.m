@@ -17,6 +17,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.navigationBar.barTintColor = [TPUI tp_t:21];
+    self.navigationBar.translucent = NO;
     self.navigationBar.barStyle = UIBarStyleDefault;
     self.navigationBar.titleTextAttributes = @{
         NSFontAttributeName: [TPUI tp_font:20 weight:FontMedium],

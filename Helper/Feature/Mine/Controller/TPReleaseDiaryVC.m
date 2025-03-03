@@ -6,7 +6,6 @@
 //
 
 #import "TPReleaseDiaryVC.h"
-#import "UITextView+XHXPlaceholder.h"
 #import "TPDiaryModule.h"
 #import "TPDiaryModel.h"
 
@@ -88,7 +87,8 @@
 
 - (BOOL)handleMessage:(NSInteger)messageType result:(NSInteger)result argument:(id)argument {
     if (messageType == TPDiaryModulePublic) {
-        [self.view tp_toast:@"发布成功" duration:1.5];
+        [self.navigationController popViewControllerAnimated:YES];
+        [TPAppDelegate().window tp_toast:@"发布成功" duration:1.5];
     }
     return NO;
 }
@@ -125,9 +125,9 @@
         _textView.textColor = TPHelperDarkGrayTextColor;
         _textView.returnKeyType = UIReturnKeyDone;
         _textView.contentInset = UIEdgeInsetsMake(10, 10, 10, 10);
-        _textView.placeHolder = @"请填写内容";
-        _textView.placeHolderFont = [TPUI tp_font:20 weight:FontMedium];
-        _textView.placeHolderColor = TPHelperLightDarkTextColor;
+        _textView.tp_placeHolder = @"请填写内容";
+        _textView.tp_placeHolderFont = [TPUI tp_font:20 weight:FontMedium];
+        _textView.tp_placeHolderColor = TPHelperLightDarkTextColor;
         _textView.layer.cornerRadius = 5;
         _textView.layer.borderColor = TPHelperLightDarkTextColor.CGColor;
         _textView.layer.borderWidth = 0.7;
