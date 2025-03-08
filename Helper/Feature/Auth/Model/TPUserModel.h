@@ -39,6 +39,7 @@ typedef NS_ENUM(NSUInteger, TPUserType) {
 /// 创建时间
 @property (nonatomic, copy) NSString *createTime;
 
+
 + (instancetype)userAccount:(NSString *)account pwd:(NSString *)pwd type:(TPUserType)type;
 + (instancetype)userAccount:(NSString *)account pwd:(NSString *)pwd name:(NSString *)name idCard:(NSString *)idCard type:(TPUserType)type;
 

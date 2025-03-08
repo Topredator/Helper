@@ -47,4 +47,4 @@ static NSString *const kTPUserToken = @"com.helper.user.default.token";
 #import "AppDelegate+TPWindow.h"
 NS_INLINE AppDelegate *TPAppDelegate(void) { return (AppDelegate *)[UIApplication sharedApplication].delegate; }
 
-
+#define kTPHelperAutoLoginKey @"com.helper.auth.login.auto"

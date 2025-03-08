@@ -40,6 +40,7 @@
     [super setupSubviews];
     [self.view addSubview:self.bottomView];
     self.bottomView.wantAdoptBtn.hidden = self.publishModel.type != TPPublishTypeAdopt;
+    self.bottomView.donateBtn.hidden = self.publishModel.type == TPPublishTypeToBeRescued;
     [self.headerView addSubview:self.avatarImage];
     [self.avatarImage mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.mas_equalTo(UIEdgeInsetsZero);

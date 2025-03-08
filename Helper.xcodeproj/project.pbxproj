@@ -52,6 +52,15 @@
 		94974E892D7569EE00553437 /* TPCollectRow.m in Sources */ = {isa = PBXBuildFile; fileRef = 94974E882D7569EE00553437 /* TPCollectRow.m */; };
 		94974E8C2D75CCCA00553437 /* TPCollectDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 94974E8B2D75CCCA00553437 /* TPCollectDetailVC.m */; };
 		94974E8F2D75D9E100553437 /* TPGraphicAnnouncementDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 94974E8E2D75D9E100553437 /* TPGraphicAnnouncementDetailVC.m */; };
+		94974E932D77F4B600553437 /* TPDonateModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 94974E922D77F4B600553437 /* TPDonateModule.m */; };
+		94974E992D782DA100553437 /* TPAddressModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 94974E982D782DA100553437 /* TPAddressModule.m */; };
+		94974EA02D7930AC00553437 /* TPAddressModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 94974E9F2D7930AC00553437 /* TPAddressModel.m */; };
+		94974EA32D79328400553437 /* TPAddressListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 94974EA22D79328400553437 /* TPAddressListVC.m */; };
+		94974EA62D79394E00553437 /* TPAddressVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 94974EA52D79394E00553437 /* TPAddressVC.m */; };
+		94974EA92D793CBA00553437 /* TPAddressTFRow.m in Sources */ = {isa = PBXBuildFile; fileRef = 94974EA82D793CBA00553437 /* TPAddressTFRow.m */; };
+		94974EAC2D793CC700553437 /* TPAddressTVRow.m in Sources */ = {isa = PBXBuildFile; fileRef = 94974EAB2D793CC700553437 /* TPAddressTVRow.m */; };
+		94974EAF2D79400800553437 /* TPAddressSwitchRow.m in Sources */ = {isa = PBXBuildFile; fileRef = 94974EAE2D79400800553437 /* TPAddressSwitchRow.m */; };
+		94974EB22D797AB700553437 /* TPAddressRow.m in Sources */ = {isa = PBXBuildFile; fileRef = 94974EB12D797AB700553437 /* TPAddressRow.m */; };
 		949CE65E2CF4635300FF8EE4 /* TPUserModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 949CE65D2CF4635300FF8EE4 /* TPUserModule.m */; };
 		949CE6612CF46D8C00FF8EE4 /* TPUserDao.m in Sources */ = {isa = PBXBuildFile; fileRef = 949CE6602CF46D8C00FF8EE4 /* TPUserDao.m */; };
 		949CE6652CF4800000FF8EE4 /* NSDictionary+TPMapExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 949CE6642CF4800000FF8EE4 /* NSDictionary+TPMapExtension.m */; };
@@ -224,6 +233,24 @@
 		94974E8B2D75CCCA00553437 /* TPCollectDetailVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPCollectDetailVC.m; sourceTree = "<group>"; };
 		94974E8D2D75D9E100553437 /* TPGraphicAnnouncementDetailVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPGraphicAnnouncementDetailVC.h; sourceTree = "<group>"; };
 		94974E8E2D75D9E100553437 /* TPGraphicAnnouncementDetailVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPGraphicAnnouncementDetailVC.m; sourceTree = "<group>"; };
+		94974E912D77F4B600553437 /* TPDonateModule.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPDonateModule.h; sourceTree = "<group>"; };
+		94974E922D77F4B600553437 /* TPDonateModule.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPDonateModule.m; sourceTree = "<group>"; };
+		94974E972D782DA100553437 /* TPAddressModule.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPAddressModule.h; sourceTree = "<group>"; };
+		94974E982D782DA100553437 /* TPAddressModule.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPAddressModule.m; sourceTree = "<group>"; };
+		94974E9E2D7930AC00553437 /* TPAddressModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPAddressModel.h; sourceTree = "<group>"; };
+		94974E9F2D7930AC00553437 /* TPAddressModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPAddressModel.m; sourceTree = "<group>"; };
+		94974EA12D79328400553437 /* TPAddressListVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPAddressListVC.h; sourceTree = "<group>"; };
+		94974EA22D79328400553437 /* TPAddressListVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPAddressListVC.m; sourceTree = "<group>"; };
+		94974EA42D79394E00553437 /* TPAddressVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPAddressVC.h; sourceTree = "<group>"; };
+		94974EA52D79394E00553437 /* TPAddressVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPAddressVC.m; sourceTree = "<group>"; };
+		94974EA72D793CBA00553437 /* TPAddressTFRow.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPAddressTFRow.h; sourceTree = "<group>"; };
+		94974EA82D793CBA00553437 /* TPAddressTFRow.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPAddressTFRow.m; sourceTree = "<group>"; };
+		94974EAA2D793CC700553437 /* TPAddressTVRow.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPAddressTVRow.h; sourceTree = "<group>"; };
+		94974EAB2D793CC700553437 /* TPAddressTVRow.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPAddressTVRow.m; sourceTree = "<group>"; };
+		94974EAD2D79400800553437 /* TPAddressSwitchRow.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPAddressSwitchRow.h; sourceTree = "<group>"; };
+		94974EAE2D79400800553437 /* TPAddressSwitchRow.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPAddressSwitchRow.m; sourceTree = "<group>"; };
+		94974EB02D797AB700553437 /* TPAddressRow.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPAddressRow.h; sourceTree = "<group>"; };
+		94974EB12D797AB700553437 /* TPAddressRow.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPAddressRow.m; sourceTree = "<group>"; };
 		949CE65C2CF4635300FF8EE4 /* TPUserModule.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPUserModule.h; sourceTree = "<group>"; };
 		949CE65D2CF4635300FF8EE4 /* TPUserModule.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPUserModule.m; sourceTree = "<group>"; };
 		949CE65F2CF46D8C00FF8EE4 /* TPUserDao.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPUserDao.h; sourceTree = "<group>"; };
@@ -404,6 +431,8 @@
 		948A1F782D1BA8BD0032DFB9 /* Module */ = {
 			isa = PBXGroup;
 			children = (
+				94974E962D782D8B00553437 /* AddressModule */,
+				94974E902D77F49600553437 /* DonateModule */,
 				94974E792D754E2C00553437 /* CollectModule */,
 				94974E2F2D66E2D600553437 /* PublishModule */,
 				94974E2B2D6590DE00553437 /* LogModule */,
@@ -643,6 +672,69 @@
 			children = (
 				94974E7E2D7552B800553437 /* TPCollectModel.h */,
 				94974E7F2D7552B800553437 /* TPCollectModel.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		94974E902D77F49600553437 /* DonateModule */ = {
+			isa = PBXGroup;
+			children = (
+				94974E912D77F4B600553437 /* TPDonateModule.h */,
+				94974E922D77F4B600553437 /* TPDonateModule.m */,
+			);
+			path = DonateModule;
+			sourceTree = "<group>";
+		};
+		94974E962D782D8B00553437 /* AddressModule */ = {
+			isa = PBXGroup;
+			children = (
+				94974E972D782DA100553437 /* TPAddressModule.h */,
+				94974E982D782DA100553437 /* TPAddressModule.m */,
+			);
+			path = AddressModule;
+			sourceTree = "<group>";
+		};
+		94974E9A2D79308800553437 /* Address */ = {
+			isa = PBXGroup;
+			children = (
+				94974E9D2D79309F00553437 /* Model */,
+				94974E9C2D79309900553437 /* View */,
+				94974E9B2D79309000553437 /* Controller */,
+			);
+			path = Address;
+			sourceTree = "<group>";
+		};
+		94974E9B2D79309000553437 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				94974EA12D79328400553437 /* TPAddressListVC.h */,
+				94974EA22D79328400553437 /* TPAddressListVC.m */,
+				94974EA42D79394E00553437 /* TPAddressVC.h */,
+				94974EA52D79394E00553437 /* TPAddressVC.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		94974E9C2D79309900553437 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				94974EA72D793CBA00553437 /* TPAddressTFRow.h */,
+				94974EA82D793CBA00553437 /* TPAddressTFRow.m */,
+				94974EAA2D793CC700553437 /* TPAddressTVRow.h */,
+				94974EAB2D793CC700553437 /* TPAddressTVRow.m */,
+				94974EAD2D79400800553437 /* TPAddressSwitchRow.h */,
+				94974EAE2D79400800553437 /* TPAddressSwitchRow.m */,
+				94974EB02D797AB700553437 /* TPAddressRow.h */,
+				94974EB12D797AB700553437 /* TPAddressRow.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		94974E9D2D79309F00553437 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				94974E9E2D7930AC00553437 /* TPAddressModel.h */,
+				94974E9F2D7930AC00553437 /* TPAddressModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -996,6 +1088,7 @@
 		94DD99A92C9FEB9A00963330 /* Feature */ = {
 			isa = PBXGroup;
 			children = (
+				94974E9A2D79308800553437 /* Address */,
 				94974E762D75423200553437 /* Collect */,
 				94974E6A2D6D588E00553437 /* Animal */,
 				94974E332D67006000553437 /* Publish */,
@@ -1267,6 +1360,7 @@
 				94974E2E2D65911100553437 /* TPLogModule.m in Sources */,
 				94E7AD022CBE15C500D3BE10 /* TPAuthButtonRow.m in Sources */,
 				94AE8AA62D14744D00312D45 /* TPMineFunctionRow.m in Sources */,
+				94974EAF2D79400800553437 /* TPAddressSwitchRow.m in Sources */,
 				94E7AD112CBE48CC00D3BE10 /* TPCommonNotification.m in Sources */,
 				94A2D2132D1D7B5D00BCD461 /* TPAnimalPublisherRow.m in Sources */,
 				94AE8AD12D16BDE900312D45 /* TPHomeLifeDiaryRow.m in Sources */,
@@ -1281,7 +1375,9 @@
 				94DD99C02C9FF22600963330 /* AppDelegate+TPWindow.m in Sources */,
 				948A1F7D2D1BA9000032DFB9 /* TPAnimalModule.m in Sources */,
 				94E7ACCC2CBA1F0600D3BE10 /* TPLineView.m in Sources */,
+				94974EAC2D793CC700553437 /* TPAddressTVRow.m in Sources */,
 				948A1F802D1BAD830032DFB9 /* TPAnimalModel.m in Sources */,
+				94974EB22D797AB700553437 /* TPAddressRow.m in Sources */,
 				94974E632D68384300553437 /* TPPublishModel.m in Sources */,
 				94AE8AAC2D147C2700312D45 /* TPBaseTableSectionView.m in Sources */,
 				94AE8B102D18346400312D45 /* TPNotifyAnnouncementRow.m in Sources */,
@@ -1292,15 +1388,18 @@
 				94AE8ACB2D16B71B00312D45 /* TPHomeBannerModel.m in Sources */,
 				94974E4B2D6742EB00553437 /* TPCommonMultipleImagesRow.m in Sources */,
 				94A2D1EB2D1C345A00BCD461 /* TPAdoptDao.m in Sources */,
+				94974E992D782DA100553437 /* TPAddressModule.m in Sources */,
 				94DD99BC2C9FF06900963330 /* TPHomeVC.m in Sources */,
 				94DD99B02C9FEC4400963330 /* TPBaseVC.m in Sources */,
 				94DD99842C9FCC0A00963330 /* AppDelegate.m in Sources */,
 				94AE8AA92D147BC200312D45 /* TPMineToolSection.m in Sources */,
+				94974E932D77F4B600553437 /* TPDonateModule.m in Sources */,
 				94974E752D74327100553437 /* TPAnimalListVC.m in Sources */,
 				94E7ACED2CBD251100D3BE10 /* TPAuthLogoRow.m in Sources */,
 				94A2D1F82D1CE55E00BCD461 /* TPAnimalInputRow.m in Sources */,
 				94A2D1E22D1C0B1300BCD461 /* TPDiaryDao.m in Sources */,
 				94E7ACE72CBD200700D3BE10 /* FBShimmeringView.m in Sources */,
+				94974EA92D793CBA00553437 /* TPAddressTFRow.m in Sources */,
 				94974E482D6742C200553437 /* TPBannerImageRow.m in Sources */,
 				948A1F8B2D1BD2F40032DFB9 /* TPDiaryModule.m in Sources */,
 				94AE8ACE2D16BCB300312D45 /* TPHomeLifeDiarySection.m in Sources */,
@@ -1329,6 +1428,7 @@
 				94AE8B142D18360200312D45 /* UIView+TPCommonEmpty.m in Sources */,
 				94974E362D6700C000553437 /* TPPublishVC.m in Sources */,
 				94AE8AC72D16B65B00312D45 /* TPHomeBannerPage.m in Sources */,
+				94974EA62D79394E00553437 /* TPAddressVC.m in Sources */,
 				948A1F842D1BC7270032DFB9 /* TPApplyModule.m in Sources */,
 				94974E322D66E30500553437 /* TPPublishModule.m in Sources */,
 				94AE8B1B2D183B3A00312D45 /* TPNotifyAnnouncementModel.m in Sources */,
@@ -1368,12 +1468,14 @@
 				94AE8A9D2D13FEA700312D45 /* TPBaseView.m in Sources */,
 				94E7AD142CBE711600D3BE10 /* AppDelegate+TPDatabase.m in Sources */,
 				949CE6652CF4800000FF8EE4 /* NSDictionary+TPMapExtension.m in Sources */,
+				94974EA02D7930AC00553437 /* TPAddressModel.m in Sources */,
 				94974E3F2D67030400553437 /* TPPublishContentRow.m in Sources */,
 				9448E7B22D1FF2EE0084280B /* TPApplyRow.m in Sources */,
 				94DD99952C9FCC0A00963330 /* main.m in Sources */,
 				948A1F8E2D1BD3270032DFB9 /* TPDiaryModel.m in Sources */,
 				94E7AD072CBE3C1B00D3BE10 /* TPUserModel.m in Sources */,
 				94974E532D675FAA00553437 /* TPImagePickerSection.m in Sources */,
+				94974EA32D79328400553437 /* TPAddressListVC.m in Sources */,
 				94974E862D75693600553437 /* TPCollectListSection.m in Sources */,
 				94E7AD1A2CC1065200D3BE10 /* UIView+TPUIToast.m in Sources */,
 				94E7AD0A2CBE40EC00D3BE10 /* TPAuthLoginActionRow.m in Sources */,

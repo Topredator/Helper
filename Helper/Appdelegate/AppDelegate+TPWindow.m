@@ -17,12 +17,15 @@
 }
 
 - (void)tp_resetWindow {
-    if (!TPUserManager.manager.isLogin) {
+    if (!TPUserManager.manager.isLogin || ![TPCommonUD UDBoolKey:kTPHelperAutoLoginKey]) {
         self.window.rootViewController = [[TPNavigationController alloc] initWithRootViewController:TPLoginVC.new];
     } else {
         self.window.rootViewController = [TPRootVC new];
     }
     [self.window makeKeyAndVisible];
 }
-
+- (void)tp_resetWindowAfterLogin {
+    self.window.rootViewController = [TPRootVC new];
+    [self.window makeKeyAndVisible];
+}
 @end

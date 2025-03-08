@@ -11,7 +11,7 @@
 /// 用户管理类
 @interface TPUserManager : NSObject
 /// 用户令牌
-@property (nonatomic, copy, readonly) NSString *token;
+@property (nonatomic, copy) NSString *token;
 /// 当前登录用户 (未登录时为nil) （可用于KVO监听）
 @property (nonatomic, strong) TPUserModel *user;
 /// 单例初始化

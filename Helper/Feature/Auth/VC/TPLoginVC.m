@@ -38,7 +38,7 @@
 }
 - (void)setupNotify {
     [self tp_observeNotificationByName:TPNotifyUserDidLogin withNotifyBlock:^(NSNotification * _Nonnull note) {
-        [TPAppDelegate() tp_resetWindow];
+        [TPAppDelegate() tp_resetWindowAfterLogin];
     }];
 }
 - (void)loadData {

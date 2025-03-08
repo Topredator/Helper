@@ -17,6 +17,7 @@
     self.backgroundColor = UIColor.whiteColor;
     [self addSubview:self.line];
     [self addSubview:self.collectBtn];
+    [self addSubview:self.donateBtn];
     [self addSubview:self.wantAdoptBtn];
 }
 - (void)makeConstraints {
@@ -34,6 +35,11 @@
         make.size.mas_equalTo(CGSizeMake(100, 44));
         make.top.mas_equalTo(10);
     }];
+    [self.donateBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.right.equalTo(self.wantAdoptBtn.mas_left).offset(-10);
+        make.size.mas_equalTo(CGSizeMake(100, 44));
+        make.top.mas_equalTo(10);
+    }];
 }
 - (void)collectBtnAction {
     if (self.collectionCallback) self.collectionCallback();
@@ -44,6 +50,9 @@
 - (void)configCollected:(BOOL)isCollected {
     self.collectBtn.selected = isCollected;
     self.collectBtn.layer.borderColor = isCollected ? TPHelperThemeColor.CGColor : TPHelperDarkGrayTextColor.CGColor;
+}
+- (void)donateBtnAction {
+    
 }
 #pragma mark----------------- Getter -----------------
 - (UIView *)line {
@@ -85,5 +94,19 @@
         _wantAdoptBtn.layer.masksToBounds = YES;
     }
     return _wantAdoptBtn;
+}
+- (UIButton *)donateBtn {
+    if (!_donateBtn) {
+        _donateBtn = [[UIButton alloc] initWithFrame:CGRectZero];
+        [_donateBtn setTitle:@"捐赠" forState:UIControlStateNormal];
+        [_donateBtn setTitleColor:TPHelperThemeColor forState:UIControlStateNormal];
+        [_donateBtn addTarget:self action:@selector(donateBtnAction) forControlEvents:UIControlEventTouchUpInside];
+        _donateBtn.titleLabel.font = [TPUI tp_font:16 weight:FontMedium];
+        _donateBtn.layer.borderColor = TPHelperThemeColor.CGColor;
+        _donateBtn.layer.borderWidth = 0.6;
+        _donateBtn.layer.cornerRadius = 22;
+        _donateBtn.layer.masksToBounds = YES;
+    }
+    return _donateBtn;
 }
 @end

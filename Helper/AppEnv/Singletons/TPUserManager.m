@@ -8,7 +8,6 @@
 #import "TPUserManager.h"
 
 @interface TPUserManager ()
-@property (nonatomic, copy, readwrite) NSString *token;
 @property (nonatomic, copy) NSString *userArchiverPath;
 @end
 

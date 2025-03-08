@@ -15,7 +15,8 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)tp_initWindow;
 /// 重置窗口
 - (void)tp_resetWindow;
-
+/// 登录后重置
+- (void)tp_resetWindowAfterLogin;
 @end
 
 NS_ASSUME_NONNULL_END
