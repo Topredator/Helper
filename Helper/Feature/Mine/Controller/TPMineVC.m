@@ -123,6 +123,8 @@
     } else if (messageType == TPApplyToAdmin) {
         [self.view tp_toast:@"申请成功，请等待审批"];
         return YES;
+    } else if (messageType == TPUserModuleUpdateUserInfo) {
+        [self.headerView updateInfo];
     }
     return NO;
 }

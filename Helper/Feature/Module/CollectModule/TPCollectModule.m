@@ -43,6 +43,7 @@
             @"Collect_animalId": animalId
         } messageType:messageType waitUntilDone:NO];
         return YES;
+        
     } else if (messageType == TPCollectModuleFetchUserCollectDatas ||
                messageType == TPCollectModuleFetchUserCollectMoreDatas) {
         NSDictionary *dic = (NSDictionary *)argument;

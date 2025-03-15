@@ -9,7 +9,7 @@
 #import "TPCommonSection.h"
 #import "TPSettingRow.h"
 #import "TPSettingAccountAndSecurityVC.h"
-
+#import "TPPersonalDataVC.h"
 @interface TPSettingVC ()
 @property (nonatomic, strong) UIView *bottomView;
 @property (nonatomic, strong) TPUISimButton *logoutBtn;
@@ -37,11 +37,19 @@
 - (void)loadData {
     TPCommonSection *section = [TPCommonSection section];
     section.h_height = 30;
-    
+    [section addObject:[self personalRow]];
     [section addObject:[self accountRow]];
     [section addObject:[self commonRow]];
     
     [self reloadData:@[section]];
+}
+- (TPSettingRow *)personalRow {
+    TPSettingRow *row = [TPSettingRow rowWithName:@"个人资料" image:@"setting_personal_data"];
+    row.cellDidSelected = ^(__kindof TPTableRow * _Nonnull rowData, TPTableViewProxy * _Nonnull proxy, NSIndexPath * _Nonnull indexPath) {
+        TPPersonalDataVC *personalVC = [TPPersonalDataVC new];
+        [TPUINavigator pushViewController:personalVC animated:YES];
+    };
+    return row;
 }
 - (TPSettingRow *)accountRow {
     TPSettingRow *row = [TPSettingRow rowWithName:@"账号与安全" image:@"setting_account"];

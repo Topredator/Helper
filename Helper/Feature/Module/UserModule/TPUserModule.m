@@ -16,12 +16,14 @@
 " User_userId"             " TEXT PRIMARY KEY,"        \
 " User_name"           " TEXT,"                     \
 " User_avatar"          " TEXT,"                    \
+" User_age"         " INTEGER default 18,"                    \
 " User_account"           " TEXT,"                     \
 " User_password"         " TEXT,"                     \
 " User_userType"      " INTEGER,"                     \
 " User_gender"         " INTEGER default 0,"                    \
 " User_idCard"          " TEXT,"           \
 " User_token"            " TEXT,"                      \
+" User_perfession"            " TEXT,"                      \
 " User_createTime"        " TEXT"            \
 ")"
 
@@ -29,14 +31,6 @@
 @implementation TPUserModule
 + (void)updateDBOnLaunching:(FMDatabase *)db {
     [db executeUpdate:CREATE_TABLE_USER];
-    
-    /// 注册超级管理员
-    TPUserModel *model = [TPUserModel userAccount:@"00000000000" pwd:@"123456" name:@"Dexterly" idCard:@"410422199501061174" type:TPUserTypeSuperManager];
-    [TPDBRouter sendTaskMessage:TPUserModuleRegister argument:[model tp_modelToJSONObject]];
-    
-    /// 注册普通管理员
-    TPUserModel *managerModel = [TPUserModel userAccount:@"11111111111" pwd:@"123456" name:@"Topredator" idCard:@"410422199501060038" type:TPUserTypeManager];
-    [TPDBRouter sendTaskMessage:TPUserModuleRegister argument:[managerModel tp_modelToJSONObject]];
 }
 + (BOOL)handleTaskMessage:(TPDBTaskMessage *)msg {
     NSInteger messageType = msg.taskMsgType;
@@ -60,6 +54,11 @@
             NSDictionary *dic = argument;
             NSString *sql = [NSString stringWithFormat:@"UPDATE %@ SET User_password = '%@' WHERE User_account = '%@'", dao.tableName, dic[@"password"], dic[@"account"]];
             [dao update:sql parameter:nil messageType:messageType waitUntilDone:NO];
+            return YES;
+        }
+        case TPUserModuleUpdateUserInfo: { // 更新用户信息
+            NSDictionary *dic = argument;
+            [dao update:[dic keyAddPrefix:TABLE_NAME_USER] ByPrimeKeyValue:TPUserManager.manager.user.userId messageType:messageType waitUntilDone:NO];
             return YES;
         }
         default:

@@ -16,8 +16,6 @@
 @property (nonatomic, strong) TPAnimalModel *animal;
 /// 动物id
 @property (nonatomic, copy) NSString *animalId;
-/// 是否被领养
-@property (nonatomic, assign) BOOL beAdopted;
 /// 领养申请状态
 @property (nonatomic, assign) TPApplyStatus applyStatus;
 

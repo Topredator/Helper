@@ -19,9 +19,9 @@
     }];
 }
 #pragma mark----------------- Getter -----------------
-- (TPNoPasteTextField *)textField {
+- (TPLimitTextField *)textField {
     if (!_textField) {
-        _textField = [[TPNoPasteTextField alloc] initWithFrame:CGRectZero];
+        _textField = [[TPLimitTextField alloc] initWithFrame:CGRectZero];
         _textField.clearButtonMode = UITextFieldViewModeWhileEditing;
         _textField.font = [UIFont systemFontOfSize:17];
         _textField.textAlignment = NSTextAlignmentCenter;

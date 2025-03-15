@@ -6,7 +6,6 @@
 //
 
 #import <TPFoundation/TPFoundation.h>
-#import "TPAdoptModel.h"
 #import "TPAnimalModel.h"
 
 NS_ASSUME_NONNULL_BEGIN

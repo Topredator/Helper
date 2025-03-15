@@ -24,6 +24,8 @@ typedef NS_ENUM(NSUInteger, TPUserType) {
 @property (nonatomic, copy) NSString *name;
 /// 账户
 @property (nonatomic, copy) NSString *account;
+/// 年龄
+@property (nonatomic, assign) NSInteger age;
 /// 性别 0: 男 1: 女
 @property (nonatomic, assign) NSInteger gender;
 /// 密码
@@ -38,7 +40,8 @@ typedef NS_ENUM(NSUInteger, TPUserType) {
 @property (nonatomic, copy) NSString *idCard;
 /// 创建时间
 @property (nonatomic, copy) NSString *createTime;
-
+/// 职业
+@property (nonatomic, copy) NSString *perfession;
 
 + (instancetype)userAccount:(NSString *)account pwd:(NSString *)pwd type:(TPUserType)type;
 + (instancetype)userAccount:(NSString *)account pwd:(NSString *)pwd name:(NSString *)name idCard:(NSString *)idCard type:(TPUserType)type;

@@ -26,10 +26,7 @@
     [self addSubview:self.levelImage];
     [self addSubview:self.phoneLabel];
     [self addSubview:self.settingBtn];
-    self.levelImage.image = [self roleIcon];
-    self.avatarImage.image = [UIImage imageNamed:TPUserManager.manager.user.avatar];
-    self.nameLabel.text = TPUserManager.manager.user.name;
-    self.phoneLabel.text = TPUserManager.manager.user.account;
+    [self updateInfo];
 }
 - (void)makeConstraints {
     [self.bgImageView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -62,6 +59,12 @@
         make.centerY.equalTo(self.phoneLabel.mas_centerY);
         make.right.equalTo(self.phoneLabel.mas_left).offset(-15);
     }];
+}
+- (void)updateInfo {
+    self.levelImage.image = [self roleIcon];
+    self.avatarImage.image = [UIImage imageNamed:TPUserManager.manager.user.avatar];
+    self.nameLabel.text = TPUserManager.manager.user.name;
+    self.phoneLabel.text = TPUserManager.manager.user.account;
 }
 - (UIImage *)roleIcon {
     NSString *imageName = @"role_customer";

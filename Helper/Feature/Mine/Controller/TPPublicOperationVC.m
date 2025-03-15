@@ -29,7 +29,9 @@
 
 - (void)loadData {
     TPCommonSection *section = [TPCommonSection section];
-    [section addObject:[self notifyRow]];
+    if (TPUserManager.manager.user.userType != TPUserTypeCustome) {
+        [section addObject:[self notifyRow]];
+    }
     [section addObject:[self diaryRow]];
     [section addObject:[self beRescuedRow]];
     [section addObject:[self inRecoveryRow]];

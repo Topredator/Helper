@@ -9,26 +9,13 @@
 #import "TPDBTaskMessage.h"
 #import "TPDatabaseManager.h"
 
-static const void* TTRetainNoOp(CFAllocatorRef allocator, const void *value) { return value; }
-static void TTReleaseNoOp(CFAllocatorRef allocator, const void *value) { }
-
-
-///////////////////////////////////////////////////////////////////////////////////////////////////
-NSMutableArray* TTCreateNonRetainingArray() {
-  CFArrayCallBacks callbacks = kCFTypeArrayCallBacks;
-  callbacks.retain = TTRetainNoOp;
-  callbacks.release = TTReleaseNoOp;
-    return (NSMutableArray*)CFBridgingRelease(CFArrayCreateMutable(nil, 0, &callbacks));
-}
-
 static NSMutableArray <TPDatabaseMessageHandler> *globalRoutes = nil;
 
 static TPDBRouter *router = nil;
 @implementation TPDBRouter
 
 + (void)addRoute:(id<TPDatabaseMessageHandler>)route {
-    
-    if (!globalRoutes) globalRoutes = TTCreateNonRetainingArray();
+    if (!globalRoutes) globalRoutes = @[].mutableCopy;
     if ([globalRoutes containsObject:route]) return;
     [globalRoutes addObject:route];
 }
@@ -64,7 +51,7 @@ static TPDBRouter *router = nil;
     [self sendTaskMessage:messageType argument:nil];
 }
 + (void)sendTaskMessage:(NSInteger)messageType argument:(id)argument {
-    dispatch_async(dispatch_get_main_queue(), ^{
+    dispatch_async(dispatch_get_global_queue(0, 0), ^{
         TPDBTaskMessage *taskMsg = [TPDBTaskMessage taskMessageWithType:messageType argument:argument];
         for (Class class in TPDatabaseManager.manager.moduleArray) {
             if ([class respondsToSelector:@selector(handleTaskMessage:)] && [class handleTaskMessage:taskMsg]) {

@@ -11,7 +11,6 @@
 #import "TPCommonTitleSection.h"
 #import "TPAnimalSwitchRow.h"
 #import "TPAnimalAlertRow.h"
-#import "TPAdoptModel.h"
 
 static NSString *kReleaseAdoptName = @"releaseAdoptName";
 static NSString *kReleaseAdoptAge = @"releaseAdoptAge";
