@@ -59,8 +59,6 @@ typedef NS_ENUM(NSUInteger, TPApplyStatus) {
 
 /// 申请类型
 typedef NS_ENUM(NSUInteger, TPApplyType) {
-    /// 申请成为管理员
-    TPApplyTypeAdmin,
     /// 申请领养动物
     TPApplyTypeAdopt,
 };

@@ -13,11 +13,15 @@
 #define CREATE_TABLE_APPLY   @"CREATE TABLE IF NOT EXISTS "  TABLE_NAME_APPLY                \
 "("                                             \
 " Apply_applyId"             " TEXT PRIMARY KEY,"        \
-" Apply_userId"         " TEXT,"                     \
+" Apply_publishId"         " TEXT,"                     \
+" Apply_applicantId"         " TEXT,"                     \
+" Apply_respondentId"         " TEXT,"                     \
 " Apply_adminId"         " TEXT,"                     \
-" Apply_adoptId"         " TEXT,"                    \
-" Apply_type"         " INTEGER,"                    \
-" Apply_applyStatus"         " INTEGER default 1"                    \
+" Apply_type"         " INTEGER default (0),"                    \
+" Apply_applyStatus"         " INTEGER default (1),"                    \
+" Apply_createTime"         " TEXT,"                     \
+" Apply_endTime"         " TEXT,"                     \
+" Apply_refusalReason"         " TEXT"                     \
 ")"
 
 @implementation TPApplyModule
@@ -27,22 +31,20 @@
 + (BOOL)handleTaskMessage:(TPDBTaskMessage *)msg {
     NSInteger messageType = msg.taskMsgType;
     id argument = msg.argument;
-    TPApplyDao *dao = [TPApplyDao daoWithTableName:TABLE_NAME_APPLY];
+    TPBaseDao *dao = [TPBaseDao daoWithTableName:TABLE_NAME_APPLY];
     if (messageType == TPApplyToAdmin) {
-        dispatch_async(dispatch_get_global_queue(0, 0), ^{
-            TPApplyModel *applyModel = [TPApplyModel modelWithUserId:TPUserManager.manager.user.userId];
-            // 查询是否申请过
-            NSArray *res = [dao search:@{
-                @"Apply_userId": applyModel.userId,
-                @"Apply_applyStatus": @(applyModel.applyStatus)
-            } messageType:0 waitUntilDone:YES];
-            if (res.count) {
-                [TPDBRouter sendMessageToRoutes:TPApplyToAdminWaiting result:0 argument:nil];
-                return;
-            }
-            // 继续
-            [dao save:[applyModel tp_modelToJSONObject] messageType:messageType waitUntilDone:NO];
-        });
+        NSDictionary *dic = argument;
+        // 查询是否申请过
+        NSArray *res = [dao search:@{
+            @"applicantId": [dic tp_StringObjectForKey:@"applicantId"] ?: @"",
+            @"respondentId" : [dic tp_StringObjectForKey:@"respondentId"] ?: @"",
+            @"animalId": [dic tp_StringObjectForKey:@"animalId"] ?: @"",
+        } messageType:0 waitUntilDone:YES];
+        if (res.count) {
+            [TPDBRouter sendMessageToRoutes:TPApplyToAdminWaiting result:0 argument:nil];
+            return YES;
+        }
+        [dao save:dic messageType:messageType waitUntilDone:NO];
         return YES;
     } else if (messageType == TPFetchApplyList) {
 //        NSString *sql = [NSString stringWithFormat:@"SELECT a.*, u.* FROM %@ a  INNER JOIN %@ u ON a.Apply_userId = u.User_userId WHERE a.Apply_applyStatus = 1", TABLE_NAME_APPLY, TABLE_NAME_USER];

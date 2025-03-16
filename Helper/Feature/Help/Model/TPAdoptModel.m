@@ -31,7 +31,6 @@
     animalModel.vaccine = (arc4random() % 2);
     animalModel.thumbImage = [NSString stringWithFormat:@"%@%u", category == TPAnimalCategoryDog ? @"dog_avatar_" : @"cat_avatar_", arc4random() % 30 + 1];
     animalModel.coverImage = [NSString stringWithFormat:@"%@%u", category == TPAnimalCategoryDog ? @"banner_dog_" : @"banner_cat_", arc4random() % 15 + 1];
-    model.beAdopted = (arc4random() % 2);
     model.animal = animalModel;
     return model;
 }

@@ -8,23 +8,15 @@
 #import "TPApplyModel.h"
 
 @implementation TPApplyModel
-+ (instancetype)modelWithUserId:(NSString *)userId {
++ (instancetype)modelWithUserId:(NSString *)userId animalId:(NSString *)animalId {
     TPApplyModel *model = [TPApplyModel new];
     NSString *time = [NSString stringWithFormat:@"%ld", (NSInteger)[[NSDate now] timeIntervalSince1970] * 1000];
-    model.applyId = [[NSString stringWithFormat:@"applyId_%@", time] tp_MD5];
-    model.userId = userId;
-    model.type = TPApplyTypeAdmin;
-    model.applyStatus = TPApplyStatusApplying;
-    return model;
-}
-+ (instancetype)modelWithUserId:(NSString *)userId adoptId:(NSString *)adoptId adminId:(nonnull NSString *)adminId {
-    TPApplyModel *model = [TPApplyModel new];
-    NSString *time = [NSString stringWithFormat:@"%ld", (NSInteger)[[NSDate now] timeIntervalSince1970] * 1000];
-    model.applyId = [[NSString stringWithFormat:@"applyId_%@", time] tp_MD5];
-    model.userId = userId;
+    model.applyId = [[NSString stringWithFormat:@"apply_%@", time] tp_MD5];
+    model.applicantId = TPUserManager.manager.user.userId;
+    model.respondentId = userId;
+    model.animalId = animalId;
+    model.createTime = time;
     model.type = TPApplyTypeAdopt;
-    model.adoptId = adoptId;
-    model.adminId = adminId;
     model.applyStatus = TPApplyStatusApplying;
     return model;
 }
