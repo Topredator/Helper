@@ -11,7 +11,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface TPApplyRow : TPTableRow
-+ (instancetype)rowWithModel:(TPApplyModel *)model;
++ (instancetype)applyRowWithModel:(TPApplyModel *)model;
 @end
 
 NS_ASSUME_NONNULL_END

@@ -37,7 +37,7 @@
     if (messageType == TPPublishModulePublishMessage) { // 发布消息
         [dao save:argument messageType:messageType waitUntilDone:NO];
         return YES;
-    } else if (messageType == TPHomeBannerDatas) { // 首页banner
+    } else if (messageType == TPPublishAnnouncementDatas) { // 首页banner
         NSString *sql = [NSString stringWithFormat:@"SELECT * FROM %@ WHERE Publish_type = %d OR Publish_type = %d ORDER BY Publish_createTime DESC", TABLE_NAME_PUBLISH, 0, 1];
         [dao searchWithSQL:sql messageType:messageType waitUntilDone:NO];
         return YES;

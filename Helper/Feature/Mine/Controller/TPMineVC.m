@@ -38,9 +38,9 @@
     [section addObject:[self functionRow]];
     
     TPMineToolSection *toolSection = [TPMineToolSection section];
-    if (TPUserManager.manager.user.userType == TPUserTypeCustome) {
-        [toolSection addObject:[self applyRow]];
-    }
+//    if (TPUserManager.manager.user.userType == TPUserTypeCustome) {
+//        [toolSection addObject:[self applyRow]];
+//    }
     [toolSection addObject:[self feedbackRow]];
     [toolSection addObject:[self ruleRow]];
     [toolSection addObject:[self agreementRow]];
@@ -101,13 +101,14 @@
 }
 
 - (void)publicAction {
-    if (TPUserManager.manager.user.userType != TPUserTypeCustome) {
-        TPPublicOperationVC *vc = [TPPublicOperationVC new];
-        [self.navigationController pushViewController:vc animated:YES];
-    } else {
-        TPReleaseDiaryVC *dailyVC = [TPReleaseDiaryVC new];
-        [self.navigationController pushViewController:dailyVC animated:YES];
-    }
+    TPPublicOperationVC *vc = [TPPublicOperationVC new];
+    [self.navigationController pushViewController:vc animated:YES];
+//    if (TPUserManager.manager.user.userType != TPUserTypeCustome) {
+//        
+//    } else {
+//        TPReleaseDiaryVC *dailyVC = [TPReleaseDiaryVC new];
+//        [self.navigationController pushViewController:dailyVC animated:YES];
+//    }
 }
 - (void)collectAction {
     TPCollectListVC *listVC = [TPCollectListVC new];

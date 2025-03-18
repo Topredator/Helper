@@ -11,9 +11,10 @@
 #import "TPNotifyButtonRow.h"
 #import "TPCommonSection.h"
 #import "TPApplyListVC.h"
-
+#import "TPNotifyEmptyRow.h"
 @interface TPNotifyVC ()
-
+@property (nonatomic, strong) TPNotifyAnnouncementSection *notifySection;
+@property (nonatomic, strong) TPCommonSection *section;
 @end
 
 @implementation TPNotifyVC
@@ -21,61 +22,88 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.navigationView.title = @"通知";
     [self loadData];
+    [self requestData];
+}
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self requestData];
 }
 - (void)setupSubviews {
     [super setupSubviews];
     @weakify(self);
     self.tableview.mj_header = [TPUIRefreshHeader headerWithRefreshingBlock:^{
-        [TPGCDQueue executeInMainQueue:^{
-            @strongify(self);
-            [self.tableview.mj_header endRefreshing];
-        } afterDelaySecs:3];
-    }];
-    self.tableview.mj_footer = [TPUIRefreshFooter footerWithRefreshingBlock:^{
-        [TPGCDQueue executeInMainQueue:^{
-            @strongify(self);
-            [self.tableview.mj_footer endRefreshing];
-        } afterDelaySecs:3];
+        @strongify(self);
+        [self requestData];
     }];
 }
 - (void)makeConstraints {
     [super makeConstraints];
 }
 - (void)loadData {
-    TPNotifyAnnouncementSection *section = [TPNotifyAnnouncementSection section];
-    [section addObjectsFromArray:[self rows]];
+    [self.notifySection removeAllObjects];
+    [self.notifySection addObject:[TPNotifyEmptyRow row]];
     
-    TPCommonSection *operationSection = [TPCommonSection section];
-    operationSection.h_height = 10;
-    if (TPUserManager.manager.user.userType != TPUserTypeCustome) {
-        [operationSection addObject:[self applyRow]];
-    }
-    [operationSection addObject:[self examineRow]];
+    [self.section removeAllObjects];
+    [self.section addObject:[self applyRow]];
+    [self.section addObject:[self examineRow]];
     
-    [self reloadData:@[section, operationSection]];
+    [self reloadData:@[self.notifySection, self.section]];
 }
-- (NSArray <TPNotifyAnnouncementRow *>*)rows {
-    NSMutableArray *tempArray = @[].mutableCopy;
-    TPNotifyAnnouncementModel *newsModel = [TPNotifyAnnouncementModel modelWithTheme:@"狸花猫之谜" details:@"" type:TPAnnouncementTypeNews];
-    [tempArray addObject:[TPNotifyAnnouncementRow rowWithModel:newsModel]];
-    
-    TPNotifyAnnouncementModel *platformModel = [TPNotifyAnnouncementModel modelWithTheme:@"平台改进计划" details:@"当前平台在运营过程中已取得了一定的成绩，积累了一定数量的用户群体，涵盖了多个领域的业务。然而，通过对用户反馈、数据分析以及内部评估，发现平台仍存在一些亟待解决的问题..." type:TPAnnouncementTypePlatform];
-    [tempArray addObject:[TPNotifyAnnouncementRow rowWithModel:platformModel]];
-    
-    TPNotifyAnnouncementModel *thirdModel = [TPNotifyAnnouncementModel modelWithTheme:@"青山救助机构" details:@"尊敬的社会各界爱心人士：\n首先，衷心感谢大家一直以来对本流浪动物救助机构的关注、支持与信任。为了让大家更好地了解我们的工作理念、运营原则以及相关事项，特发布本声明。" type:TPAnnouncementTypeThirdParty];
-    [tempArray addObject:[TPNotifyAnnouncementRow rowWithModel:thirdModel]];
-    return tempArray.copy;
+- (void)requestData {
+    // 公告
+    [TPDBRouter sendTaskMessage:TPPublishAnnouncementDatas];
+    // 申请审批
+    [TPDBRouter sendTaskMessage:TPWhetherAuditDataExists argument:TPUserManager.manager.user.userId];
+}
+
+- (BOOL)handleMessage:(NSInteger)messageType result:(NSInteger)result argument:(id)argument {
+    if (messageType == TPPublishAnnouncementDatas) {
+        [self.tableview.mj_header endRefreshing];
+        NSArray *array = argument;
+        [self.notifySection removeAllObjects];
+        if (!array.count) {
+            [self.notifySection addObject:[TPNotifyEmptyRow row]];
+        } else {
+            if (array.count > 3) {
+                array = [array subarrayWithRange:NSMakeRange(0, 3)];
+            }
+            for (NSDictionary *dic in array) {
+                TPPublishModel *model = [TPPublishModel tp_modelWithDictionary:[dic keyRemovePrefix:TABLE_NAME_PUBLISH]];
+                [self.notifySection addObject:[self rowWithModel:model]];
+            }
+        }
+        [self reloadData:@[self.notifySection, self.section]];
+        return YES;
+    } else if (messageType == TPWhetherAuditDataExists) {
+        NSArray *array = argument;
+        TPNotifyButtonRow *row = (TPNotifyButtonRow *)self.section[kTPNotifyExamineRowKey];
+        row.tip = array.count;
+        return YES;
+    }
+    return NO;
 }
 - (void)applyAction {
-    
-}
-- (void)examineAction {
     TPApplyListVC *listVC = [TPApplyListVC new];
     [self.navigationController pushViewController:listVC animated:YES];
 }
+- (void)examineAction {
+    
+}
+
+
+- (TPNotifyAnnouncementRow *)rowWithModel:(TPPublishModel *)model {
+    TPNotifyAnnouncementRow *row = [TPNotifyAnnouncementRow rowWithModel:model];
+    row.cellDidSelected = ^(__kindof TPTableRow * _Nonnull rowData, TPTableViewProxy * _Nonnull proxy, NSIndexPath * _Nonnull indexPath) {
+        
+    };
+    return row;
+}
+
 - (TPNotifyButtonRow *)applyRow {
     TPNotifyButtonRow *row = [TPNotifyButtonRow applyRow];
+    
     [row setTarget:self action:@selector(applyAction)];
     return row;
 }
@@ -83,5 +111,19 @@
     TPNotifyButtonRow *row = [TPNotifyButtonRow examineRow];
     [row setTarget:self action:@selector(examineAction)];
     return row;
+}
+#pragma mark ==================  Getter   ==================
+- (TPNotifyAnnouncementSection *)notifySection {
+    if (!_notifySection) {
+        _notifySection = [TPNotifyAnnouncementSection section];
+    }
+    return _notifySection;
+}
+- (TPCommonSection *)section {
+    if (!_section) {
+        _section = [TPCommonSection section];
+        _section.h_height = 10;
+    }
+    return _section;
 }
 @end

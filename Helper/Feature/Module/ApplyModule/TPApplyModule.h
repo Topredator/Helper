@@ -14,12 +14,21 @@
 typedef NS_ENUM(NSUInteger, TPApplyModuleMessageType) {
     /// 用户申请管理员
     TPApplyToAdmin = 400000,
-    /// 当前用户已申请 等待中
-    TPApplyToAdminWaiting,
     /// 用户申请领养
     TPApplyToAdoptAnimal,
-    /// 获取申请列表
-    TPFetchApplyList,
+    /// 当前用户已申请 等待中
+    TPApplyToAdminWaiting,
+    /// 是否存在审核数据
+    TPWhetherAuditDataExists,
+    /// 当前用户需要审批的数据
+    TPFetchUserAuditDatas,
+    TPFetchUserAuditMoreDatas,
+    /// 获取用户申请数据
+    TPFetchUserApplyDatas,
+    TPFetchUserApplyMoreDatas,
+    /// 用户取消申请
+    TPUserCancelApplication,
+    
 };
 
 

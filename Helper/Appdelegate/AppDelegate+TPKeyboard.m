@@ -10,6 +10,6 @@
 @implementation AppDelegate (TPKeyboard)
 - (void)tp_configKeyBoard {
     IQKeyboardManager.sharedManager.shouldResignOnTouchOutside = YES;
-    IQKeyboardManager.sharedManager.enableAutoToolbar = NO;
+//    IQKeyboardManager.sharedManager.enableAutoToolbar = NO;
 }
 @end

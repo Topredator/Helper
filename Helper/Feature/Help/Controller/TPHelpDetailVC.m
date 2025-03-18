@@ -13,6 +13,8 @@
 #import "TPHelpDetailBottomView.h"
 #import "TPCollectModule.h"
 #import "TPCollectModel.h"
+#import "TPAgreenebtPromptView.h"
+#import "TPApplyModel.h"
 @interface TPHelpDetailVC ()
 @property (nonatomic, strong) UIView *headerView;
 @property (nonatomic, strong) UIImageView *avatarImage;
@@ -39,8 +41,8 @@
 - (void)setupSubviews {
     [super setupSubviews];
     [self.view addSubview:self.bottomView];
-    self.bottomView.wantAdoptBtn.hidden = self.publishModel.type != TPPublishTypeAdopt;
-    self.bottomView.donateBtn.hidden = self.publishModel.type == TPPublishTypeToBeRescued;
+    self.bottomView.wantAdoptBtn.hidden = !(self.publishModel.type == TPPublishTypeAdopt && ![self.publishModel.user.userId isEqualToString:TPUserManager.manager.user.userId]);
+    self.bottomView.donateBtn.hidden = !(self.publishModel.type != TPPublishTypeToBeRescued && ![self.publishModel.user.userId isEqualToString:TPUserManager.manager.user.userId]);
     [self.headerView addSubview:self.avatarImage];
     [self.avatarImage mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.mas_equalTo(UIEdgeInsetsZero);
@@ -72,10 +74,22 @@
     };
     // 想领养回调
     self.bottomView.wantAdoptCallback = ^{
-        
+        @strongify(self);
+        TPAgreenebtPromptView *promptView = [TPAgreenebtPromptView view];
+        [promptView configTitle:@"提示" content:@"确定符合领养条件吗?"];
+        promptView.callback = ^{
+            @strongify(self);
+            [self applyAdopt];
+        };
+        [promptView showIn:self.view];
     };
-    
 }
+- (void)applyAdopt {
+    [self.view tp_showLoading];
+    TPApplyModel *model = [TPApplyModel modelWithUserId:self.publishModel.userId animalId:self.publishModel.animal.animalId];
+    [TPDBRouter sendTaskMessage:TPApplyToAdoptAnimal argument:[model tp_modelToJSONObject]];
+}
+
 - (void)loadData {
     
     [TPDBRouter sendTaskMessage:TPCollectModuleQueryData argument:self.publishModel.animal.animalId];
@@ -104,9 +118,16 @@
                messageType == TPCollectMododuleRemoveCollect) {
         [TPDBRouter sendTaskMessage:TPCollectModuleQueryData argument:self.publishModel.animal.animalId];
         return YES;
+    } else if (messageType == TPApplyToAdoptAnimal) {
+        [self.view tp_toast:@"申请成功"];
+        return YES;
+    } else if (messageType == TPApplyToAdminWaiting) {
+        [self.view tp_toast:@"已申请过，无须重复申请"];
+        return YES;
     }
     return NO;
 }
+
 #pragma mark----------------- Getter -----------------
 - (UIView *)headerView {
     if (!_headerView) {

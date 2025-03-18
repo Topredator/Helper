@@ -57,7 +57,7 @@
 }
 - (void)loadData {
     [self.collectionView.TPProxy reloadData:@[self.bannerSection, self.diarySection]];
-    [TPDBRouter sendTaskMessage:TPHomeBannerDatas];
+    [TPDBRouter sendTaskMessage:TPPublishAnnouncementDatas];
     // 获取日记
     [TPDBRouter sendTaskMessage:TPPublishDiaryDatas argument:@{
         @"pageNo": @(1),
@@ -110,7 +110,7 @@
         [self.collectionView.mj_header endRefreshing];
         [self.collectionView.TPProxy reloadData:@[self.bannerSection, self.diarySection]];
         return YES;
-    } else if (messageType == TPHomeBannerDatas) {
+    } else if (messageType == TPPublishAnnouncementDatas) {
         NSArray *datas = (NSArray *)argument;
         if (datas.count) {
             NSMutableArray *tempArr = @[].mutableCopy;

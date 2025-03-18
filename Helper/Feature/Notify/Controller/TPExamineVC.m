@@ -1,29 +1,28 @@
 //
-//  TPReviewDetailVC.m
+//  TPExamineVC.m
 //  Helper
 //
-//  Created by Topredator on 2024/12/28.
+//  Created by Topredator on 2025/3/18.
 //
 
-#import "TPApplyListVC.h"
-#import "TPApplyModel.h"
-#import "TPUserModel.h"
+#import "TPExamineVC.h"
 #import "TPCommonSection.h"
-#import "TPApplyRow.h"
+#import "TPApplyModel.h"
 
-@interface TPApplyListVC ()
+@interface TPExamineVC ()
 @property (nonatomic, strong) TPCommonSection *section;
 @property (nonatomic, assign) NSInteger pageNo;
 @property (nonatomic, assign) NSInteger pageSize;
 @end
 
-@implementation TPApplyListVC
+@implementation TPExamineVC
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    // Do any additional setup after loading the view.
     self.pageNo = 1;
     self.pageSize = 20;
-    self.navigationView.title = @"我的申请";
+    self.navigationView.title = @"审核数据";
     [self loadData];
     @weakify(self);
     self.tableview.mj_header = [TPUIRefreshHeader headerWithRefreshingBlock:^{
@@ -35,33 +34,28 @@
         [self moreData];
     }];
 }
-- (void)setupSubviews {
-    [super setupSubviews];
-    self.tableview.backgroundColor = TPHelperDefaultBgColor;
-}
-
 - (void)loadData {
-    [TPDBRouter sendTaskMessage:TPFetchUserApplyDatas argument:@{
+    [TPDBRouter sendTaskMessage:TPFetchUserAuditDatas argument:@{
         @"userId": TPUserManager.manager.user.userId,
         @"pageNo": @(self.pageNo),
         @"pageSize": @(self.pageSize)
     }];
 }
 - (void)moreData {
-    [TPDBRouter sendTaskMessage:TPFetchUserApplyMoreDatas argument:@{
+    [TPDBRouter sendTaskMessage:TPFetchUserAuditMoreDatas argument:@{
         @"userId": TPUserManager.manager.user.userId,
         @"pageNo": @(self.pageNo + 1),
         @"pageSize": @(self.pageSize)
     }];
 }
 - (BOOL)handleMessage:(NSInteger)messageType result:(NSInteger)result argument:(id)argument {
-    if (messageType == TPFetchUserApplyDatas ||
-        messageType == TPFetchUserApplyMoreDatas) {
+    if (messageType == TPFetchUserAuditDatas ||
+        messageType == TPFetchUserAuditMoreDatas) {
         NSArray *tempArray = (NSArray *)argument;
         
         [self.tableview tp_hideBlankView];
         
-        if (messageType == TPFetchUserApplyDatas) {
+        if (messageType == TPFetchUserAuditDatas) {
             self.pageNo = 1;
             if (!tempArray.count) {
                 [self.tableview tp_commonEmptyData];
@@ -79,9 +73,9 @@
                 TPApplyModel *model = [TPApplyModel tp_modelWithDictionary:[dic keyRemovePrefix:TABLE_NAME_APPLY]];
                 TPUserModel *user = [TPUserModel tp_modelWithDictionary:[dic keyRemovePrefix:TABLE_NAME_USER]];
                 TPAnimalModel *animal = [TPAnimalModel tp_modelWithDictionary:[dic keyRemovePrefix:TABLE_NAME_ANIMAL]];
-                model.respondent = user;
+                model.applicant = user;
                 model.animal = animal;
-                [self.section addObject:[self rowWithModel:model]];
+//                [self.section addObject:[self rowWithModel:model]];
             }
         }
         
@@ -93,18 +87,8 @@
         [self.tableview.mj_header endRefreshing];
         [self reloadData:@[self.section]];
         return YES;
-    } else if (messageType == TPUserCancelApplication) {
-        [self loadData];
-        return YES;
     }
     return NO;
-}
-- (TPApplyRow *)rowWithModel:(TPApplyModel *)model {
-    TPApplyRow *row = [TPApplyRow applyRowWithModel:model];
-    row.cellDidSelected = ^(__kindof TPTableRow * _Nonnull rowData, TPTableViewProxy * _Nonnull proxy, NSIndexPath * _Nonnull indexPath) {
-        
-    };
-    return row;
 }
 #pragma mark ==================  Getter   ==================
 - (TPCommonSection *)section {

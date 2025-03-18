@@ -16,7 +16,7 @@
 " Apply_publishId"         " TEXT,"                     \
 " Apply_applicantId"         " TEXT,"                     \
 " Apply_respondentId"         " TEXT,"                     \
-" Apply_adminId"         " TEXT,"                     \
+" Apply_animalId"         " TEXT,"                     \
 " Apply_type"         " INTEGER default (0),"                    \
 " Apply_applyStatus"         " INTEGER default (1),"                    \
 " Apply_createTime"         " TEXT,"                     \
@@ -32,26 +32,56 @@
     NSInteger messageType = msg.taskMsgType;
     id argument = msg.argument;
     TPBaseDao *dao = [TPBaseDao daoWithTableName:TABLE_NAME_APPLY];
-    if (messageType == TPApplyToAdmin) {
+    if (messageType == TPApplyToAdoptAnimal) {
         NSDictionary *dic = argument;
         // 查询是否申请过
-        NSArray *res = [dao search:@{
+        NSArray *res = [dao search:[@{
             @"applicantId": [dic tp_StringObjectForKey:@"applicantId"] ?: @"",
             @"respondentId" : [dic tp_StringObjectForKey:@"respondentId"] ?: @"",
             @"animalId": [dic tp_StringObjectForKey:@"animalId"] ?: @"",
-        } messageType:0 waitUntilDone:YES];
+        } keyAddPrefix:TABLE_NAME_APPLY] messageType:0 waitUntilDone:YES];
         if (res.count) {
             [TPDBRouter sendMessageToRoutes:TPApplyToAdminWaiting result:0 argument:nil];
             return YES;
         }
         [dao save:dic messageType:messageType waitUntilDone:NO];
         return YES;
-    } else if (messageType == TPFetchApplyList) {
-//        NSString *sql = [NSString stringWithFormat:@"SELECT a.*, u.* FROM %@ a  INNER JOIN %@ u ON a.Apply_userId = u.User_userId WHERE a.Apply_applyStatus = 1", TABLE_NAME_APPLY, TABLE_NAME_USER];
-        // json_object('userId', u1.userId, 'name', u1.name, 'age', u1.age, 'gender', u1.gender, 'phone', u1.phone) AS user
-        NSString *sql = [NSString stringWithFormat:@"SELECT a.*,  json_object('userId', u.User_userId, 'name', u.User_name, 'account', u.User_account, 'avatar', u.User_avatar) AS applicant FROM %@ a  INNER JOIN %@ u ON a.Apply_userId = u.User_userId WHERE a.Apply_applyStatus = 1", TABLE_NAME_APPLY, TABLE_NAME_USER];
+    } else if (messageType == TPFetchUserApplyDatas ||
+               messageType == TPFetchUserApplyMoreDatas) {
+        NSDictionary *dic = argument;
+        NSString *userId = [dic tp_StringObjectForKey:@"userId"];
+        NSInteger pageNo = [dic tp_IntegerObjectForKey:@"pageNo"];
+        NSInteger pageSize = [dic tp_IntegerObjectForKey:@"pageSize"];
+        
+        NSString *sql = [NSString stringWithFormat:@"SELECT a.*, u.*, an.* FROM %@ a INNER JOIN %@ u ON u.User_userId = a.Apply_respondentId INNER JOIN %@ an ON an.Animal_animalId = a.Apply_animalId WHERE a.Apply_applicantId='%@' ORDER BY a.Apply_createTime DESC LIMIT %ld OFFSET (%ld - 1) * %ld", TABLE_NAME_APPLY, TABLE_NAME_USER, TABLE_NAME_ANIMAL, userId, pageSize, pageNo, pageSize];
+        
+        [dao searchWithSQL:sql messageType:messageType waitUntilDone:NO];
+        
+        return YES;
+    } else if (messageType == TPWhetherAuditDataExists) {
+        NSString *userId = argument;
+        if (!userId) return YES;
+        [dao search:[@{
+            @"respondentId": userId,
+            @"applyStatus": @1
+        } keyAddPrefix:TABLE_NAME_APPLY] messageType:messageType waitUntilDone:NO];
+        return YES;
+    } else if (messageType == TPFetchUserAuditDatas ||
+               messageType == TPFetchUserAuditMoreDatas) {
+        NSDictionary *dic = argument;
+        NSString *userId = [dic tp_StringObjectForKey:@"userId"];
+        NSInteger pageNo = [dic tp_IntegerObjectForKey:@"pageNo"];
+        NSInteger pageSize = [dic tp_IntegerObjectForKey:@"pageSize"];
+        
+        NSString *sql = [NSString stringWithFormat:@"SELECT a.*, u.*, an.* FROM %@ a INNER JOIN %@ u ON u.User_userId = a.Apply_applicantId INNER JOIN %@ an ON an.Animal_animalId = a.Apply_animalId WHERE a.Apply_respondentId='%@' ORDER BY a.Apply_createTime DESC LIMIT %ld OFFSET (%ld - 1) * %ld", TABLE_NAME_APPLY, TABLE_NAME_USER, TABLE_NAME_ANIMAL, userId, pageSize, pageNo, pageSize];
+        
         [dao searchWithSQL:sql messageType:messageType waitUntilDone:NO];
         return YES;
+    } else if (messageType == TPUserCancelApplication) { // 取消申请
+        NSString *applyId = argument;
+        [dao deleteByParam:[@{
+            @"applyId": applyId
+        } keyAddPrefix:TABLE_NAME_APPLY] messageType:messageType waitUntilDone:NO];
     }
     return NO;
 }

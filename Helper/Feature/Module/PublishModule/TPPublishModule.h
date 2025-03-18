@@ -16,8 +16,8 @@ NS_ASSUME_NONNULL_BEGIN
 typedef NS_ENUM(NSInteger, TPPublishModuleMessageType) {
     /// 发布消息
     TPPublishModulePublishMessage = 500000,
-    /// 获取首页banner
-    TPHomeBannerDatas,
+    /// 获取公告
+    TPPublishAnnouncementDatas,
     /// 获取日记数据
     TPPublishDiaryDatas,
     /// 更多日记数据

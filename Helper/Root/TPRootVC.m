@@ -62,7 +62,7 @@
     TPNavigationController *mineNavigationVC = [[TPNavigationController alloc] initWithRootViewController:mineVC];
     [mineNavigationVC configWithTitle:@"我的" imageName:@"tabbar_mine" selectedImageName:@"tabbar_mine_selected"];
     
-    self.viewControllers = @[topicNavigationVC, adoptNavigationVC/*, notifyNavigationVC*/, mineNavigationVC];
+    self.viewControllers = @[topicNavigationVC, adoptNavigationVC, notifyNavigationVC, mineNavigationVC];
 }
 - (void)setupNotify {
     [self tp_observeNotificationByName:TPNotifyUserDidLogout withNotifyBlock:^(NSNotification * _Nonnull note) {

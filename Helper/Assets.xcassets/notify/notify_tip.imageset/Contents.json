@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "notify_tip.svg",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

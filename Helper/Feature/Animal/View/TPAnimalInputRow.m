@@ -71,6 +71,7 @@
     }
     [self didChangeValueForKey:@"text"];
 }
+
 - (void)setTitle:(NSString *)title {
     [self willChangeValueForKey:@"title"];
     _title = title;

@@ -10,6 +10,10 @@
 		9448E7AC2D1FBC940084280B /* TPApplyDao.m in Sources */ = {isa = PBXBuildFile; fileRef = 9448E7AB2D1FBC940084280B /* TPApplyDao.m */; };
 		9448E7AF2D1FC9950084280B /* TPApplyListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 9448E7AE2D1FC9950084280B /* TPApplyListVC.m */; };
 		9448E7B22D1FF2EE0084280B /* TPApplyRow.m in Sources */ = {isa = PBXBuildFile; fileRef = 9448E7B12D1FF2EE0084280B /* TPApplyRow.m */; };
+		94720D0F2D86B02800990E5C /* TPAgreenebtPromptView.m in Sources */ = {isa = PBXBuildFile; fileRef = 94720D0E2D86B02800990E5C /* TPAgreenebtPromptView.m */; };
+		94720D122D87B4CE00990E5C /* TPNotifyEmptyRow.m in Sources */ = {isa = PBXBuildFile; fileRef = 94720D112D87B4CE00990E5C /* TPNotifyEmptyRow.m */; };
+		94720D182D896AE400990E5C /* TPExamineVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 94720D172D896AE400990E5C /* TPExamineVC.m */; };
+		94720D1B2D896F5900990E5C /* TPExamineRow.m in Sources */ = {isa = PBXBuildFile; fileRef = 94720D1A2D896F5900990E5C /* TPExamineRow.m */; };
 		948A1F662D1AA9FA0032DFB9 /* TPNotifyButtonRow.m in Sources */ = {isa = PBXBuildFile; fileRef = 948A1F652D1AA9FA0032DFB9 /* TPNotifyButtonRow.m */; };
 		948A1F692D1AB8EE0032DFB9 /* TPSettingVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 948A1F682D1AB8EE0032DFB9 /* TPSettingVC.m */; };
 		948A1F6C2D1ABA620032DFB9 /* TPSettingRow.m in Sources */ = {isa = PBXBuildFile; fileRef = 948A1F6B2D1ABA620032DFB9 /* TPSettingRow.m */; };
@@ -153,6 +157,14 @@
 		9448E7AE2D1FC9950084280B /* TPApplyListVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPApplyListVC.m; sourceTree = "<group>"; };
 		9448E7B02D1FF2EE0084280B /* TPApplyRow.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPApplyRow.h; sourceTree = "<group>"; };
 		9448E7B12D1FF2EE0084280B /* TPApplyRow.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPApplyRow.m; sourceTree = "<group>"; };
+		94720D0D2D86B02800990E5C /* TPAgreenebtPromptView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPAgreenebtPromptView.h; sourceTree = "<group>"; };
+		94720D0E2D86B02800990E5C /* TPAgreenebtPromptView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPAgreenebtPromptView.m; sourceTree = "<group>"; };
+		94720D102D87B4CE00990E5C /* TPNotifyEmptyRow.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPNotifyEmptyRow.h; sourceTree = "<group>"; };
+		94720D112D87B4CE00990E5C /* TPNotifyEmptyRow.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPNotifyEmptyRow.m; sourceTree = "<group>"; };
+		94720D162D896AE400990E5C /* TPExamineVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPExamineVC.h; sourceTree = "<group>"; };
+		94720D172D896AE400990E5C /* TPExamineVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPExamineVC.m; sourceTree = "<group>"; };
+		94720D192D896F5900990E5C /* TPExamineRow.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPExamineRow.h; sourceTree = "<group>"; };
+		94720D1A2D896F5900990E5C /* TPExamineRow.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPExamineRow.m; sourceTree = "<group>"; };
 		948A1F642D1AA9FA0032DFB9 /* TPNotifyButtonRow.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPNotifyButtonRow.h; sourceTree = "<group>"; };
 		948A1F652D1AA9FA0032DFB9 /* TPNotifyButtonRow.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPNotifyButtonRow.m; sourceTree = "<group>"; };
 		948A1F672D1AB8EE0032DFB9 /* TPSettingVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPSettingVC.h; sourceTree = "<group>"; };
@@ -438,6 +450,15 @@
 				7DD2FE6BC1B97D38F13F68F5 /* Pods_Helper.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		94720D0C2D86AF8200990E5C /* Alert */ = {
+			isa = PBXGroup;
+			children = (
+				94720D0D2D86B02800990E5C /* TPAgreenebtPromptView.h */,
+				94720D0E2D86B02800990E5C /* TPAgreenebtPromptView.m */,
+			);
+			path = Alert;
 			sourceTree = "<group>";
 		};
 		948A1F782D1BA8BD0032DFB9 /* Module */ = {
@@ -993,6 +1014,8 @@
 				94DD99B22C9FF01000963330 /* TPNotifyVC.m */,
 				9448E7AD2D1FC9950084280B /* TPApplyListVC.h */,
 				9448E7AE2D1FC9950084280B /* TPApplyListVC.m */,
+				94720D162D896AE400990E5C /* TPExamineVC.h */,
+				94720D172D896AE400990E5C /* TPExamineVC.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1008,6 +1031,10 @@
 				948A1F652D1AA9FA0032DFB9 /* TPNotifyButtonRow.m */,
 				9448E7B02D1FF2EE0084280B /* TPApplyRow.h */,
 				9448E7B12D1FF2EE0084280B /* TPApplyRow.m */,
+				94720D102D87B4CE00990E5C /* TPNotifyEmptyRow.h */,
+				94720D112D87B4CE00990E5C /* TPNotifyEmptyRow.m */,
+				94720D192D896F5900990E5C /* TPExamineRow.h */,
+				94720D1A2D896F5900990E5C /* TPExamineRow.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1188,6 +1215,7 @@
 		94E7ACDF2CBD1FDE00D3BE10 /* UI-Component */ = {
 			isa = PBXGroup;
 			children = (
+				94720D0C2D86AF8200990E5C /* Alert */,
 				94974E502D675EF200553437 /* ImagePicker */,
 				94E7ACE52CBD200700D3BE10 /* FBShimmering */,
 			);
@@ -1395,6 +1423,7 @@
 				948A1F872D1BC7F00032DFB9 /* TPApplyModel.m in Sources */,
 				94A2D2102D1D6D5000BCD461 /* TPAnimalIntroduceRow.m in Sources */,
 				94974E422D67032200553437 /* TPPublishAnimalRow.m in Sources */,
+				94720D182D896AE400990E5C /* TPExamineVC.m in Sources */,
 				948A1F6F2D1AD5D00032DFB9 /* TPSettingAccountAndSecurityVC.m in Sources */,
 				94974E562D675FC000553437 /* TPImagePickerRow.m in Sources */,
 				94AE8AA32D14000400312D45 /* TPMineHeaderView.m in Sources */,
@@ -1419,6 +1448,7 @@
 				94974E4B2D6742EB00553437 /* TPCommonMultipleImagesRow.m in Sources */,
 				94A2D1EB2D1C345A00BCD461 /* TPAdoptDao.m in Sources */,
 				94974E992D782DA100553437 /* TPAddressModule.m in Sources */,
+				94720D122D87B4CE00990E5C /* TPNotifyEmptyRow.m in Sources */,
 				94DD99BC2C9FF06900963330 /* TPHomeVC.m in Sources */,
 				94DD99B02C9FEC4400963330 /* TPBaseVC.m in Sources */,
 				94DD99842C9FCC0A00963330 /* AppDelegate.m in Sources */,
@@ -1467,11 +1497,13 @@
 				94AE8AC12D16B3F400312D45 /* TPHomeBannerSection.m in Sources */,
 				949CE6682CF4ABDC00FF8EE4 /* TPForgotPwdVC.m in Sources */,
 				94974E8C2D75CCCA00553437 /* TPCollectDetailVC.m in Sources */,
+				94720D0F2D86B02800990E5C /* TPAgreenebtPromptView.m in Sources */,
 				94974E802D7552B800553437 /* TPCollectModel.m in Sources */,
 				94AE8B082D180EE300312D45 /* TPSingleBgTableCell.m in Sources */,
 				94DD999E2C9FE52600963330 /* TPRootVC.m in Sources */,
 				94974E722D6DA12700553437 /* TPAnimalAvatarRow.m in Sources */,
 				94E7ACD72CBCC50C00D3BE10 /* TPNavigationView.m in Sources */,
+				94720D1B2D896F5900990E5C /* TPExamineRow.m in Sources */,
 				94AE8B172D1836C400312D45 /* TPNotifyAnnouncementSection.m in Sources */,
 				94AE8AFE2D17E6A300312D45 /* TPCommonAnimalRow.m in Sources */,
 				949083922D54AB0700BF8553 /* TPBaseWebVC.m in Sources */,

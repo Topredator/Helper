@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "apply_declined.svg",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

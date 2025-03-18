@@ -9,7 +9,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-/// 审核列表页
+/// 申请列表页
 @interface TPApplyListVC : TPNavigationTableVC
 
 @end
