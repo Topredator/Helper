@@ -82,6 +82,13 @@
         [dao deleteByParam:[@{
             @"applyId": applyId
         } keyAddPrefix:TABLE_NAME_APPLY] messageType:messageType waitUntilDone:NO];
+        return YES;
+    } else if (messageType == TPUserAgreedToApplication ||
+               messageType == TPUserRejectedApplication) { // 同意/拒绝 申请
+        NSDictionary *dic = argument;
+        NSString *applyId = [dic tp_StringObjectForKey:@"applyId"];
+        [dao update:[dic keyAddPrefix:TABLE_NAME_APPLY] ByPrimeKeyValue:applyId messageType:messageType waitUntilDone:NO];
+        return YES;
     }
     return NO;
 }

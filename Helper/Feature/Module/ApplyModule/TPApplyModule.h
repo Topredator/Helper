@@ -28,7 +28,10 @@ typedef NS_ENUM(NSUInteger, TPApplyModuleMessageType) {
     TPFetchUserApplyMoreDatas,
     /// 用户取消申请
     TPUserCancelApplication,
-    
+    /// 用户同意了申请
+    TPUserAgreedToApplication,
+    /// 用户拒接了领养申请
+    TPUserRejectedApplication
 };
 
 

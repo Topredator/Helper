@@ -12,6 +12,7 @@
 #import "TPCommonSection.h"
 #import "TPApplyListVC.h"
 #import "TPNotifyEmptyRow.h"
+#import "TPExamineVC.h"
 @interface TPNotifyVC ()
 @property (nonatomic, strong) TPNotifyAnnouncementSection *notifySection;
 @property (nonatomic, strong) TPCommonSection *section;
@@ -89,7 +90,8 @@
     [self.navigationController pushViewController:listVC animated:YES];
 }
 - (void)examineAction {
-    
+    TPExamineVC *examineVC = [TPExamineVC new];
+    [self.navigationController pushViewController:examineVC animated:YES];
 }
 
 

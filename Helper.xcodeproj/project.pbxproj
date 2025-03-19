@@ -14,6 +14,8 @@
 		94720D122D87B4CE00990E5C /* TPNotifyEmptyRow.m in Sources */ = {isa = PBXBuildFile; fileRef = 94720D112D87B4CE00990E5C /* TPNotifyEmptyRow.m */; };
 		94720D182D896AE400990E5C /* TPExamineVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 94720D172D896AE400990E5C /* TPExamineVC.m */; };
 		94720D1B2D896F5900990E5C /* TPExamineRow.m in Sources */ = {isa = PBXBuildFile; fileRef = 94720D1A2D896F5900990E5C /* TPExamineRow.m */; };
+		94720D1E2D8A47DC00990E5C /* adopt_agreement.html in Resources */ = {isa = PBXBuildFile; fileRef = 94720D1C2D8A47DC00990E5C /* adopt_agreement.html */; };
+		94720D1F2D8A47DC00990E5C /* platform_rule.html in Resources */ = {isa = PBXBuildFile; fileRef = 94720D1D2D8A47DC00990E5C /* platform_rule.html */; };
 		948A1F662D1AA9FA0032DFB9 /* TPNotifyButtonRow.m in Sources */ = {isa = PBXBuildFile; fileRef = 948A1F652D1AA9FA0032DFB9 /* TPNotifyButtonRow.m */; };
 		948A1F692D1AB8EE0032DFB9 /* TPSettingVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 948A1F682D1AB8EE0032DFB9 /* TPSettingVC.m */; };
 		948A1F6C2D1ABA620032DFB9 /* TPSettingRow.m in Sources */ = {isa = PBXBuildFile; fileRef = 948A1F6B2D1ABA620032DFB9 /* TPSettingRow.m */; };
@@ -165,6 +167,8 @@
 		94720D172D896AE400990E5C /* TPExamineVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPExamineVC.m; sourceTree = "<group>"; };
 		94720D192D896F5900990E5C /* TPExamineRow.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPExamineRow.h; sourceTree = "<group>"; };
 		94720D1A2D896F5900990E5C /* TPExamineRow.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPExamineRow.m; sourceTree = "<group>"; };
+		94720D1C2D8A47DC00990E5C /* adopt_agreement.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = adopt_agreement.html; sourceTree = "<group>"; };
+		94720D1D2D8A47DC00990E5C /* platform_rule.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = platform_rule.html; sourceTree = "<group>"; };
 		948A1F642D1AA9FA0032DFB9 /* TPNotifyButtonRow.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPNotifyButtonRow.h; sourceTree = "<group>"; };
 		948A1F652D1AA9FA0032DFB9 /* TPNotifyButtonRow.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPNotifyButtonRow.m; sourceTree = "<group>"; };
 		948A1F672D1AB8EE0032DFB9 /* TPSettingVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPSettingVC.h; sourceTree = "<group>"; };
@@ -1087,6 +1091,8 @@
 				94DD99892C9FCC0A00963330 /* ViewController.m */,
 				94DD998B2C9FCC0A00963330 /* Main.storyboard */,
 				94DD998E2C9FCC0A00963330 /* Assets.xcassets */,
+				94720D1C2D8A47DC00990E5C /* adopt_agreement.html */,
+				94720D1D2D8A47DC00990E5C /* platform_rule.html */,
 				94DD99902C9FCC0A00963330 /* LaunchScreen.storyboard */,
 				94DD99932C9FCC0A00963330 /* Info.plist */,
 				94DD99942C9FCC0A00963330 /* main.m */,
@@ -1358,8 +1364,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				94720D1F2D8A47DC00990E5C /* platform_rule.html in Resources */,
 				94DD998F2C9FCC0A00963330 /* Assets.xcassets in Resources */,
 				94DD99922C9FCC0A00963330 /* Base in Resources */,
+				94720D1E2D8A47DC00990E5C /* adopt_agreement.html in Resources */,
 				94DD998D2C9FCC0A00963330 /* Base in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

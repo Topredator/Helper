@@ -8,7 +8,7 @@
 #import "TPExamineVC.h"
 #import "TPCommonSection.h"
 #import "TPApplyModel.h"
-
+#import "TPExamineRow.h"
 @interface TPExamineVC ()
 @property (nonatomic, strong) TPCommonSection *section;
 @property (nonatomic, assign) NSInteger pageNo;
@@ -34,6 +34,10 @@
         [self moreData];
     }];
 }
+- (void)setupSubviews {
+    [super setupSubviews];
+    self.tableview.backgroundColor = TPHelperDefaultBgColor;
+}
 - (void)loadData {
     [TPDBRouter sendTaskMessage:TPFetchUserAuditDatas argument:@{
         @"userId": TPUserManager.manager.user.userId,
@@ -48,6 +52,7 @@
         @"pageSize": @(self.pageSize)
     }];
 }
+
 - (BOOL)handleMessage:(NSInteger)messageType result:(NSInteger)result argument:(id)argument {
     if (messageType == TPFetchUserAuditDatas ||
         messageType == TPFetchUserAuditMoreDatas) {
@@ -75,7 +80,7 @@
                 TPAnimalModel *animal = [TPAnimalModel tp_modelWithDictionary:[dic keyRemovePrefix:TABLE_NAME_ANIMAL]];
                 model.applicant = user;
                 model.animal = animal;
-//                [self.section addObject:[self rowWithModel:model]];
+                [self.section addObject:[TPExamineRow rowWithModel:model]];
             }
         }
         
@@ -86,6 +91,10 @@
         }
         [self.tableview.mj_header endRefreshing];
         [self reloadData:@[self.section]];
+        return YES;
+    } else if (messageType == TPUserAgreedToApplication ||
+               messageType == TPUserRejectedApplication) {
+        [self loadData];
         return YES;
     }
     return NO;

@@ -71,14 +71,18 @@
 - (TPMineToolRow *)ruleRow {
     TPMineToolRow *row = [TPMineToolRow rowWithIcon:@"mine_rule" name:@"平台规则"];
     row.cellDidSelected = ^(__kindof TPTableRow * _Nonnull rowData, TPTableViewProxy * _Nonnull proxy, NSIndexPath * _Nonnull indexPath) {
-        
+        TPBaseWebVC *webVC = [TPBaseWebVC new];
+        webVC.fileName = @"platform_rule.html";
+        [TPUINavigator pushViewController:webVC animated:YES];
     };
     return row;
 }
 - (TPMineToolRow *)agreementRow {
     TPMineToolRow *row = [TPMineToolRow rowWithIcon:@"mine_agreement" name:@"领养协议"];
     row.cellDidSelected = ^(__kindof TPTableRow * _Nonnull rowData, TPTableViewProxy * _Nonnull proxy, NSIndexPath * _Nonnull indexPath) {
-        
+        TPBaseWebVC *webVC = [TPBaseWebVC new];
+        webVC.fileName = @"adopt_agreement.html";
+        [TPUINavigator pushViewController:webVC animated:YES];
     };
     return row;
 }
@@ -103,12 +107,6 @@
 - (void)publicAction {
     TPPublicOperationVC *vc = [TPPublicOperationVC new];
     [self.navigationController pushViewController:vc animated:YES];
-//    if (TPUserManager.manager.user.userType != TPUserTypeCustome) {
-//        
-//    } else {
-//        TPReleaseDiaryVC *dailyVC = [TPReleaseDiaryVC new];
-//        [self.navigationController pushViewController:dailyVC animated:YES];
-//    }
 }
 - (void)collectAction {
     TPCollectListVC *listVC = [TPCollectListVC new];

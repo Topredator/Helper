@@ -148,7 +148,7 @@
 #pragma mark ==================  TPTextDisplayViewDelegate   ==================
 - (void)tp_textDisplayView:(TPTextDisplayView *)displayView labelType:(TPRichTextLabelType)labelType content:(NSString *)content {
     TPBaseWebVC *webVC = [TPBaseWebVC new];
-    webVC.url = @"https://www.baidu.com";
+    webVC.fileName = @"adopt_agreement.html";
     [TPUINavigator pushViewController:webVC animated:YES];
 }
 - (NSString *)agreementText {
