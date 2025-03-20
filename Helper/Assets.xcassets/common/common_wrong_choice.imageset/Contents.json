@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "common_wrong_choice.svg",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

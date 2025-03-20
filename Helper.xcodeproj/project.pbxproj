@@ -17,6 +17,7 @@
 		94720D1E2D8A47DC00990E5C /* adopt_agreement.html in Resources */ = {isa = PBXBuildFile; fileRef = 94720D1C2D8A47DC00990E5C /* adopt_agreement.html */; };
 		94720D1F2D8A47DC00990E5C /* platform_rule.html in Resources */ = {isa = PBXBuildFile; fileRef = 94720D1D2D8A47DC00990E5C /* platform_rule.html */; };
 		94720D222D8B0D0900990E5C /* TPAnnouncementDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 94720D212D8B0D0900990E5C /* TPAnnouncementDetailVC.m */; };
+		94720D252D8BFF9F00990E5C /* TPAdoptConditionRow.m in Sources */ = {isa = PBXBuildFile; fileRef = 94720D242D8BFF9F00990E5C /* TPAdoptConditionRow.m */; };
 		948A1F662D1AA9FA0032DFB9 /* TPNotifyButtonRow.m in Sources */ = {isa = PBXBuildFile; fileRef = 948A1F652D1AA9FA0032DFB9 /* TPNotifyButtonRow.m */; };
 		948A1F692D1AB8EE0032DFB9 /* TPSettingVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 948A1F682D1AB8EE0032DFB9 /* TPSettingVC.m */; };
 		948A1F6C2D1ABA620032DFB9 /* TPSettingRow.m in Sources */ = {isa = PBXBuildFile; fileRef = 948A1F6B2D1ABA620032DFB9 /* TPSettingRow.m */; };
@@ -172,6 +173,8 @@
 		94720D1D2D8A47DC00990E5C /* platform_rule.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = platform_rule.html; sourceTree = "<group>"; };
 		94720D202D8B0D0900990E5C /* TPAnnouncementDetailVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPAnnouncementDetailVC.h; sourceTree = "<group>"; };
 		94720D212D8B0D0900990E5C /* TPAnnouncementDetailVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPAnnouncementDetailVC.m; sourceTree = "<group>"; };
+		94720D232D8BFF9F00990E5C /* TPAdoptConditionRow.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPAdoptConditionRow.h; sourceTree = "<group>"; };
+		94720D242D8BFF9F00990E5C /* TPAdoptConditionRow.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPAdoptConditionRow.m; sourceTree = "<group>"; };
 		948A1F642D1AA9FA0032DFB9 /* TPNotifyButtonRow.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPNotifyButtonRow.h; sourceTree = "<group>"; };
 		948A1F652D1AA9FA0032DFB9 /* TPNotifyButtonRow.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPNotifyButtonRow.m; sourceTree = "<group>"; };
 		948A1F672D1AB8EE0032DFB9 /* TPSettingVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPSettingVC.h; sourceTree = "<group>"; };
@@ -1001,6 +1004,8 @@
 				94A2D2122D1D7B5D00BCD461 /* TPAnimalPublisherRow.m */,
 				94A2D2142D1D7FB100BCD461 /* TPHelpDetailBottomView.h */,
 				94A2D2152D1D7FB100BCD461 /* TPHelpDetailBottomView.m */,
+				94720D232D8BFF9F00990E5C /* TPAdoptConditionRow.h */,
+				94720D242D8BFF9F00990E5C /* TPAdoptConditionRow.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1480,6 +1485,7 @@
 				94AE8ACE2D16BCB300312D45 /* TPHomeLifeDiarySection.m in Sources */,
 				94E7ACE62CBD200700D3BE10 /* FBShimmeringLayer.m in Sources */,
 				948A1F662D1AA9FA0032DFB9 /* TPNotifyButtonRow.m in Sources */,
+				94720D252D8BFF9F00990E5C /* TPAdoptConditionRow.m in Sources */,
 				94AE8B0C2D18330A00312D45 /* TPNavigationTableVC.m in Sources */,
 				94AE8AD42D17B3A700312D45 /* TPCommonCollectionCell.m in Sources */,
 				948A1F722D1AD9AA0032DFB9 /* TPSettingSwitchRow.m in Sources */,

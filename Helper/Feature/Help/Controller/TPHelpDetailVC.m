@@ -15,6 +15,7 @@
 #import "TPCollectModel.h"
 #import "TPAgreenebtPromptView.h"
 #import "TPApplyModel.h"
+#import "TPAdoptConditionRow.h"
 @interface TPHelpDetailVC ()
 @property (nonatomic, strong) UIView *headerView;
 @property (nonatomic, strong) UIImageView *avatarImage;
@@ -103,10 +104,27 @@
     introduceRow.content = self.publishModel.content;
     [section addObject:introduceRow];
     
+    TPCommonTitleSection *conditionSection = [TPCommonTitleSection sectionWithTitle:@"领养条件"];
+    [conditionSection addObject:[TPAdoptConditionRow conditionRowWithTitle:@"必须要签订领养协议, 需要互换身份证复印件" isSelected:YES]];
+    [conditionSection addObject:[TPAdoptConditionRow conditionRowWithTitle:@"不接受学生领养" isSelected:YES]];
+    [conditionSection addObject:[TPAdoptConditionRow conditionRowWithTitle:@"养猫封窗，养狗牵绳" isSelected:YES]];
+    [conditionSection addObject:[TPAdoptConditionRow conditionRowWithTitle:@"年龄需要20岁以上，未成年人需监护人申请" isSelected:YES]];
+    [conditionSection addObject:[TPAdoptConditionRow conditionRowWithTitle:@"有稳定住房" isSelected:YES]];
+    [conditionSection addObject:[TPAdoptConditionRow conditionRowWithTitle:@"仅限同城，不可邮寄" isSelected:YES]];
+    [conditionSection addObject:[TPAdoptConditionRow conditionRowWithTitle:@"按时打疫苗驱虫" isSelected:YES]];
+    [conditionSection addObject:[TPAdoptConditionRow conditionRowWithTitle:@"接收领养前家访，领养后家访" isSelected:YES]];
+    [conditionSection addObject:[TPAdoptConditionRow conditionRowWithTitle:@"工作稳定，有一定经济基础" isSelected:YES]];
+    
+    
     TPCommonTitleSection *publicSection = [TPCommonTitleSection sectionWithTitle:@"发布者"];
     [publicSection addObject:[TPAnimalPublisherRow rowWithModel:self.publishModel.user]];
     
-    [self reloadData:@[section, publicSection]];
+    TPCommonTitleSection *flowSection = [TPCommonTitleSection sectionWithTitle:@"领养流程"];
+    [flowSection addObject:[TPAdoptConditionRow flowWithTitle:@"确认满足上方领养要求"]];
+    [flowSection addObject:[TPAdoptConditionRow flowWithTitle:@"通过上方联系方式与送养人取得联系"]];
+    [flowSection addObject:[TPAdoptConditionRow flowWithTitle:@"沟通交流，协商一致后现场交接，签订领养协议"]];
+    
+    [self reloadData:@[section, conditionSection, publicSection, flowSection]];
 }
 - (BOOL)handleMessage:(NSInteger)messageType result:(NSInteger)result argument:(id)argument {
     if (messageType == TPCollectModuleQueryData) {
