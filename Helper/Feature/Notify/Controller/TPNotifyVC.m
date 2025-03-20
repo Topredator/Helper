@@ -13,6 +13,8 @@
 #import "TPApplyListVC.h"
 #import "TPNotifyEmptyRow.h"
 #import "TPExamineVC.h"
+#import "TPAnnouncementDetailVC.h"
+
 @interface TPNotifyVC ()
 @property (nonatomic, strong) TPNotifyAnnouncementSection *notifySection;
 @property (nonatomic, strong) TPCommonSection *section;
@@ -76,12 +78,14 @@
             }
         }
         [self reloadData:@[self.notifySection, self.section]];
-        return YES;
+//        return YES;
     } else if (messageType == TPWhetherAuditDataExists) {
         NSArray *array = argument;
         TPNotifyButtonRow *row = (TPNotifyButtonRow *)self.section[kTPNotifyExamineRowKey];
         row.tip = array.count;
         return YES;
+    } else if (messageType == TPPublishDeleteNotice) {
+        [TPDBRouter sendTaskMessage:TPPublishAnnouncementDatas];
     }
     return NO;
 }
@@ -98,7 +102,15 @@
 - (TPNotifyAnnouncementRow *)rowWithModel:(TPPublishModel *)model {
     TPNotifyAnnouncementRow *row = [TPNotifyAnnouncementRow rowWithModel:model];
     row.cellDidSelected = ^(__kindof TPTableRow * _Nonnull rowData, TPTableViewProxy * _Nonnull proxy, NSIndexPath * _Nonnull indexPath) {
-        
+        if (model.type == TPPublishTypeLinkNotice) {
+            TPBaseWebVC *webVC = [TPBaseWebVC new];
+            webVC.url = model.content;
+            [TPUINavigator pushViewController:webVC animated:YES];
+        } else {
+            TPAnnouncementDetailVC *detailVC = [TPAnnouncementDetailVC new];
+            detailVC.publishModel = model;
+            [TPUINavigator pushViewController:detailVC animated:YES];
+        }
     };
     return row;
 }

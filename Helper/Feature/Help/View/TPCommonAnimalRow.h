@@ -11,6 +11,8 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface TPCommonAnimalRow : TPTableRow
+/// 是否可删除
+@property (nonatomic, assign) BOOL canDelete;
 + (instancetype)rowWithModel:(TPAnimalModel *)model;
 + (instancetype)rowWithModel:(TPAnimalModel *)model identifer:(NSString *)identifer;
 @end

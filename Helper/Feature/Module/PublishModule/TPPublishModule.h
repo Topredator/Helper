@@ -40,7 +40,12 @@ typedef NS_ENUM(NSInteger, TPPublishModuleMessageType) {
     TPFetchInRecoveryAnimalMoreDatas,
     /// 待领养
     TPFetchPendingAdoptAnimalDatas,
-    TPFetchPendingAdoptAnimalMoreDatas
+    TPFetchPendingAdoptAnimalMoreDatas,
+    
+    /// 删除公告
+    TPPublishDeleteNotice,
+    /// 删除日记
+    TPPublishDeleteDiary,
 };
 
 /// 发布模块

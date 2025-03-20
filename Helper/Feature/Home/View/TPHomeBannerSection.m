@@ -9,7 +9,7 @@
 #import "TPBaseCollectionSectionView.h"
 #import "TPHomeBannerPage.h"
 #import "TPHelpDetailVC.h"
-
+#import "TPAnnouncementDetailVC.h"
 @interface TPHomeBannerSectionHeaderView : TPBaseCollectionSectionView <TPUIBannerViewDelegate>
 @property (nonatomic, strong) UIImageView *bgImage;
 @property (nonatomic, strong) TPUIBannerView *bannerView;
@@ -47,12 +47,14 @@
 }
 - (void)bannerView:(TPUIBannerView *)bannerView didSelectedAtPageIndex:(NSInteger)pageIndex {
     TPHomeBannerModel *model = [self.datas tp_ObjectAtIndex:pageIndex];
-    if (model.publishModel.type == 0) { // 链接
+    if (model.publishModel.type == TPPublishTypeLinkNotice) { // 链接
         TPBaseWebVC *webVC = [TPBaseWebVC new];
         webVC.url = model.publishModel.content;
         [TPUINavigator pushViewController:webVC animated:YES];
     } else { // 图文
-        
+        TPAnnouncementDetailVC *detailVC = [TPAnnouncementDetailVC new];
+        detailVC.publishModel = model.publishModel;
+        [TPUINavigator pushViewController:detailVC animated:YES];
     }
 }
 - (void)configWithBanners:(NSArray <TPHomeBannerModel *>*)banners {

@@ -15,6 +15,7 @@
 @property (nonatomic, strong) UILabel *nameLabel;
 @property (nonatomic, strong) UILabel *titleLabel;
 @property (nonatomic, strong) UILabel *contentLabel;
+@property (nonatomic, strong) UIButton *removeBtn;
 @end
 
 @implementation TPDiaryDetailVC
@@ -28,10 +29,11 @@
     self.nameLabel.text = self.publishModel.user.name;
     self.titleLabel.text = self.publishModel.title;
     self.contentLabel.text = self.publishModel.content;
-    
+    self.removeBtn.hidden = ![TPUserManager.manager.user.userId isEqualToString:self.publishModel.user.userId];
 }
 - (void)setupSubviews {
     [super setupSubviews];
+    [self.navigationView addSubview:self.removeBtn];
     [self.view addSubview:self.bgScroll];
     [self.bgScroll addSubview:self.contentView];
     [self.contentView addSubview:self.imageContainer];
@@ -42,6 +44,11 @@
 }
 - (void)makeConstraints {
     [super makeConstraints];
+    [self.removeBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.size.mas_equalTo(CGSizeMake(80, 40));
+        make.right.mas_equalTo(-10);
+        make.bottom.mas_equalTo(-2);
+    }];
     [self.bgScroll mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.mas_equalTo(UIEdgeInsetsMake(TPUI.tp_topBarHeight, 0, 0, 0));
     }];
@@ -109,6 +116,22 @@
         }];
     }
 }
+- (void)removeBtnAction {
+    [TPUIAlert alertShow:^(TPUIAlertMaker *make) {
+        make.title(@"删除日记").message(@"您确定删除吗?");
+        make.cancleOption(@"取消");
+        make.addOption(TPUIAlertColorOption(@"确定", ^{
+            [TPDBRouter sendTaskMessage:TPPublishDeleteDiary argument:self.publishModel.publishId];
+        }, TPHelperThemeColor));
+    }];
+}
+- (BOOL)handleMessage:(NSInteger)messageType result:(NSInteger)result argument:(id)argument {
+    if (messageType == TPPublishDeleteDiary) {
+        [TPAppDelegate().window tp_toast:@"日记删除成功"];
+        [self.navigationController popViewControllerAnimated:YES];
+    }
+    return NO;
+}
 #pragma mark----------------- Getter -----------------
 - (UIScrollView *)bgScroll {
     if (!_bgScroll) {
@@ -163,5 +186,15 @@
         _contentLabel.numberOfLines = 0;
     }
     return _contentLabel;
+}
+- (UIButton *)removeBtn {
+    if (!_removeBtn) {
+        _removeBtn = [[UIButton alloc] initWithFrame:CGRectZero];
+        [_removeBtn setTitle:@"删除" forState:UIControlStateNormal];
+        [_removeBtn setTitleColor:TPHelperThemeColor forState:UIControlStateNormal];
+        _removeBtn.titleLabel.font = [TPUI tp_font:18 weight:FontMedium];
+        [_removeBtn addTarget:self action:@selector(removeBtnAction) forControlEvents:UIControlEventTouchUpInside];
+    }
+    return _removeBtn;
 }
 @end

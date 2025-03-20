@@ -16,6 +16,7 @@
 		94720D1B2D896F5900990E5C /* TPExamineRow.m in Sources */ = {isa = PBXBuildFile; fileRef = 94720D1A2D896F5900990E5C /* TPExamineRow.m */; };
 		94720D1E2D8A47DC00990E5C /* adopt_agreement.html in Resources */ = {isa = PBXBuildFile; fileRef = 94720D1C2D8A47DC00990E5C /* adopt_agreement.html */; };
 		94720D1F2D8A47DC00990E5C /* platform_rule.html in Resources */ = {isa = PBXBuildFile; fileRef = 94720D1D2D8A47DC00990E5C /* platform_rule.html */; };
+		94720D222D8B0D0900990E5C /* TPAnnouncementDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 94720D212D8B0D0900990E5C /* TPAnnouncementDetailVC.m */; };
 		948A1F662D1AA9FA0032DFB9 /* TPNotifyButtonRow.m in Sources */ = {isa = PBXBuildFile; fileRef = 948A1F652D1AA9FA0032DFB9 /* TPNotifyButtonRow.m */; };
 		948A1F692D1AB8EE0032DFB9 /* TPSettingVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 948A1F682D1AB8EE0032DFB9 /* TPSettingVC.m */; };
 		948A1F6C2D1ABA620032DFB9 /* TPSettingRow.m in Sources */ = {isa = PBXBuildFile; fileRef = 948A1F6B2D1ABA620032DFB9 /* TPSettingRow.m */; };
@@ -169,6 +170,8 @@
 		94720D1A2D896F5900990E5C /* TPExamineRow.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPExamineRow.m; sourceTree = "<group>"; };
 		94720D1C2D8A47DC00990E5C /* adopt_agreement.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = adopt_agreement.html; sourceTree = "<group>"; };
 		94720D1D2D8A47DC00990E5C /* platform_rule.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = platform_rule.html; sourceTree = "<group>"; };
+		94720D202D8B0D0900990E5C /* TPAnnouncementDetailVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPAnnouncementDetailVC.h; sourceTree = "<group>"; };
+		94720D212D8B0D0900990E5C /* TPAnnouncementDetailVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPAnnouncementDetailVC.m; sourceTree = "<group>"; };
 		948A1F642D1AA9FA0032DFB9 /* TPNotifyButtonRow.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPNotifyButtonRow.h; sourceTree = "<group>"; };
 		948A1F652D1AA9FA0032DFB9 /* TPNotifyButtonRow.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPNotifyButtonRow.m; sourceTree = "<group>"; };
 		948A1F672D1AB8EE0032DFB9 /* TPSettingVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPSettingVC.h; sourceTree = "<group>"; };
@@ -1020,6 +1023,8 @@
 				9448E7AE2D1FC9950084280B /* TPApplyListVC.m */,
 				94720D162D896AE400990E5C /* TPExamineVC.h */,
 				94720D172D896AE400990E5C /* TPExamineVC.m */,
+				94720D202D8B0D0900990E5C /* TPAnnouncementDetailVC.h */,
+				94720D212D8B0D0900990E5C /* TPAnnouncementDetailVC.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1539,6 +1544,7 @@
 				94974E662D68402C00553437 /* TPPublishDao.m in Sources */,
 				94AE8A9D2D13FEA700312D45 /* TPBaseView.m in Sources */,
 				94E7AD142CBE711600D3BE10 /* AppDelegate+TPDatabase.m in Sources */,
+				94720D222D8B0D0900990E5C /* TPAnnouncementDetailVC.m in Sources */,
 				949CE6652CF4800000FF8EE4 /* NSDictionary+TPMapExtension.m in Sources */,
 				94974EA02D7930AC00553437 /* TPAddressModel.m in Sources */,
 				94974E3F2D67030400553437 /* TPPublishContentRow.m in Sources */,

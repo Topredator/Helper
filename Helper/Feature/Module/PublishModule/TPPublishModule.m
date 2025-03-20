@@ -98,6 +98,11 @@
         
         [dao searchWithSQL:sql messageType:msgType waitUntilDone:NO];
         return YES;
+    } else if (messageType == TPPublishDeleteNotice ||
+               messageType == TPPublishDeleteDiary) { /// 删除 公告/日记
+        NSString *publishId = argument;
+        [dao deleteByPrimeKey:publishId messageType:messageType waitUntilDone:NO];
+        return YES;
     }
     return NO;
 }

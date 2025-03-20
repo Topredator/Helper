@@ -36,7 +36,8 @@ typedef NS_ENUM(NSUInteger, TPAnimalModuleMessageType) {
     TPFetchDogAdoptDatas,
     TPFetchDogAdoptMoreDatas,
     
-    
+    /// 删除动物信息
+    TPAnimalDeleteInfo,
     
 };
 

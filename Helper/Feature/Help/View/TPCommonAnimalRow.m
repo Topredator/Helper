@@ -174,4 +174,19 @@
 - (CGFloat)tp_tableViewCellHeightWithProxy:(TPTableViewProxy *)proxy indexPath:(NSIndexPath *)indexPath {
     return 125;
 }
+- (BOOL)tp_tableViewCanEditRowWithProxy:(TPTableViewProxy *)proxy indexPath:(NSIndexPath *)indexPath {
+    return self.canDelete;
+}
+- (NSString *)tp_tableViewTitleForDeleteConfirmationButtonForRowAtIndexPath:(TPTableViewProxy *)proxy indexPath:(NSIndexPath *)indexPath {
+    return @"删除";
+}
+- (void)tp_tableViewCommitEditingStyle:(UITableViewCellEditingStyle)editingStyle proxy:(TPTableViewProxy *)proxy indexPath:(NSIndexPath *)indexPath {
+    [TPUIAlert alertShow:^(TPUIAlertMaker *make) {
+        make.title(@"删除宠物信息").message(@"您确定删除吗？");
+        make.cancleOption(@"取消");
+        make.addOption(TPUIAlertColorOption(@"确定", ^{
+            [TPDBRouter sendTaskMessage:TPAnimalDeleteInfo argument:self.animalModel.animalId];
+        }, TPHelperThemeColor));
+    }];
+}
 @end

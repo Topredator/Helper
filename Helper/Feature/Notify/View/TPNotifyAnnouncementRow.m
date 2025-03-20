@@ -120,4 +120,19 @@
 - (CGFloat)tp_tableViewCellHeightWithProxy:(TPTableViewProxy *)proxy indexPath:(NSIndexPath *)indexPath {
     return 92;
 }
+- (BOOL)tp_tableViewCanEditRowWithProxy:(TPTableViewProxy *)proxy indexPath:(NSIndexPath *)indexPath {
+    return TPUserManager.manager.user.userType != TPUserTypeCustome;
+}
+- (NSString *)tp_tableViewTitleForDeleteConfirmationButtonForRowAtIndexPath:(TPTableViewProxy *)proxy indexPath:(NSIndexPath *)indexPath {
+    return @"删除";
+}
+- (void)tp_tableViewCommitEditingStyle:(UITableViewCellEditingStyle)editingStyle proxy:(TPTableViewProxy *)proxy indexPath:(NSIndexPath *)indexPath {
+    [TPUIAlert alertShow:^(TPUIAlertMaker *make) {
+        make.title(@"删除公告").message(@"您确定删除此公告吗?");
+        make.cancleOption(@"取消");
+        make.addOption(TPUIAlertColorOption(@"确定", ^{
+            [TPDBRouter sendTaskMessage:TPPublishDeleteNotice argument:self.model.publishId];
+        }, TPHelperThemeColor));
+    }];
+}
 @end

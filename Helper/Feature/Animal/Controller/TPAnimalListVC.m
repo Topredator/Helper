@@ -61,6 +61,7 @@
 }
 - (TPCommonAnimalRow *)rowWithModel:(TPAnimalModel *)model {
     TPCommonAnimalRow *row = [TPCommonAnimalRow rowWithModel:model];
+    row.canDelete = YES;
     @weakify(self);
     row.cellDidSelected = ^(__kindof TPTableRow * _Nonnull rowData, TPTableViewProxy * _Nonnull proxy, NSIndexPath * _Nonnull indexPath) {
         @strongify(self);
@@ -115,6 +116,8 @@
     } else if (messageType == TPAnimalModuleRegist) { // 注册
         [self refreshData];
         return YES;
+    } else if (messageType == TPAnimalDeleteInfo) { // 删除动物信息
+        [self refreshData];
     }
     return NO;
 }

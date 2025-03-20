@@ -13,6 +13,7 @@
 #import "TPDiaryModule.h"
 #import "TPDiaryDetailVC.h"
 #import "TPPublishModule.h"
+#import "TPAnnouncementDetailVC.h"
 
 @interface TPHomeVC ()
 @property (nonatomic, strong) UICollectionView *collectionView;
@@ -128,7 +129,15 @@
             self.bannerSection.banners = @[];
         }
         [self.collectionView.TPProxy reloadData:@[self.bannerSection, self.diarySection]];
-        return YES;
+//        return YES;
+    } else if (messageType == TPPublishDeleteNotice) {
+        [TPDBRouter sendTaskMessage:TPPublishAnnouncementDatas];
+    } else if (messageType == TPPublishDeleteDiary) {
+        // 获取日记
+        [TPDBRouter sendTaskMessage:TPPublishDiaryDatas argument:@{
+            @"pageNo": @(1),
+            @"pageSize": @(self.pageSize)
+        }];
     }
     return NO;
 }
