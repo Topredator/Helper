@@ -6,7 +6,7 @@
 //
 
 #import "TPAddressModule.h"
-
+#import "TPAddressModel.h"
 
 #define CREATE_TABLE_ADDRESS   @"CREATE TABLE IF NOT EXISTS "  TABLE_NAME_ADDRESS                \
 "("                                             \
@@ -39,10 +39,15 @@
     } else if (messageType == TPAddressFetchUserDefaultAddress) { // 查询用户默认地址
         NSString *userId = (NSString *)argument;
         if (userId) {
-            [dao search:@{
+            NSArray *addresses = [dao search:@{
                 @"Address_userId": userId,
                 @"Address_isDefault": @1
-            } messageType:messageType waitUntilDone:NO];
+            } messageType:messageType waitUntilDone:YES];
+            NSArray *mapAddresses = ASTMap(addresses, ^id(NSDictionary * obj) {
+                return [obj keyRemovePrefix:TABLE_NAME_ADDRESS];
+            });
+            NSArray *addressModels = [NSArray tp_modelArrayWithClass:TPAddressModel.class json:mapAddresses];
+            msg.result = addressModels.count ? addressModels.firstObject : nil;
         }
         return YES;
     } else if (messageType == TPAddressAddNewUserAddress) { // 新增用户地址
@@ -56,7 +61,7 @@
         } messageType:0 waitUntilDone:YES];
         NSMutableDictionary *mDic = dic.mutableCopy;
         if (!adds.count) {
-            [mDic setValue:@1 forKey:@"isDefault"];
+            [mDic setValue:@1 forKey:@"Address_isDefault"];
         }
         [dao save:mDic.copy messageType:messageType waitUntilDone:NO];
         return YES;

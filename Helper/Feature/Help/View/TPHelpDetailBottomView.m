@@ -52,7 +52,7 @@
     self.collectBtn.layer.borderColor = isCollected ? TPHelperThemeColor.CGColor : TPHelperDarkGrayTextColor.CGColor;
 }
 - (void)donateBtnAction {
-    
+    if (self.donateCallback) self.donateCallback();
 }
 #pragma mark----------------- Getter -----------------
 - (UIView *)line {

@@ -18,6 +18,16 @@
 		94720D1F2D8A47DC00990E5C /* platform_rule.html in Resources */ = {isa = PBXBuildFile; fileRef = 94720D1D2D8A47DC00990E5C /* platform_rule.html */; };
 		94720D222D8B0D0900990E5C /* TPAnnouncementDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 94720D212D8B0D0900990E5C /* TPAnnouncementDetailVC.m */; };
 		94720D252D8BFF9F00990E5C /* TPAdoptConditionRow.m in Sources */ = {isa = PBXBuildFile; fileRef = 94720D242D8BFF9F00990E5C /* TPAdoptConditionRow.m */; };
+		94720D282D8D147600990E5C /* TPDonateModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 94720D272D8D147600990E5C /* TPDonateModel.m */; };
+		94720D302D8DBB1400990E5C /* TPDonateVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 94720D2F2D8DBB1400990E5C /* TPDonateVC.m */; };
+		94720D332D8DBC3300990E5C /* TPDonateSection.m in Sources */ = {isa = PBXBuildFile; fileRef = 94720D322D8DBC3300990E5C /* TPDonateSection.m */; };
+		94720D362D90EE8B00990E5C /* TPDonateRow.m in Sources */ = {isa = PBXBuildFile; fileRef = 94720D352D90EE8B00990E5C /* TPDonateRow.m */; };
+		94720D392D9181E000990E5C /* TPDonateExpressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 94720D382D9181E000990E5C /* TPDonateExpressView.m */; };
+		94720D3C2D926BA100990E5C /* TPDonationListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 94720D3B2D926BA100990E5C /* TPDonationListVC.m */; };
+		94720D3F2D9276A800990E5C /* TPOperateDonateRow.m in Sources */ = {isa = PBXBuildFile; fileRef = 94720D3E2D9276A800990E5C /* TPOperateDonateRow.m */; };
+		94720D422D927F7E00990E5C /* TPDonateDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 94720D412D927F7E00990E5C /* TPDonateDetailVC.m */; };
+		94720D452D92832800990E5C /* TPDonateDetailRow.m in Sources */ = {isa = PBXBuildFile; fileRef = 94720D442D92832800990E5C /* TPDonateDetailRow.m */; };
+		94720D482D928C0200990E5C /* TPDoneeInfoRow.m in Sources */ = {isa = PBXBuildFile; fileRef = 94720D472D928C0200990E5C /* TPDoneeInfoRow.m */; };
 		948A1F662D1AA9FA0032DFB9 /* TPNotifyButtonRow.m in Sources */ = {isa = PBXBuildFile; fileRef = 948A1F652D1AA9FA0032DFB9 /* TPNotifyButtonRow.m */; };
 		948A1F692D1AB8EE0032DFB9 /* TPSettingVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 948A1F682D1AB8EE0032DFB9 /* TPSettingVC.m */; };
 		948A1F6C2D1ABA620032DFB9 /* TPSettingRow.m in Sources */ = {isa = PBXBuildFile; fileRef = 948A1F6B2D1ABA620032DFB9 /* TPSettingRow.m */; };
@@ -175,6 +185,26 @@
 		94720D212D8B0D0900990E5C /* TPAnnouncementDetailVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPAnnouncementDetailVC.m; sourceTree = "<group>"; };
 		94720D232D8BFF9F00990E5C /* TPAdoptConditionRow.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPAdoptConditionRow.h; sourceTree = "<group>"; };
 		94720D242D8BFF9F00990E5C /* TPAdoptConditionRow.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPAdoptConditionRow.m; sourceTree = "<group>"; };
+		94720D262D8D147600990E5C /* TPDonateModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPDonateModel.h; sourceTree = "<group>"; };
+		94720D272D8D147600990E5C /* TPDonateModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPDonateModel.m; sourceTree = "<group>"; };
+		94720D2E2D8DBB1400990E5C /* TPDonateVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPDonateVC.h; sourceTree = "<group>"; };
+		94720D2F2D8DBB1400990E5C /* TPDonateVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPDonateVC.m; sourceTree = "<group>"; };
+		94720D312D8DBC3300990E5C /* TPDonateSection.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPDonateSection.h; sourceTree = "<group>"; };
+		94720D322D8DBC3300990E5C /* TPDonateSection.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPDonateSection.m; sourceTree = "<group>"; };
+		94720D342D90EE8B00990E5C /* TPDonateRow.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPDonateRow.h; sourceTree = "<group>"; };
+		94720D352D90EE8B00990E5C /* TPDonateRow.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPDonateRow.m; sourceTree = "<group>"; };
+		94720D372D9181E000990E5C /* TPDonateExpressView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPDonateExpressView.h; sourceTree = "<group>"; };
+		94720D382D9181E000990E5C /* TPDonateExpressView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPDonateExpressView.m; sourceTree = "<group>"; };
+		94720D3A2D926BA100990E5C /* TPDonationListVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPDonationListVC.h; sourceTree = "<group>"; };
+		94720D3B2D926BA100990E5C /* TPDonationListVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPDonationListVC.m; sourceTree = "<group>"; };
+		94720D3D2D9276A800990E5C /* TPOperateDonateRow.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPOperateDonateRow.h; sourceTree = "<group>"; };
+		94720D3E2D9276A800990E5C /* TPOperateDonateRow.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPOperateDonateRow.m; sourceTree = "<group>"; };
+		94720D402D927F7E00990E5C /* TPDonateDetailVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPDonateDetailVC.h; sourceTree = "<group>"; };
+		94720D412D927F7E00990E5C /* TPDonateDetailVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPDonateDetailVC.m; sourceTree = "<group>"; };
+		94720D432D92832800990E5C /* TPDonateDetailRow.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPDonateDetailRow.h; sourceTree = "<group>"; };
+		94720D442D92832800990E5C /* TPDonateDetailRow.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPDonateDetailRow.m; sourceTree = "<group>"; };
+		94720D462D928C0200990E5C /* TPDoneeInfoRow.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPDoneeInfoRow.h; sourceTree = "<group>"; };
+		94720D472D928C0200990E5C /* TPDoneeInfoRow.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPDoneeInfoRow.m; sourceTree = "<group>"; };
 		948A1F642D1AA9FA0032DFB9 /* TPNotifyButtonRow.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPNotifyButtonRow.h; sourceTree = "<group>"; };
 		948A1F652D1AA9FA0032DFB9 /* TPNotifyButtonRow.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPNotifyButtonRow.m; sourceTree = "<group>"; };
 		948A1F672D1AB8EE0032DFB9 /* TPSettingVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPSettingVC.h; sourceTree = "<group>"; };
@@ -471,6 +501,47 @@
 			path = Alert;
 			sourceTree = "<group>";
 		};
+		94720D2B2D8DBA4500990E5C /* Donate */ = {
+			isa = PBXGroup;
+			children = (
+				94720D2D2D8DBAA700990E5C /* View */,
+				94720D2C2D8DBAA000990E5C /* Controller */,
+			);
+			path = Donate;
+			sourceTree = "<group>";
+		};
+		94720D2C2D8DBAA000990E5C /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				94720D2E2D8DBB1400990E5C /* TPDonateVC.h */,
+				94720D2F2D8DBB1400990E5C /* TPDonateVC.m */,
+				94720D3A2D926BA100990E5C /* TPDonationListVC.h */,
+				94720D3B2D926BA100990E5C /* TPDonationListVC.m */,
+				94720D402D927F7E00990E5C /* TPDonateDetailVC.h */,
+				94720D412D927F7E00990E5C /* TPDonateDetailVC.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		94720D2D2D8DBAA700990E5C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				94720D312D8DBC3300990E5C /* TPDonateSection.h */,
+				94720D322D8DBC3300990E5C /* TPDonateSection.m */,
+				94720D342D90EE8B00990E5C /* TPDonateRow.h */,
+				94720D352D90EE8B00990E5C /* TPDonateRow.m */,
+				94720D372D9181E000990E5C /* TPDonateExpressView.h */,
+				94720D382D9181E000990E5C /* TPDonateExpressView.m */,
+				94720D3D2D9276A800990E5C /* TPOperateDonateRow.h */,
+				94720D3E2D9276A800990E5C /* TPOperateDonateRow.m */,
+				94720D432D92832800990E5C /* TPDonateDetailRow.h */,
+				94720D442D92832800990E5C /* TPDonateDetailRow.m */,
+				94720D462D928C0200990E5C /* TPDoneeInfoRow.h */,
+				94720D472D928C0200990E5C /* TPDoneeInfoRow.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		948A1F782D1BA8BD0032DFB9 /* Module */ = {
 			isa = PBXGroup;
 			children = (
@@ -725,6 +796,8 @@
 			children = (
 				94974E912D77F4B600553437 /* TPDonateModule.h */,
 				94974E922D77F4B600553437 /* TPDonateModule.m */,
+				94720D262D8D147600990E5C /* TPDonateModel.h */,
+				94720D272D8D147600990E5C /* TPDonateModel.m */,
 			);
 			path = DonateModule;
 			sourceTree = "<group>";
@@ -1159,6 +1232,7 @@
 		94DD99A92C9FEB9A00963330 /* Feature */ = {
 			isa = PBXGroup;
 			children = (
+				94720D2B2D8DBA4500990E5C /* Donate */,
 				94974E9A2D79308800553437 /* Address */,
 				94974E762D75423200553437 /* Collect */,
 				94974E6A2D6D588E00553437 /* Animal */,
@@ -1449,9 +1523,11 @@
 				94A2D1DB2D1BFEAD00BCD461 /* TPReleaseDiaryVC.m in Sources */,
 				94DD99C02C9FF22600963330 /* AppDelegate+TPWindow.m in Sources */,
 				948A1F7D2D1BA9000032DFB9 /* TPAnimalModule.m in Sources */,
+				94720D392D9181E000990E5C /* TPDonateExpressView.m in Sources */,
 				94974EBD2D8018BC00553437 /* TPPersonalDetailVC.m in Sources */,
 				94E7ACCC2CBA1F0600D3BE10 /* TPLineView.m in Sources */,
 				94974EAC2D793CC700553437 /* TPAddressTVRow.m in Sources */,
+				94720D3F2D9276A800990E5C /* TPOperateDonateRow.m in Sources */,
 				948A1F802D1BAD830032DFB9 /* TPAnimalModel.m in Sources */,
 				94974EB22D797AB700553437 /* TPAddressRow.m in Sources */,
 				94974E632D68384300553437 /* TPPublishModel.m in Sources */,
@@ -1471,6 +1547,7 @@
 				94DD99B02C9FEC4400963330 /* TPBaseVC.m in Sources */,
 				94DD99842C9FCC0A00963330 /* AppDelegate.m in Sources */,
 				94974EB82D7FD0DD00553437 /* TPPersonalRow.m in Sources */,
+				94720D282D8D147600990E5C /* TPDonateModel.m in Sources */,
 				94AE8AA92D147BC200312D45 /* TPMineToolSection.m in Sources */,
 				94974E932D77F4B600553437 /* TPDonateModule.m in Sources */,
 				94974E752D74327100553437 /* TPAnimalListVC.m in Sources */,
@@ -1492,6 +1569,8 @@
 				94AE8ABC2D16734E00312D45 /* TPHelpVC.m in Sources */,
 				948A1F692D1AB8EE0032DFB9 /* TPSettingVC.m in Sources */,
 				94AE8AB22D14833400312D45 /* TPBackgroundCell.m in Sources */,
+				94720D302D8DBB1400990E5C /* TPDonateVC.m in Sources */,
+				94720D422D927F7E00990E5C /* TPDonateDetailVC.m in Sources */,
 				94A2D1D82D1BFAAC00BCD461 /* TPPublicOperationVC.m in Sources */,
 				94AE8AC42D16B46100312D45 /* TPBaseCollectionSectionView.m in Sources */,
 				94AE8B012D17EE5000312D45 /* TPAdoptModel.m in Sources */,
@@ -1510,9 +1589,11 @@
 				94974E362D6700C000553437 /* TPPublishVC.m in Sources */,
 				94AE8AC72D16B65B00312D45 /* TPHomeBannerPage.m in Sources */,
 				94974EA62D79394E00553437 /* TPAddressVC.m in Sources */,
+				94720D452D92832800990E5C /* TPDonateDetailRow.m in Sources */,
 				948A1F842D1BC7270032DFB9 /* TPApplyModule.m in Sources */,
 				94974E322D66E30500553437 /* TPPublishModule.m in Sources */,
 				94AE8B1B2D183B3A00312D45 /* TPNotifyAnnouncementModel.m in Sources */,
+				94720D332D8DBC3300990E5C /* TPDonateSection.m in Sources */,
 				94AE8AC12D16B3F400312D45 /* TPHomeBannerSection.m in Sources */,
 				949CE6682CF4ABDC00FF8EE4 /* TPForgotPwdVC.m in Sources */,
 				94974E8C2D75CCCA00553437 /* TPCollectDetailVC.m in Sources */,
@@ -1540,10 +1621,12 @@
 				94E7ACDE2CBD09E600D3BE10 /* TPLoginVC.m in Sources */,
 				94AE8AD92D17CAC300312D45 /* TPUIGradientLayer+TPExtension.m in Sources */,
 				9448E7AF2D1FC9950084280B /* TPApplyListVC.m in Sources */,
+				94720D362D90EE8B00990E5C /* TPDonateRow.m in Sources */,
 				94974E832D75660A00553437 /* TPCollectListVC.m in Sources */,
 				94A2D20D2D1D683400BCD461 /* TPAnimalCategoryRow.m in Sources */,
 				948A1F6C2D1ABA620032DFB9 /* TPSettingRow.m in Sources */,
 				94DD99A72C9FE92200963330 /* TPBaseTableVC.m in Sources */,
+				94720D482D928C0200990E5C /* TPDoneeInfoRow.m in Sources */,
 				94974E8F2D75D9E100553437 /* TPGraphicAnnouncementDetailVC.m in Sources */,
 				94974E6E2D6D58DC00553437 /* TPAnimalVC.m in Sources */,
 				949CE6612CF46D8C00FF8EE4 /* TPUserDao.m in Sources */,
@@ -1565,6 +1648,7 @@
 				94E7AD0A2CBE40EC00D3BE10 /* TPAuthLoginActionRow.m in Sources */,
 				94974E602D6829A200553437 /* AppDelegate+TPKeyboard.m in Sources */,
 				94E7ACDA2CBCE8B300D3BE10 /* TPNavigationBaseVC.m in Sources */,
+				94720D3C2D926BA100990E5C /* TPDonationListVC.m in Sources */,
 				94E7AD0E2CBE44F100D3BE10 /* TPUserManager.m in Sources */,
 				94AE8AAF2D147EEA00312D45 /* TPMineToolRow.m in Sources */,
 				9490838F2D54A5E200BF8553 /* TPWebView.m in Sources */,

@@ -14,6 +14,8 @@
 #import "TPPublicOperationVC.h"
 #import "TPReleaseDiaryVC.h"
 #import "TPCollectListVC.h"
+#import "TPDonationListVC.h"
+
 @interface TPMineVC ()
 @property (nonatomic, strong) TPMineHeaderView *headerView;
 @end
@@ -113,7 +115,8 @@
     [TPUINavigator pushViewController:listVC animated:YES];
 }
 - (void)donateAction {
-    
+    TPDonationListVC *listVC = [TPDonationListVC new];
+    [TPUINavigator pushViewController:listVC animated:YES];
 }
 - (BOOL)handleMessage:(NSInteger)messageType result:(NSInteger)result argument:(id)argument {
     if (messageType == TPApplyToAdminWaiting) {

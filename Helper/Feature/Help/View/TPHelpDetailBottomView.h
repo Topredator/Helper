@@ -21,6 +21,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, copy) dispatch_block_t collectionCallback;
 /// 想领养 回调
 @property (nonatomic, copy) dispatch_block_t wantAdoptCallback;
+/// 捐赠
+@property (nonatomic, copy) dispatch_block_t donateCallback;
 /// 是否收藏过
 - (void)configCollected:(BOOL)isCollected;
 @end

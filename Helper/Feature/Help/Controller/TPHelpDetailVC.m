@@ -16,6 +16,10 @@
 #import "TPAgreenebtPromptView.h"
 #import "TPApplyModel.h"
 #import "TPAdoptConditionRow.h"
+#import "TPDonateModule.h"
+#import "TPAddressModule.h"
+#import "TPDonateVC.h"
+
 @interface TPHelpDetailVC ()
 @property (nonatomic, strong) UIView *headerView;
 @property (nonatomic, strong) UIImageView *avatarImage;
@@ -84,6 +88,29 @@
         };
         [promptView showIn:self.view];
     };
+    // 捐赠
+    self.bottomView.donateCallback = ^{
+        dispatch_async(dispatch_get_global_queue(0, 0), ^{
+            @strongify(self);
+            id address = [TPDBRouter syncSendTaskMessage:TPAddressFetchUserDefaultAddress argument:self.publishModel.userId];
+            if (!address) {
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    @strongify(self);
+                    [self.view tp_toast:@"发布人地址为空, 请联系发布人更新地址信息"];
+                });
+                return;
+            }
+            dispatch_async(dispatch_get_main_queue(), ^{
+                TPDonateVC *donateVC = [TPDonateVC new];
+                donateVC.user = self.publishModel.user;
+                donateVC.animal = self.publishModel.animal;
+                [TPUINavigator pushViewController:donateVC animated:YES];
+            });
+            
+        });
+        
+        [TPDBRouter sendTaskMessage:TPDonateFetchAllCategories];
+    };
 }
 - (void)applyAdopt {
     [self.view tp_showLoading];
@@ -141,6 +168,10 @@
         return YES;
     } else if (messageType == TPApplyToAdminWaiting) {
         [self.view tp_toast:@"已申请过，无须重复申请"];
+        return YES;
+    } else if (messageType == TPDonateFetchAllCategories) {
+        NSArray *array = argument;
+        
         return YES;
     }
     return NO;
