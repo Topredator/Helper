@@ -1,29 +1,27 @@
 //
-//  TPMineDonationVC.m
+//  TPUserListVC.m
 //  Helper
 //
-//  Created by Topredator on 2025/3/25.
+//  Created by Topredator on 2025/3/26.
 //
 
-#import "TPDonationListVC.h"
+#import "TPUserListVC.h"
 #import "TPCommonSection.h"
-#import "TPDonateModule.h"
-#import "TPDonateModel.h"
-#import "TPOperateDonateRow.h"
-#import "TPDonateDetailVC.h"
-@interface TPDonationListVC ()
+#import "TPUserListRow.h"
+#import "TPUserDetailVC.h"
+@interface TPUserListVC ()
 @property (nonatomic, strong) TPCommonSection *section;
-@property (nonatomic, assign) NSInteger pageSize;
 @property (nonatomic, assign) NSInteger pageNo;
+@property (nonatomic, assign) NSInteger pageSize;
 @end
 
-@implementation TPDonationListVC
+@implementation TPUserListVC
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.pageNo = 1;
     self.pageSize = 20;
-    self.navigationView.title = self.isMine ? @"我的捐赠" : @"捐赠管理";
+    self.navigationView.title = @"用户列表";
     @weakify(self);
     self.tableview.mj_header = [TPUIRefreshHeader headerWithRefreshingBlock:^{
         @strongify(self);
@@ -36,35 +34,18 @@
     [self loadData];
 }
 - (void)loadData {
-    if (self.isMine) {
-        [TPDBRouter sendTaskMessage:TPDonateFetchUserDonates argument:@{
-            @"userId": TPUserManager.manager.user.userId,
-            @"pageNo": @1,
-            @"pageSize": @(self.pageSize)
-        }];
-    } else {
-        [TPDBRouter sendTaskMessage:TPDonateFetchAllDonates argument:@{
-            @"pageNo": @1,
-            @"pageSize": @(self.pageSize)
-        }];
-    }
-    
+    [TPDBRouter sendTaskMessage:TPUserFetchAllUserDatas argument:@{
+        @"pageSize": @(self.pageSize),
+        @"pageNo": @1
+    }];
 }
 - (void)moreData {
-    if (self.isMine) {
-        [TPDBRouter sendTaskMessage:TPDonateFetchUserMoreDonates argument:@{
-            @"userId": TPUserManager.manager.user.userId,
-            @"pageNo": @(self.pageNo + 1),
-            @"pageSize": @(self.pageSize)
-        }];
-    } else {
-        [TPDBRouter sendTaskMessage:TPDonateFetchAllMoreDonates argument:@{
-            @"pageNo": @(self.pageNo + 1),
-            @"pageSize": @(self.pageSize)
-        }];
-    }
-    
+    [TPDBRouter sendTaskMessage:TPUserFetchAllUserDatas argument:@{
+        @"pageSize": @(self.pageSize),
+        @"pageNo": @(self.pageNo + 1)
+    }];
 }
+
 - (void)handleDatas:(NSArray *)datas append:(BOOL)append {
     [self.tableview tp_hideBlankView];
     
@@ -82,9 +63,13 @@
     }
     
     if (datas.count > 0) {
-        for (TPDonateOperate *operate in datas) {
-            [self.section addObject:[self rowWithModel:operate]];
+        for (NSDictionary *dic in datas) {
+            TPUserModel *user = [TPUserModel tp_modelWithDictionary:[dic keyRemovePrefix:TABLE_NAME_USER]];
+            [self.section addObject:[self rowWithModel:user]];
         }
+//        for (TPDonateOperate *operate in datas) {
+//            [self.section addObject:[self rowWithModel:operate]];
+//        }
     }
     
     if (datas.count < 20) {
@@ -96,23 +81,20 @@
     
     [self reloadData:@[self.section]];
 }
-- (TPOperateDonateRow *)rowWithModel:(TPDonateOperate *)operate {
-    TPOperateDonateRow *row = [TPOperateDonateRow rowWithModel:operate];
-    row.isMine = self.isMine;
+- (TPUserListRow *)rowWithModel:(TPUserModel *)userModel {
+    TPUserListRow *row = [TPUserListRow rowWithModel:userModel];
     row.cellDidSelected = ^(__kindof TPTableRow * _Nonnull rowData, TPTableViewProxy * _Nonnull proxy, NSIndexPath * _Nonnull indexPath) {
-        TPDonateDetailVC *detailVC = [TPDonateDetailVC new];
-        detailVC.operate = operate;
+        TPUserDetailVC *detailVC = [TPUserDetailVC new];
+        detailVC.userId = userModel.userId;
         [TPUINavigator pushViewController:detailVC animated:YES];
     };
     return row;
 }
 - (BOOL)handleMessage:(NSInteger)messageType result:(NSInteger)result argument:(id)argument {
-    if (messageType == TPDonateFetchUserDonates ||
-        messageType == TPDonateFetchAllDonates) {
+    if (messageType == TPUserFetchAllUserDatas) {
         [self handleDatas:argument append:NO];
         return YES;
-    } else if (messageType == TPDonateFetchUserMoreDonates ||
-               messageType == TPDonateFetchAllMoreDonates) {
+    } else if (messageType == TPUserFetchAllUserMoreDatas) {
         [self handleDatas:argument append:YES];
         return YES;
     }

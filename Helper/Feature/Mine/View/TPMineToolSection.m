@@ -30,10 +30,13 @@
         _titleLabel = [[UILabel alloc] initWithFrame:CGRectZero];
         _titleLabel.font = [TPUI tp_font:18 weight:FontSemibold];
         _titleLabel.textColor = UIColor.blackColor;
-        _titleLabel.text = @"工具箱";
     }
     return _titleLabel;
 }
+@end
+
+@interface TPMineToolSection ()
+@property (nonatomic, copy) NSString *title;
 @end
 
 @implementation TPMineToolSection
@@ -43,6 +46,14 @@
         [self setHeaderClass:TPMineToolSectionHeaderView.class];
     }
     return self;
+}
++ (instancetype)sectionWithTitle:(NSString *)title {
+    TPMineToolSection *section = [TPMineToolSection section];
+    section.title = title;
+    return section;
+}
+- (void)tp_tableViewHeader:(TPMineToolSectionHeaderView *)header preparedWithProxy:(TPTableViewProxy *)proxy section:(NSUInteger)section {
+    header.titleLabel.text = self.title;
 }
 - (CGFloat)tp_tableViewHeaderHeightWithPorxy:(TPTableViewProxy *)proxy section:(NSUInteger)section {
     return 45;

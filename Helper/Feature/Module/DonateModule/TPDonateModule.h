@@ -22,9 +22,13 @@ NS_ASSUME_NONNULL_BEGIN
 
 /// 捐赠消息类型
 typedef NS_ENUM(NSInteger, TPDonateModuleMessageType) {
-    /// 查询用户捐赠信息
+    /// 查询指定用户捐赠信息
     TPDonateFetchUserDonates = 700000,
     TPDonateFetchUserMoreDonates,
+    
+    /// 查询所有捐赠
+    TPDonateFetchAllDonates,
+    TPDonateFetchAllMoreDonates,
     /// 通用
     TPDonateFetchCommonDonates,
     

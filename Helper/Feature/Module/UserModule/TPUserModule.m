@@ -61,6 +61,20 @@
             [dao update:[dic keyAddPrefix:TABLE_NAME_USER] ByPrimeKeyValue:TPUserManager.manager.user.userId messageType:messageType waitUntilDone:NO];
             return YES;
         }
+        case TPUserFetchAllUserDatas:
+        case TPUserFetchAllUserMoreDatas: {
+            NSDictionary *dic = argument;
+            NSInteger pageSize = [dic tp_IntegerObjectForKey:@"pageSize"];
+            NSInteger pageNo = [dic tp_IntegerObjectForKey:@"pageNo"];
+            NSString *sql = [NSString stringWithFormat:@"SELECT * FROM %@ u ORDER BY u.User_createTime DESC LIMIT %ld OFFSET (%ld - 1) * %ld", TABLE_NAME_USER, pageSize, pageNo, pageSize];
+            TPBaseDao *dao = [TPBaseDao daoWithTableName:TABLE_NAME_USER];
+            [dao searchWithSQL:sql messageType:messageType waitUntilDone:NO];
+            return YES;
+        }
+        case TPUserFetchUserInfo: {
+            [dao search:argument messageType:messageType waitUntilDone:NO];
+            return YES;
+        }
         default:
             break;
     }

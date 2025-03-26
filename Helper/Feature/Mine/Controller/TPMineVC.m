@@ -15,7 +15,7 @@
 #import "TPReleaseDiaryVC.h"
 #import "TPCollectListVC.h"
 #import "TPDonationListVC.h"
-
+#import "TPUserListVC.h"
 @interface TPMineVC ()
 @property (nonatomic, strong) TPMineHeaderView *headerView;
 @end
@@ -39,15 +39,21 @@
     TPCommonSection *section = [TPCommonSection section];
     [section addObject:[self functionRow]];
     
-    TPMineToolSection *toolSection = [TPMineToolSection section];
-//    if (TPUserManager.manager.user.userType == TPUserTypeCustome) {
-//        [toolSection addObject:[self applyRow]];
-//    }
+    TPMineToolSection *toolSection = [TPMineToolSection sectionWithTitle:@"工具箱"];
     [toolSection addObject:[self feedbackRow]];
     [toolSection addObject:[self ruleRow]];
     [toolSection addObject:[self agreementRow]];
     [toolSection addObject:[self customerServiceRow]];
-    [self reloadData:@[section, toolSection]];
+    
+    if (TPUserManager.manager.user.userType != TPUserTypeCustome) {
+        TPMineToolSection *manageSection = [TPMineToolSection sectionWithTitle:@"管理"];
+        [manageSection addObject:[self userManageRow]];
+        [manageSection addObject:[self donateManageRow]];
+        [self reloadData:@[section, toolSection, manageSection]];
+    } else {
+        [self reloadData:@[section, toolSection]];
+    }
+    
 }
 - (TPMineFunctionRow *)functionRow {
     TPMineFunctionRow *row = [TPMineFunctionRow row];
@@ -105,6 +111,24 @@
     };
     return row;
 }
+- (TPMineToolRow *)userManageRow {
+    TPMineToolRow *row = [TPMineToolRow rowWithIcon:@"mine_user_manage" name:@"用户管理"];
+    row.cellDidSelected = ^(__kindof TPTableRow * _Nonnull rowData, TPTableViewProxy * _Nonnull proxy, NSIndexPath * _Nonnull indexPath) {
+        TPUserListVC *listVC = [TPUserListVC new];
+        [TPUINavigator pushViewController:listVC animated:YES];
+    };
+    return row;
+}
+- (TPMineToolRow *)donateManageRow {
+    TPMineToolRow *row = [TPMineToolRow rowWithIcon:@"mine_donate_manage" name:@"捐赠管理"];
+    row.cellDidSelected = ^(__kindof TPTableRow * _Nonnull rowData, TPTableViewProxy * _Nonnull proxy, NSIndexPath * _Nonnull indexPath) {
+        TPDonationListVC *listVC = [TPDonationListVC new];
+        listVC.isMine = NO;
+        [TPUINavigator pushViewController:listVC animated:YES];
+    };
+    return row;
+}
+
 
 - (void)publicAction {
     TPPublicOperationVC *vc = [TPPublicOperationVC new];

@@ -159,6 +159,10 @@
 		94E7AD142CBE711600D3BE10 /* AppDelegate+TPDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 94E7AD132CBE711600D3BE10 /* AppDelegate+TPDatabase.m */; };
 		94E7AD172CC0F73100D3BE10 /* TPRegisterVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 94E7AD162CC0F73100D3BE10 /* TPRegisterVC.m */; };
 		94E7AD1A2CC1065200D3BE10 /* UIView+TPUIToast.m in Sources */ = {isa = PBXBuildFile; fileRef = 94E7AD192CC1065200D3BE10 /* UIView+TPUIToast.m */; };
+		94ECBAB62D9399CB00A6B41F /* TPUserListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 94ECBAB52D9399CB00A6B41F /* TPUserListVC.m */; };
+		94ECBAB92D939B4800A6B41F /* TPUserListRow.m in Sources */ = {isa = PBXBuildFile; fileRef = 94ECBAB82D939B4800A6B41F /* TPUserListRow.m */; };
+		94ECBABC2D9432FE00A6B41F /* TPUserDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 94ECBABB2D9432FE00A6B41F /* TPUserDetailVC.m */; };
+		94ECBABF2D94367100A6B41F /* TPUserDetailRow.m in Sources */ = {isa = PBXBuildFile; fileRef = 94ECBABE2D94367100A6B41F /* TPUserDetailRow.m */; };
 		AA35E500398EBB06E2EA75BB /* Pods_Helper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7DD2FE6BC1B97D38F13F68F5 /* Pods_Helper.framework */; };
 /* End PBXBuildFile section */
 
@@ -469,6 +473,14 @@
 		94E7AD162CC0F73100D3BE10 /* TPRegisterVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPRegisterVC.m; sourceTree = "<group>"; };
 		94E7AD182CC1065200D3BE10 /* UIView+TPUIToast.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+TPUIToast.h"; sourceTree = "<group>"; };
 		94E7AD192CC1065200D3BE10 /* UIView+TPUIToast.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+TPUIToast.m"; sourceTree = "<group>"; };
+		94ECBAB42D9399CB00A6B41F /* TPUserListVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPUserListVC.h; sourceTree = "<group>"; };
+		94ECBAB52D9399CB00A6B41F /* TPUserListVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPUserListVC.m; sourceTree = "<group>"; };
+		94ECBAB72D939B4800A6B41F /* TPUserListRow.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPUserListRow.h; sourceTree = "<group>"; };
+		94ECBAB82D939B4800A6B41F /* TPUserListRow.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPUserListRow.m; sourceTree = "<group>"; };
+		94ECBABA2D9432FE00A6B41F /* TPUserDetailVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPUserDetailVC.h; sourceTree = "<group>"; };
+		94ECBABB2D9432FE00A6B41F /* TPUserDetailVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPUserDetailVC.m; sourceTree = "<group>"; };
+		94ECBABD2D94367100A6B41F /* TPUserDetailRow.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPUserDetailRow.h; sourceTree = "<group>"; };
+		94ECBABE2D94367100A6B41F /* TPUserDetailRow.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPUserDetailRow.m; sourceTree = "<group>"; };
 		A7EFE22C121DADF946C1CF9A /* Pods-Helper.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Helper.debug.xcconfig"; path = "Target Support Files/Pods-Helper/Pods-Helper.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -908,6 +920,10 @@
 				948A1F712D1AD9AA0032DFB9 /* TPSettingSwitchRow.m */,
 				94974EB62D7FD0DD00553437 /* TPPersonalRow.h */,
 				94974EB72D7FD0DD00553437 /* TPPersonalRow.m */,
+				94ECBAB72D939B4800A6B41F /* TPUserListRow.h */,
+				94ECBAB82D939B4800A6B41F /* TPUserListRow.m */,
+				94ECBABD2D94367100A6B41F /* TPUserDetailRow.h */,
+				94ECBABE2D94367100A6B41F /* TPUserDetailRow.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -938,6 +954,10 @@
 				94974EB42D7FCFC400553437 /* TPPersonalDataVC.m */,
 				94974EBB2D8018BC00553437 /* TPPersonalDetailVC.h */,
 				94974EBC2D8018BC00553437 /* TPPersonalDetailVC.m */,
+				94ECBAB42D9399CB00A6B41F /* TPUserListVC.h */,
+				94ECBAB52D9399CB00A6B41F /* TPUserListVC.m */,
+				94ECBABA2D9432FE00A6B41F /* TPUserDetailVC.h */,
+				94ECBABB2D9432FE00A6B41F /* TPUserDetailVC.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1539,6 +1559,7 @@
 				94974EC12D8123FB00553437 /* TPAdoptModule.m in Sources */,
 				94DD99B62C9FF03700963330 /* TPMineVC.m in Sources */,
 				94AE8ACB2D16B71B00312D45 /* TPHomeBannerModel.m in Sources */,
+				94ECBABC2D9432FE00A6B41F /* TPUserDetailVC.m in Sources */,
 				94974E4B2D6742EB00553437 /* TPCommonMultipleImagesRow.m in Sources */,
 				94A2D1EB2D1C345A00BCD461 /* TPAdoptDao.m in Sources */,
 				94974E992D782DA100553437 /* TPAddressModule.m in Sources */,
@@ -1574,11 +1595,13 @@
 				94A2D1D82D1BFAAC00BCD461 /* TPPublicOperationVC.m in Sources */,
 				94AE8AC42D16B46100312D45 /* TPBaseCollectionSectionView.m in Sources */,
 				94AE8B012D17EE5000312D45 /* TPAdoptModel.m in Sources */,
+				94ECBAB62D9399CB00A6B41F /* TPUserListVC.m in Sources */,
 				94974E692D6C3EBC00553437 /* TPCommonSquareImageRow.m in Sources */,
 				94DD99A42C9FE7E400963330 /* TPNavigationController.m in Sources */,
 				94A2D20A2D1D55B400BCD461 /* TPHelpDetailVC.m in Sources */,
 				94A2D1F12D1CE32100BCD461 /* TPReleaseAdoptVC.m in Sources */,
 				94A2D1F42D1CE3E200BCD461 /* TPCommonTitleSection.m in Sources */,
+				94ECBABF2D94367100A6B41F /* TPUserDetailRow.m in Sources */,
 				94974E452D67037C00553437 /* TPPublishSendRow.m in Sources */,
 				949CE65E2CF4635300FF8EE4 /* TPUserModule.m in Sources */,
 				9490838B2D5454B600BF8553 /* TPCommonTitleRow.m in Sources */,
@@ -1608,6 +1631,7 @@
 				94AE8AFE2D17E6A300312D45 /* TPCommonAnimalRow.m in Sources */,
 				949083922D54AB0700BF8553 /* TPBaseWebVC.m in Sources */,
 				948A1F772D1BA33B0032DFB9 /* TPGlobalManager.m in Sources */,
+				94ECBAB92D939B4800A6B41F /* TPUserListRow.m in Sources */,
 				94974E3C2D67029700553437 /* TPPublishTitleRow.m in Sources */,
 				94DD99B32C9FF01000963330 /* TPNotifyVC.m in Sources */,
 				94A2D2162D1D7FB100BCD461 /* TPHelpDetailBottomView.m in Sources */,

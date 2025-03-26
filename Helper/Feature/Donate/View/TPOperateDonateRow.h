@@ -17,6 +17,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface TPOperateDonateRow : TPTableRow
 @property (nonatomic, strong) TPDonateOperate *operate;
 @property (nonatomic, weak) TPOperateDonateCell *cell;
+@property (nonatomic, assign) BOOL isMine;
 + (instancetype)rowWithModel:(TPDonateOperate *)operate;
 @end
 

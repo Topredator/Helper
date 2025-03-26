@@ -10,7 +10,7 @@
 NS_ASSUME_NONNULL_BEGIN
 /// 我的捐赠页
 @interface TPDonationListVC : TPNavigationTableVC
-
+@property (nonatomic, assign) BOOL isMine;
 @end
 
 NS_ASSUME_NONNULL_END

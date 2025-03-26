@@ -19,6 +19,11 @@ typedef NS_ENUM(NSUInteger, TPUserModuleMessageType) {
     TPUserModuleChangePassword,
     /// 更新用户信息
     TPUserModuleUpdateUserInfo,
+    /// 获取所有用户信息
+    TPUserFetchAllUserDatas,
+    TPUserFetchAllUserMoreDatas,
+    /// 用户信息
+    TPUserFetchUserInfo
 };
 
 

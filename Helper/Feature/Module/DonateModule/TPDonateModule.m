@@ -171,6 +171,68 @@ DONATE_DETAIL_ITEM_QUANTITY           " INTEGER DEFAULT (1) NOT NULL"           
         msg.result = [dao searchWithSQL:sql messageType:messageType waitUntilDone:YES];
         
         return YES;
+    } else if (messageType == TPDonateFetchAllDonates ||
+               messageType == TPDonateFetchAllMoreDonates) {
+        NSDictionary *dic = argument;
+        NSInteger pageSize = [dic tp_IntegerObjectForKey:@"pageSize"];
+        NSInteger pageNo = [dic tp_IntegerObjectForKey:@"pageNo"];
+        NSString *sql = [NSString stringWithFormat:@"SELECT d.*, a.*, u.* FROM Donate_ d INNER JOIN Animal_ a ON a.Animal_animalId = d.Donate_animalId INNER JOIN User_ u ON d.Donate_doneeId = u.User_userId  ORDER BY d.Donate_createTime DESC LIMIT %ld OFFSET (%ld - 1) * %ld", pageSize, pageNo, pageSize];
+        TPBaseDao *dao = [TPBaseDao daoWithTableName:TABLE_NAME_DONATE];
+        NSArray *array = [dao searchWithSQL:sql messageType:0 waitUntilDone:YES];
+        NSMutableArray *operates = @[].mutableCopy;
+        for (NSDictionary *dic in array) {
+            TPDonateModel *donate = [TPDonateModel tp_modelWithDictionary:[dic keyRemovePrefix:TABLE_NAME_DONATE]];
+            TPUserModel *donee = [TPUserModel tp_modelWithDictionary:[dic keyRemovePrefix:TABLE_NAME_USER]];
+            TPAnimalModel *animal = [TPAnimalModel tp_modelWithDictionary:[dic keyRemovePrefix:TABLE_NAME_ANIMAL]];
+            donate.donee = donee;
+            donate.animal = animal;
+            TPBaseDao *userDao = [TPBaseDao daoWithTableName:TABLE_NAME_USER];
+            NSArray *userList = [userDao search:[@{
+                @"userId": donate.donaterId ?: @""
+            } keyAddPrefix:TABLE_NAME_USER] messageType:0 waitUntilDone:YES];
+            if (userList.count) {
+                TPUserModel *donater = [TPUserModel tp_modelWithDictionary:[(NSDictionary *)userList.firstObject keyRemovePrefix:TABLE_NAME_USER]];
+                donate.donater = donater;
+            }
+            
+            /// 获取category 数组
+            TPBaseDao *dao = [TPBaseDao daoWithTableName:TABLE_NAME_DONATE_DETAIL];
+            NSString *sql = [NSString stringWithFormat:@"SELECT * FROM Donate_detail_ WHERE Donate_detail_donateId = '%@'", donate.donateId];
+            NSArray *categoryList = [dao searchWithSQL:sql messageType:0 waitUntilDone:YES];
+            NSArray *categories = ASTMap(categoryList, ^id(NSDictionary * obj, NSUInteger idx) {
+                return [obj keyRemovePrefix:TABLE_NAME_DONATE_DETAIL];
+            });
+            
+            NSMutableArray *tempCategories = @[].mutableCopy;
+            NSMutableArray *categoryIds = @[].mutableCopy;
+            for (NSDictionary *dic in categories) {
+                NSNumber *categoryId = [dic tp_NumberObjectForKey:@"categoryId"];
+                if ([categoryIds containsObject:categoryId]) {
+                    continue;
+                }
+                TPDonateCategoryModel *categoryModel = [TPDonateCategoryModel tp_modelWithDictionary:dic];
+                [tempCategories addObject:categoryModel];
+                [categoryIds addObject:@(categoryModel.categoryId)];
+            }
+            for (TPDonateCategoryModel *model in tempCategories) {
+                NSMutableArray *tempItems = @[].mutableCopy;
+                for (NSDictionary *dic in categories) {
+                    NSInteger categoryId = [dic tp_IntegerObjectForKey:@"categoryId"];
+                    if (model.categoryId == categoryId) {
+                        TPDonateItemModel *itemModel = [TPDonateItemModel tp_modelWithDictionary:dic];
+                        [tempItems addObject:itemModel];
+                    }
+                }
+                model.items = tempItems.copy;
+            }
+            TPDonateOperate *operate = [TPDonateOperate new];
+            operate.donate = donate;
+            operate.categorys = tempCategories.copy;
+            [operates addObject:operate];
+            
+        }
+        [TPDBRouter sendMessageToRoutes:messageType result:0 argument:operates];
+        return YES;
     }
     return NO;
 }

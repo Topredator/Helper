@@ -30,8 +30,11 @@
         make.edges.mas_equalTo(UIEdgeInsetsMake(20, 10, 20, 40));
     }];
 }
-- (void)configWithModel:(TPDonateOperate *)operate {
+- (void)configWithModel:(TPDonateOperate *)operate isMine:(BOOL)isMine {
     NSString *content = [NSString stringWithFormat:@"${ 我 } 捐赠了 <at value='%@'>%@</at> 的宠物 <subject value='%@'>%@</subject>", operate.donate.donee.userId, operate.donate.donee.name, operate.donate.animal.animalId, operate.donate.animal.name];
+    if (!isMine) {
+        content = [NSString stringWithFormat:@"<at value='%@'>%@</at> 捐赠了 <at value='%@'>%@</at> 的宠物 <subject value='%@'>%@</subject>", operate.donate.donater.userId, operate.donate.donater.name, operate.donate.donee.userId, operate.donate.donee.name, operate.donate.animal.animalId, operate.donate.animal.name];
+    }
     self.displayView.text = content;
     [self.displayView mas_updateConstraints:^(MASConstraintMaker *make) {
         make.height.mas_equalTo([TPTextDisplayView getHeightWithText:content rectSize:CGSizeMake(TPUI.tp_screenWidth - 30 - 10 - 10 - 20 - 10, CGFLOAT_MAX) labelConfig:[TPRichTextLabelConfig new]]);
@@ -78,7 +81,7 @@
     return row;
 }
 - (void)tp_tableViewPreparedCell:(TPOperateDonateCell *)cell proxy:(TPTableViewProxy *)proxy indexPath:(NSIndexPath *)indexPath {
-    [cell configWithModel:self.operate];
+    [cell configWithModel:self.operate isMine:self.isMine];
     cell.displayView.delegate = self;
 }
 #pragma mark ==================  TPTextDisplayViewDelegate   ==================
